@@ -1,0 +1,60 @@
+# === Visual Studio (general) ===
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+# Salidas de compilación
+[Bb]in/
+[Oo]bj/
+Debug/
+Release/
+x64/
+x86/
+[Aa][Rr][Mm]/
+*.log
+*.tlog
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+project.assets.json
+*.nuget.props
+*.nuget.targets
+
+# Tests
+TestResults/
+*.coverage
+*.coveragexml
+
+# === SQL Server / Backups locales ===
+*.mdf
+*.ldf
+*.ndf
+*.bak
+*.trn
+
+# === SSIS específico ===
+# Config local de proyecto (no compartir)
+
+
+# Artefactos de despliegue/compilación
+*.ispac
+*.manifest
+*.DeploymentManifest
+*.deploymentoptions
+*.deploymentsettings
+
+# Configs con posibles secretos: ignóralas y sube una plantilla
+*.dtsConfig
+*.dtsSettings
+
+# Cachés/respaldos accidentales
+*.dtsx_backup*
+*.cache
+*.tmp
+
+# IDEs opcionales
+.vscode/
+.idea/
