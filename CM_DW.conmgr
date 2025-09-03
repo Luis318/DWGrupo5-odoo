@@ -5,13 +5,19 @@
   DTS:CreationName="OLEDB">
   <DTS:PropertyExpression
     DTS:Name="ConnectionString">"Provider=MSOLEDBSQL;"
-+ "Data Source=" + @[$Project::DW_Server] + ";"
++ "Data Source="  + @[$Project::DW_Server] + ";"
 + "Initial Catalog=" + @[$Project::DW_Database] + ";"
-+ "Integrated Security=SSPI;"</DTS:PropertyExpression>
++ (
+    @[$Project::DW_AuthMode] == "Windows"
+    ? "Integrated Security=SSPI;"
+    : "User ID=" + @[$Project::DW_User] + ";Password=" + @[$Project::DW_Password] + ";"
+  )
++ "Encrypt=" + @[$Project::DW_Encrypt] + ";"
++ ( @[$Project::DW_TrustCert] ? "TrustServerCertificate=True;" : "" )</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DWGrupo5-odoo-{47344A8D-BE5E-41C1-9992-1A7DE100C005}(localdb)\MSSQLLocalDB;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DWOdooInventarios;Provider=MSOLEDBSQL;Integrated Security=SSPI;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>
