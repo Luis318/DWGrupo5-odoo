@@ -11,25 +11,34 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimProducto"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{8ECB640D-16AB-457B-836F-7685C5C22179}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{FE441E8E-CA31-4C7A-920E-9AD764518DA4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[localhost.DWOdooInventarios.sa1]"
+      DTS:refId="Package.ConnectionManagers[ADO2-destino]"
       DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
       DTS:DTSID="{FDA421CD-E225-43E8-A463-9584F576D76B}"
-      DTS:ObjectName="localhost.DWOdooInventarios.sa1">
+      DTS:ObjectName="ADO2-destino">
       <DTS:PropertyExpression
-        DTS:Name="ConnectionString">"Host=" + @[$Project::Src_Host]+ ";Port=" + (DT_WSTR,10)@[$Project::Src_Port]+ ";Database=" + @[$Project::Src_DB]+ ";Username=" + @[$Project::Src_User]+ ";Password=" + @[$Project::Src_Pwd]+ ";SSL Mode=Prefer;Trust Server Certificate=true;"</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">"Data Source=" + @[$Project::Ado_Server]
++ ";Initial Catalog=" + @[$Project::Ado_Database] + ";"
++ ( @[$Project::Ado_AuthMode] == "SQL"
+    ? "User ID=" + @[$Project::Ado_User] + ";Password=" + @[$Project::Ado_Password] + ";"
+    : "Integrated Security=SSPI;" )
++ "Encrypt="
+  + ( @[$Project::Ado_Encrypt] == "Mandatory" ? "True"
+      : ( @[$Project::Ado_Encrypt] == "Optional" ? "False"
+          : @[$Project::Ado_Encrypt] ) )
++ ";TrustServerCertificate=" + ( @[$Project::Ado_TrustCert] ? "True" : "False" ) + ";"</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Host=localhost;Port=5432;Database=odoo_server;Username=postgres;SSL Mode=Prefer;Trust Server Certificate=true;">
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=DWOdooInventarios;Encrypt=True;TrustServerCertificate=True;">
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD/2uJBgezUKGMUNwLwSVUQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADs6l4z9LWGe2nzAn1tRM/3Zb9naAk1GhnFDCgDAxSOkgAAAAAOgAAAAAIAACAAAAC+pugF+eIoEX82zsn0YVc2vGlOCuIzc6oMg1zGs9lEuhAAAABEIsziNYfWxjRtnauJqX5WQAAAAMgSahB528ExecSwSw5zjAe0SfQYhqIKrrAlu5dOV52DR8MKyuDGCdldR7y6gu43nGyhn9oO4dk5qNVxKUxamM8</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD/2uJBgezUKGMUNwLwSVUQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACrq4Nt2Hmjq5VtErdz/O1I4xhu7SQJiOyP0OntQ9E1qwAAAAAOgAAAAAIAACAAAADWwss2Dtjzv6pMEHM75QBHcj4m1WIdrrzY89g3WNRjvCAAAAAH2oVTYNv4/z9fWqRilAWSVkDctxoEUndjYBnPNsMZN0AAAACxUz9O3W6RGQImVCe2LoiKo/eN4WKTHg2Fre9rF24yARC6Z6VLs2J/n0/ooEvxl3T1IoPoGUnnfTxaem9+z28D</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -317,8 +326,8 @@ where [refTable].[Id_Producto] = ?</property>
               <connections>
                 <connection
                   refId="Package\Llenar DimProducto\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.DWOdooInventarios.sa1]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.DWOdooInventarios.sa1]"
+                  connectionManagerID="Package.ConnectionManagers[ADO2-destino]"
+                  connectionManagerRefId="Package.ConnectionManagers[ADO2-destino]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -651,7 +660,7 @@ pt.categ_id = pc.id</property>
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\Llenar DimProducto\Leer productos postgres"
-          TopLeft="102.499994399647,84.0666660820776" />
+          TopLeft="104.999994263053,84.9333327427176" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Llenar DimProducto\Buscar productos"
@@ -660,32 +669,36 @@ pt.categ_id = pc.id</property>
           Size="187.2,41.6"
           Id="Package\Llenar DimProducto\Actualizar DimProducto"
           TopLeft="495.833306242196,385.666663984789" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Llenar DimProducto\Destino de ADO NET"
+          TopLeft="204.166655511492,371.799997414549" />
         <EdgeLayout
           Id="Package\Llenar DimProducto.Paths[Salida de origen de ADO NET]"
-          TopLeft="197.699994399647,125.666666082078">
+          TopLeft="200.199994263053,126.533332742718">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="196.899988389513,79.7333324895964"
+              EndConnector="194.399988526107,78.8666658289564"
               Start="0,0"
-              End="196.899988389513,72.2333324895964">
+              End="194.399988526107,71.3666658289564">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.8666662447982" />
+                    End="0,35.4333329144782" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35.8666662447982"
-                    Point2="0,39.8666662447982"
-                    Point3="4,39.8666662447982" />
+                    Point1="0,35.4333329144782"
+                    Point2="0,39.4333329144782"
+                    Point3="4,39.4333329144782" />
                   <mssgle:LineSegment
-                    End="192.899988389513,39.8666662447982" />
+                    End="190.399988526107,39.4333329144782" />
                   <mssgle:CubicBezierSegment
-                    Point1="192.899988389513,39.8666662447982"
-                    Point2="196.899988389513,39.8666662447982"
-                    Point3="196.899988389513,43.8666662447982" />
+                    Point1="190.399988526107,39.4333329144782"
+                    Point2="194.399988526107,39.4333329144782"
+                    Point3="194.399988526107,43.4333329144782" />
                   <mssgle:LineSegment
-                    End="196.899988389513,72.2333324895964" />
+                    End="194.399988526107,71.3666658289564" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -694,10 +707,6 @@ pt.categ_id = pc.id</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Llenar DimProducto\Destino de ADO NET"
-          TopLeft="204.166655511492,371.799997414549" />
         <EdgeLayout
           Id="Package\Llenar DimProducto.Paths[Salida de entradas no coincidentes de búsqueda]"
           TopLeft="394.59998278916,246.999998571674">
@@ -751,7 +760,7 @@ pt.categ_id = pc.id</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -761,7 +770,7 @@ pt.categ_id = pc.id</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
