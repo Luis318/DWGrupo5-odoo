@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimProducto"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{FE441E8E-CA31-4C7A-920E-9AD764518DA4}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{B4F30D9E-1DB7-415A-912E-CD7DF3FB57E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,7 +38,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD/2uJBgezUKGMUNwLwSVUQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACrq4Nt2Hmjq5VtErdz/O1I4xhu7SQJiOyP0OntQ9E1qwAAAAAOgAAAAAIAACAAAADWwss2Dtjzv6pMEHM75QBHcj4m1WIdrrzY89g3WNRjvCAAAAAH2oVTYNv4/z9fWqRilAWSVkDctxoEUndjYBnPNsMZN0AAAACxUz9O3W6RGQImVCe2LoiKo/eN4WKTHg2Fre9rF24yARC6Z6VLs2J/n0/ooEvxl3T1IoPoGUnnfTxaem9+z28D</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD/2uJBgezUKGMUNwLwSVUQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABNQZpkeU+MT10PZWqU54sTiTSzbIsZSXiimWqwBxh23wAAAAAOgAAAAAIAACAAAAANZ9Ksou/hYeaOlDYKKggLAWdUWudMfJAxIj62d98OhiAAAACdBa2udSqxQqSqU6VvgCMCuvypw4jUsgC8pPN/e8d0gkAAAAAcHWpnUB6/RJZ0ysT8RGYONuvB1VQMoiqe43XLHQ2SZ4rJynCb4wqNCpsau725kKXPmhvlRnOCjM5Wub8K2QsN</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -77,7 +77,7 @@
                   description="Comando SQL para ejecutar."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec dw.ActualizarProducto ?,?,?,?,?</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -86,6 +86,8 @@
               <connections>
                 <connection
                   refId="Package\Llenar DimProducto\Actualizar DimProducto.Connections[OleDbConnection]"
+                  connectionManagerID="{47344A8D-BE5E-41C1-9992-1A7DE100C005}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_DW]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -96,8 +98,99 @@
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de comando de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].Columns[ProductoKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductoKey"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@ProductoKey]"
+                      lineageId="Package\Llenar DimProducto\Buscar productos.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ProductoKey]" />
+                    <inputColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].Columns[codigo_producto]"
+                      cachedDataType="nText"
+                      cachedName="codigo_producto"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Codigo_Producto]"
+                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[codigo_producto]" />
+                    <inputColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].Columns[nombre_producto]"
+                      cachedDataType="nText"
+                      cachedName="nombre_producto"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Nombre_Producto]"
+                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[nombre_producto]" />
+                    <inputColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].Columns[categoria_producto]"
+                      cachedDataType="nText"
+                      cachedName="categoria_producto"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Categoria_Producto]"
+                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[categoria_producto]" />
+                    <inputColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].Columns[fecha_creacion_producto]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_creacion_producto"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Fecha_creacion_Producto]"
+                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion_producto]" />
+                  </inputColumns>
                   <externalMetadataColumns
-                    isUsed="True" />
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@ProductoKey]"
+                      dataType="i4"
+                      name="@ProductoKey">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Codigo_Producto]"
+                      dataType="wstr"
+                      length="64"
+                      name="@Codigo_Producto">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Nombre_Producto]"
+                      dataType="wstr"
+                      length="256"
+                      name="@Nombre_Producto">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Categoria_Producto]"
+                      dataType="wstr"
+                      length="128"
+                      name="@Categoria_Producto">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Fecha_creacion_Producto]"
+                      dataType="dbTimeStamp"
+                      name="@Fecha_creacion_Producto">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
@@ -152,7 +245,7 @@
                   description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[DimProducto]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[DimProducto] where Activo=1) [refTable]
 where [refTable].[Id_Producto] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -619,6 +712,11 @@ pt.categ_id = pc.id</property>
           </components>
           <paths>
             <path
+              refId="Package\Llenar DimProducto.Paths[Salida de entradas coincidentes de búsqueda]"
+              endId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB]"
+              name="Salida de entradas coincidentes de búsqueda"
+              startId="Package\Llenar DimProducto\Buscar productos.Outputs[Salida de entradas coincidentes de búsqueda]" />
+            <path
               refId="Package\Llenar DimProducto.Paths[Salida de entradas no coincidentes de búsqueda]"
               endId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
               name="Salida de entradas no coincidentes de búsqueda"
@@ -660,7 +758,7 @@ pt.categ_id = pc.id</property>
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\Llenar DimProducto\Leer productos postgres"
-          TopLeft="104.999994263053,84.9333327427176" />
+          TopLeft="106.666660838657,86.6666660639976" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Llenar DimProducto\Buscar productos"
@@ -668,37 +766,37 @@ pt.categ_id = pc.id</property>
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\Llenar DimProducto\Actualizar DimProducto"
-          TopLeft="495.833306242196,385.666663984789" />
+          TopLeft="496.666639529998,376.999997378389" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\Llenar DimProducto\Destino de ADO NET"
           TopLeft="204.166655511492,371.799997414549" />
         <EdgeLayout
           Id="Package\Llenar DimProducto.Paths[Salida de origen de ADO NET]"
-          TopLeft="200.199994263053,126.533332742718">
+          TopLeft="201.866660838657,128.266666063998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="194.399988526107,78.8666658289564"
+              EndConnector="192.733321950503,77.1333325076764"
               Start="0,0"
-              End="194.399988526107,71.3666658289564">
+              End="192.733321950503,69.6333325076764">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.4333329144782" />
+                    End="0,34.5666662538382" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35.4333329144782"
-                    Point2="0,39.4333329144782"
-                    Point3="4,39.4333329144782" />
+                    Point1="0,34.5666662538382"
+                    Point2="0,38.5666662538382"
+                    Point3="4,38.5666662538382" />
                   <mssgle:LineSegment
-                    End="190.399988526107,39.4333329144782" />
+                    End="188.733321950503,38.5666662538382" />
                   <mssgle:CubicBezierSegment
-                    Point1="190.399988526107,39.4333329144782"
-                    Point2="194.399988526107,39.4333329144782"
-                    Point3="194.399988526107,43.4333329144782" />
+                    Point1="188.733321950503,38.5666662538382"
+                    Point2="192.733321950503,38.5666662538382"
+                    Point3="192.733321950503,42.5666662538382" />
                   <mssgle:LineSegment
-                    End="194.399988526107,71.3666658289564" />
+                    End="192.733321950503,69.6333325076764" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -743,6 +841,42 @@ pt.categ_id = pc.id</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimProducto.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="419.79998278916,246.999998571674">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="170.466656740838,129.999998806715"
+              Start="0,0"
+              End="170.466656740838,122.499998806715">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.7761189185471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.7761189185471"
+                    Point2="0,52.7761189185471"
+                    Point3="4,52.7761189185471" />
+                  <mssgle:LineSegment
+                    End="166.466656740838,52.7761189185471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="166.466656740838,52.7761189185471"
+                    Point2="170.466656740838,52.7761189185471"
+                    Point3="170.466656740838,56.7761189185471" />
+                  <mssgle:LineSegment
+                    End="170.466656740838,122.499998806715" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-14.5856950670811,57.7761189185471,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -760,7 +894,7 @@ pt.categ_id = pc.id</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">true</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -770,7 +904,7 @@ pt.categ_id = pc.id</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

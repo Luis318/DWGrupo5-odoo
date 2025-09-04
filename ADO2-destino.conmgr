@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ADO2-destino"
+  DTS:DTSID="{FDA421CD-E225-43E8-A463-9584F576D76B}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">"Data Source=" + @[$Project::Ado_Server]
++ ";Initial Catalog=" + @[$Project::Ado_Database] + ";"
++ ( @[$Project::Ado_AuthMode] == "SQL"
+    ? "User ID=" + @[$Project::Ado_User] + ";Password=" + @[$Project::Ado_Password] + ";"
+    : "Integrated Security=SSPI;" )
++ "Encrypt="
+  + ( @[$Project::Ado_Encrypt] == "Mandatory" ? "True"
+      : ( @[$Project::Ado_Encrypt] == "Optional" ? "False"
+          : @[$Project::Ado_Encrypt] ) )
++ ";TrustServerCertificate=" + ( @[$Project::Ado_TrustCert] ? "True" : "False" ) + ";"</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=DWOdooInventarios;Encrypt=True;TrustServerCertificate=True;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD/2uJBgezUKGMUNwLwSVUQAAAAACAAAAAAAQZgAAAAEAACAAAADSNg+F5iKjs4aq7c1Ia0H5mJVoUdXQPYlw10LLg71BpQAAAAAOgAAAAAIAACAAAAAmvkpPfSM/tuIhZWGWnod/O+9HiLVi8rVp3Au7lpEhbYAAAAD5J4Fytaetd3t8OC3xI/Xr81QFmXuY6WSLJImAsqSKImH660hNfuNyFlVOF0UezByqhqBMBYJxQ9DxlYYj0PRiGwVoZSwCvdO0FJ7YH0DFAPWyNcE4sC3P4VlLEvsztJGRMY24pS8JjK90c/UIhGSlAnJUawaAPu4XFFUiiQgj4EAAAADzvToNItftBH2FoSs8o5cFFalktNa2TwIZSP3YbueZ7/ylAPNEhB5P+ZsDK/tlpEr8EP/aMw4AZVXVpdWgRAqr</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
