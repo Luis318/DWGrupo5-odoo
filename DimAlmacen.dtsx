@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{2B58A6CD-ED6F-4DCF-8DA1-9AE1540647CD}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{188581E2-3D44-4DF7-A816-0D63C4ED48AD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -25,6 +25,7 @@
       DTS:DTSID="{6A812E09-1DCA-42DF-8EFC-57BFCA698668}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
+      DTS:MaxErrorCount="10"
       DTS:ObjectName="Llenar DimAlmacen"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
@@ -742,6 +743,7 @@ WHERE AlmacenKey = ?
               description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
               name="Leer almacenes Postgres"
               usesDispositions="true"
+              validateExternalMetadata="False"
               version="4">
               <properties>
                 <property
@@ -2030,6 +2032,22 @@ where [refTable].[Id_Almacen] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="152,42"
+          Id="Package\Llenar DimAlmacen\Expirar versión"
+          TopLeft="516.545454545455,258.090909090909" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Llenar DimAlmacen\DimAlmacen"
+          TopLeft="513.636363636364,548.181818181818" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Llenar DimAlmacen\Data Conversion"
+          TopLeft="48.4545454545454,128.818181818182" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\Llenar DimAlmacen\Setear Fechas SCD2 (CAMBIO)"
+          TopLeft="527.272727272727,344.755244755245" />
+        <NodeLayout
           Size="204,42"
           Id="Package\Llenar DimAlmacen\Leer almacenes Postgres"
           TopLeft="32,40" />
@@ -2038,51 +2056,43 @@ where [refTable].[Id_Almacen] = ?</property>
           Id="Package\Llenar DimAlmacen\Lookup"
           TopLeft="77.7272727272727,248.818181818182" />
         <NodeLayout
-          Size="161,42"
-          Id="Package\Llenar DimAlmacen\Data Conversion"
-          TopLeft="48.4545454545454,128.818181818182" />
+          Size="123,42"
+          Id="Package\Llenar DimAlmacen\Union All"
+          TopLeft="533.636363636364,460" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\Llenar DimAlmacen\Setear Fechas SCD2 (NUEVO)"
+          TopLeft="262.727272727273,357.272727272727" />
         <NodeLayout
           Size="165,42"
           Id="Package\Llenar DimAlmacen\Detectar cambios"
           TopLeft="259.363636363636,254" />
         <EdgeLayout
-          Id="Package\Llenar DimAlmacen.Paths[Lookup Match Output]"
-          TopLeft="192.727272727273,272.409090909091">
+          Id="Package\Llenar DimAlmacen.Paths[Union All Output 1]"
+          TopLeft="595.136363636364,502">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="66.6363636363636,0"
+              EndConnector="-11,46.1818181818181"
               Start="0,0"
-              End="59.1363636363636,0">
+              End="-11,38.6818181818181">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="59.1363636363636,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.6232049005682,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Llenar DimAlmacen.Paths[Data Conversion Output]"
-          TopLeft="132.090909090909,170.818181818182">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,78"
-              Start="0,0"
-              End="0,70.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
+                    End="0,19.0909090909091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.0909090909091"
+                    Point2="0,23.0909090909091"
+                    Point3="-4,23.0909090909091" />
                   <mssgle:LineSegment
-                    End="0,70.5" />
+                    End="-7,23.0909090909091" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7,23.0909090909091"
+                    Point2="-11,23.0909090909091"
+                    Point3="-11,27.0909090909091" />
+                  <mssgle:LineSegment
+                    End="-11,38.6818181818181" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2113,14 +2123,6 @@ where [refTable].[Id_Almacen] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,42"
-          Id="Package\Llenar DimAlmacen\Expirar versión"
-          TopLeft="516.545454545455,258.090909090909" />
-        <NodeLayout
-          Size="236,42"
-          Id="Package\Llenar DimAlmacen\Setear Fechas SCD2 (CAMBIO)"
-          TopLeft="527.272727272727,344.755244755245" />
         <EdgeLayout
           Id="Package\Llenar DimAlmacen.Paths[OLE DB Command Output]"
           TopLeft="592.545454545455,300.090909090909">
@@ -2155,10 +2157,6 @@ where [refTable].[Id_Almacen] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="232,42"
-          Id="Package\Llenar DimAlmacen\Setear Fechas SCD2 (NUEVO)"
-          TopLeft="262.727272727273,357.272727272727" />
         <EdgeLayout
           Id="Package\Llenar DimAlmacen.Paths[Lookup No Match Output]"
           TopLeft="135.227272727273,290.818181818182">
@@ -2195,32 +2193,62 @@ where [refTable].[Id_Almacen] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Llenar DimAlmacen\Union All"
-          TopLeft="533.636363636364,460" />
         <EdgeLayout
-          Id="Package\Llenar DimAlmacen.Paths[CAMBIOS]"
-          TopLeft="424.363636363636,277.045454545455">
+          Id="Package\Llenar DimAlmacen.Paths[Lookup Match Output]"
+          TopLeft="192.727272727273,272.409090909091">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="92.1818181818181,0"
+              EndConnector="66.6363636363636,0"
               Start="0,0"
-              End="84.6818181818181,0">
+              End="59.1363636363636,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="84.6818181818181,0" />
+                    End="59.1363636363636,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="20.6309090909091,5,43.42,9.5732421875"
+              BoundingBox="-18.6232049005682,5,96.3827734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimAlmacen.Paths[Derived Column Output1]"
+          TopLeft="645.272727272727,386.755244755245">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-30.9696969696971,73.2447552447553"
+              Start="0,0"
+              End="-30.9696969696971,65.7447552447553">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.3825275847748" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.3825275847748"
+                    Point2="0,43.3825275847748"
+                    Point3="-4,43.3825275847748" />
+                  <mssgle:LineSegment
+                    End="-26.9696969696971,43.3825275847748" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-26.9696969696971,43.3825275847748"
+                    Point2="-30.9696969696971,43.3825275847748"
+                    Point3="-30.9696969696971,47.3825275847748" />
+                  <mssgle:LineSegment
+                    End="-30.9696969696971,65.7447552447553" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2258,31 +2286,19 @@ where [refTable].[Id_Almacen] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Llenar DimAlmacen.Paths[Derived Column Output1]"
-          TopLeft="645.272727272727,386.755244755245">
+          Id="Package\Llenar DimAlmacen.Paths[Data Conversion Output]"
+          TopLeft="132.090909090909,170.818181818182">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-30.9696969696971,73.2447552447553"
+              EndConnector="0,78"
               Start="0,0"
-              End="-30.9696969696971,65.7447552447553">
+              End="0,70.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.3825275847748" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.3825275847748"
-                    Point2="0,43.3825275847748"
-                    Point3="-4,43.3825275847748" />
-                  <mssgle:LineSegment
-                    End="-26.9696969696971,43.3825275847748" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-26.9696969696971,43.3825275847748"
-                    Point2="-30.9696969696971,43.3825275847748"
-                    Point3="-30.9696969696971,47.3825275847748" />
-                  <mssgle:LineSegment
-                    End="-30.9696969696971,65.7447552447553" />
+                    End="0,70.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2291,47 +2307,46 @@ where [refTable].[Id_Almacen] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="141,42"
-          Id="Package\Llenar DimAlmacen\DimAlmacen"
-          TopLeft="513.636363636364,548.181818181818" />
         <EdgeLayout
-          Id="Package\Llenar DimAlmacen.Paths[Union All Output 1]"
-          TopLeft="595.136363636364,502">
+          Id="Package\Llenar DimAlmacen.Paths[CAMBIOS]"
+          TopLeft="424.363636363636,277.045454545455">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-11,46.1818181818181"
+              EndConnector="92.1818181818181,0"
               Start="0,0"
-              End="-11,38.6818181818181">
+              End="84.6818181818181,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.0909090909091" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.0909090909091"
-                    Point2="0,23.0909090909091"
-                    Point3="-4,23.0909090909091" />
-                  <mssgle:LineSegment
-                    End="-7,23.0909090909091" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-7,23.0909090909091"
-                    Point2="-11,23.0909090909091"
-                    Point3="-11,27.0909090909091" />
-                  <mssgle:LineSegment
-                    End="-11,38.6818181818181" />
+                    End="84.6818181818181,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="20.6309090909091,5,43.42,9.5732421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimAlmacen\DimAlmacen">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Llenar DimAlmacen\Leer almacenes Postgres">
     <Properties>
@@ -2346,7 +2361,7 @@ where [refTable].[Id_Almacen] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2356,23 +2371,10 @@ where [refTable].[Id_Almacen] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar DimAlmacen\DimAlmacen">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
