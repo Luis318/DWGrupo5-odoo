@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:ObjectName="CM_PG"
-  DTS:DTSID="{0BE17DB4-7C72-4139-A2ED-81DB721CBDDB}"
+  DTS:DTSID="{60BA7266-6AA7-4EE0-B3F5-DAA6F39B86F4}"
   DTS:CreationName="ADO.NET:Npgsql.NpgsqlConnection, Npgsql, Version=4.1.14.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7">
   <DTS:PropertyExpression
     DTS:Name="ConnectionString">"Host=" + @[$Project::Src_Host]+ ";Port=" + (DT_WSTR,10)@[$Project::Src_Port]+ ";Database=" + @[$Project::Src_DB]+ ";Username=" + @[$Project::Src_User]+ ";Password=" + @[$Project::Src_Pwd]+ ";SSL Mode=Prefer;Trust Server Certificate=true;"</DTS:PropertyExpression>
@@ -10,7 +10,7 @@
       DTS:ConnectionString="Host=167.99.233.226;Port=5432;Database=odoo-db;Username=odoo;SSL Mode=Prefer;Trust Server Certificate=true;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdHAi7AxpekK4i1z1dudidAAAAAACAAAAAAAQZgAAAAEAACAAAADfO1h/Wk/L5wzPKh/XvZspBhC3VAyaZcs7cu7/7V0uCgAAAAAOgAAAAAIAACAAAACOxT0nSWxkHbXo9ZxesxSqJXAEWITHOmBSP8jcBTuBN3AAAACZbzP+mXYdcs4jdpf5KmhVOH0e9QoFoaHE4MxV2xleUC0gt8OTLEnu5OpehZLshgQs3n0pGXdixG5l0hbwPb8ivhLbgGyVP0bCIQ3hf2RKB2TO/G4bFScsn4LolxfmPTAtkHxlljipdhUBWq/yBIlFQAAAAClscTPF2T4HgJB/5h8FWIP+kJdJZkoRno/nBNSSQfk/iLIdJ/SGd/Obbm3Hl/ED8i7B3W/p3i6LnpLw0zXchFU=</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAdHAi7AxpekK4i1z1dudidAAAAAACAAAAAAAQZgAAAAEAACAAAACbZzcsrv5STyVYZ33cCZXL1LMKcEL2yyjkzClzNgl7ZQAAAAAOgAAAAAIAACAAAABhJLPCP+aPIwCGnvTCqbhvhClggKvgjE32XU7WAJZBxnAAAAAlz50MMIyLP7DWVCqdHTmw6lYyJrTEiR3qewLcG/drbtt5o+Y/x6NEnvU7AZFEbZOAw1WBj7C7rr5UyznIXOtDg/Sa66PUOQo2x0xQ9jt39emBRUrIwQD1zJBa+Uwz6n9eOYnX1jUSHcOfi+Wi+2LdQAAAABmVKMJyHErymSH2TUxV+lfnFznd/EClQPw3lOxqkAVRBZ7/um2sCGMAOx1nONY6IXgOahbnDYMb8smwC74adk4=</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
