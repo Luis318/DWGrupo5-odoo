@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="50"
-  DTS:VersionGUID="{62CFA2D8-EB93-4783-A42D-BD4E0CBF6207}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{BBC7F7A9-E622-4F67-916D-9540482ECE8E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -752,18 +752,25 @@ WHERE AlmacenKey = ?
                   expressionType="Notify"
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
-    sw.id                                      AS id_almacen,
-    COALESCE(NULLIF(sw.name, ''), 'Sin nombre') AS nombre_almacen,
-    COALESCE(sl.scrap_location, FALSE)          AS es_ubicacion_scrap,
-    COALESCE(sl.create_date::timestamp(0), TIMESTAMP '1900-01-01 00:00:00')
-                                                AS fecha_creacion_almacen,
-    COALESCE(sl.last_inventory_date::date, DATE '1900-01-01')  AS fecha_ultimo_inventario,
-    COALESCE(sl.next_inventory_date::date, DATE '1900-01-01')  AS fecha_proximo_inventario,
-    COALESCE(sl.active, TRUE)                   AS activo
-FROM stock_warehouse sw
-JOIN stock_location sl 
-     ON sl.id = sw.view_location_id
-ORDER BY sw.id;</property>
+    w.id                                                     AS id_almacen,
+    COALESCE(NULLIF(w.name,''), 'Sin nombre')                AS nombre_almacen,
+    COALESCE(BOOL_OR(loc.scrap_location), FALSE)             AS es_ubicacion_scrap,
+    COALESCE(root.create_date::timestamp(0),
+             TIMESTAMP '1900-01-01 00:00:00')                AS fecha_creacion_almacen,
+    COALESCE(MAX(loc.last_inventory_date)::date,
+             DATE '1900-01-01')                              AS fecha_ultimo_inventario,
+    COALESCE(MIN(loc.next_inventory_date)::date,
+             DATE '1900-01-01')                              AS fecha_proximo_inventario,
+    COALESCE(w.active, TRUE)                                 AS activo
+FROM stock_warehouse w
+JOIN stock_location root
+  ON root.id = w.view_location_id
+LEFT JOIN stock_location loc
+  ON  loc.parent_path LIKE root.parent_path || '%'   -- TODAS las ubicaciones bajo el almacén
+  AND loc.usage = 'internal'
+GROUP BY
+    w.id, nombre_almacen, fecha_creacion_almacen, activo
+ORDER BY w.id;</property>
                 <property
                   dataType="System.Int32"
                   description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
@@ -1428,12 +1435,12 @@ where [refTable].[Id_Almacen] = ?</property>
               version="1">
               <inputs>
                 <input
-                  refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3]"
+                  refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2]"
                   hasSideEffects="true"
-                  name="Union All Input 3">
+                  name="Union All Input 2">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[id_almacen]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[id_almacen]"
                       cachedDataType="i4"
                       cachedName="id_almacen"
                       lineageId="Package\Llenar DimAlmacen\Leer almacenes Postgres.Outputs[Salida de origen de ADO NET].Columns[id_almacen]">
@@ -1446,7 +1453,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[nombre_almacen]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[nombre_almacen]"
                       cachedDataType="nText"
                       cachedName="nombre_almacen"
                       lineageId="Package\Llenar DimAlmacen\Leer almacenes Postgres.Outputs[Salida de origen de ADO NET].Columns[nombre_almacen]">
@@ -1459,7 +1466,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[es_ubicacion_scrap]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[es_ubicacion_scrap]"
                       cachedDataType="bool"
                       cachedName="es_ubicacion_scrap"
                       lineageId="Package\Llenar DimAlmacen\Leer almacenes Postgres.Outputs[Salida de origen de ADO NET].Columns[es_ubicacion_scrap]">
@@ -1472,7 +1479,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[fecha_creacion_almacen]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[fecha_creacion_almacen]"
                       cachedDataType="dbTimeStamp"
                       cachedName="fecha_creacion_almacen"
                       lineageId="Package\Llenar DimAlmacen\Leer almacenes Postgres.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion_almacen]">
@@ -1485,7 +1492,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[fecha_ultimo_inventario]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[fecha_ultimo_inventario]"
                       cachedDataType="dbTimeStamp"
                       cachedName="fecha_ultimo_inventario"
                       lineageId="Package\Llenar DimAlmacen\Leer almacenes Postgres.Outputs[Salida de origen de ADO NET].Columns[fecha_ultimo_inventario]">
@@ -1498,7 +1505,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[fecha_proximo_inventario]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[fecha_proximo_inventario]"
                       cachedDataType="dbTimeStamp"
                       cachedName="fecha_proximo_inventario"
                       lineageId="Package\Llenar DimAlmacen\Leer almacenes Postgres.Outputs[Salida de origen de ADO NET].Columns[fecha_proximo_inventario]">
@@ -1511,7 +1518,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[activo]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[activo]"
                       cachedDataType="bool"
                       cachedName="activo"
                       lineageId="Package\Llenar DimAlmacen\Leer almacenes Postgres.Outputs[Salida de origen de ADO NET].Columns[activo]">
@@ -1524,7 +1531,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[nombre_almacen_wstr]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[nombre_almacen_wstr]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="nombre_almacen_wstr"
@@ -1538,7 +1545,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[es_ubicacion_scrap_bool]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[es_ubicacion_scrap_bool]"
                       cachedDataType="bool"
                       cachedName="es_ubicacion_scrap_bool"
                       lineageId="Package\Llenar DimAlmacen\Data Conversion.Outputs[Data Conversion Output].Columns[es_ubicacion_scrap_bool]">
@@ -1551,7 +1558,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[activo_bool]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[activo_bool]"
                       cachedDataType="bool"
                       cachedName="activo_bool"
                       lineageId="Package\Llenar DimAlmacen\Data Conversion.Outputs[Data Conversion Output].Columns[activo_bool]">
@@ -1564,7 +1571,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[fecha_creacion_almacen_ts]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[fecha_creacion_almacen_ts]"
                       cachedDataType="dbTimeStamp"
                       cachedName="fecha_creacion_almacen_ts"
                       lineageId="Package\Llenar DimAlmacen\Data Conversion.Outputs[Data Conversion Output].Columns[fecha_creacion_almacen_ts]">
@@ -1577,7 +1584,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[fecha_ultimo_inv_date]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[fecha_ultimo_inv_date]"
                       cachedDataType="dbDate"
                       cachedName="fecha_ultimo_inv_date"
                       lineageId="Package\Llenar DimAlmacen\Data Conversion.Outputs[Data Conversion Output].Columns[fecha_ultimo_inv_date]">
@@ -1590,7 +1597,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[fecha_proximo_inv_date]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[fecha_proximo_inv_date]"
                       cachedDataType="dbDate"
                       cachedName="fecha_proximo_inv_date"
                       lineageId="Package\Llenar DimAlmacen\Data Conversion.Outputs[Data Conversion Output].Columns[fecha_proximo_inv_date]">
@@ -1603,7 +1610,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[id_almacen_i4]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[id_almacen_i4]"
                       cachedDataType="i4"
                       cachedName="id_almacen_i4"
                       lineageId="Package\Llenar DimAlmacen\Data Conversion.Outputs[Data Conversion Output].Columns[id_almacen_i4]">
@@ -1616,7 +1623,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[FechaInicio]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[FechaInicio]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaInicio"
                       lineageId="Package\Llenar DimAlmacen\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaInicio]">
@@ -1629,7 +1636,7 @@ where [refTable].[Id_Almacen] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3].Columns[FechaFin]"
+                      refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2].Columns[FechaFin]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaFin"
                       lineageId="Package\Llenar DimAlmacen\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaFin]">
@@ -1862,10 +1869,10 @@ where [refTable].[Id_Almacen] = ?</property>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2]"
+                  refId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3]"
                   dangling="true"
                   hasSideEffects="true"
-                  name="Union All Input 2">
+                  name="Union All Input 3">
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -1974,7 +1981,7 @@ where [refTable].[Id_Almacen] = ?</property>
               startId="Package\Llenar DimAlmacen\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Llenar DimAlmacen.Paths[Derived Column Output]"
-              endId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 3]"
+              endId="Package\Llenar DimAlmacen\Union All.Inputs[Union All Input 2]"
               name="Derived Column Output"
               startId="Package\Llenar DimAlmacen\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output]" />
             <path
