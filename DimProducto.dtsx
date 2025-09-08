@@ -11,10 +11,27 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimProducto"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{4BD8BC91-B8CA-4767-92CD-BB657AE066C7}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{7AC2A94A-2F71-462B-982D-40BA885A0B9A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[PostgreSQL35Wx64.postgres]"
+      DTS:CreationName="ODBC"
+      DTS:DTSID="{F18FE1F4-E4B3-4D37-8A8F-FC4C999FC190}"
+      DTS:ObjectName="PostgreSQL35Wx64.postgres">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="uid=postgres;Dsn=PostgreSQL35Wx64;">
+          <DTS:Password
+            DTS:Name="pwd"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD/2uJBgezUKGMUNwLwSVUQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADbAXyJPvlyrGQv1pjSl+dT+U4A4oq2wEz/Tsg05ilxmgAAAAAOgAAAAAIAACAAAAA+QZDX91ThJMdRapfUUCyaj5IllstjFEH9vBTZgNlrNhAAAAB4VArYHF9siqcS0h7iJx6eQAAAAAGc36PPvDT3YGRdc8t4itM/+c++k3+YeAEmw/7JZSzRGtOY5b7RHVitkVsDLZDF64YMG9eGnyin4LaGwC47Sxk</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -640,6 +657,18 @@ pt.categ_id = pc.id</property>
                   name="Salida de error de origen de ADO NET">
                   <outputColumns>
                     <outputColumn
+                      refId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
                       refId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[id_producto]"
                       dataType="i4"
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[id_producto]"
@@ -664,18 +693,6 @@ pt.categ_id = pc.id</property>
                       dataType="dbTimeStamp"
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[fecha_creacion_producto]"
                       name="fecha_creacion_producto" />
-                    <outputColumn
-                      refId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -728,47 +745,83 @@ pt.categ_id = pc.id</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="190.4,41.6"
-          Id="Package\Llenar DimProducto\Leer productos postgres"
-          TopLeft="106.666660838657,86.6666660639976" />
-        <NodeLayout
           Size="159.2,41.6"
           Id="Package\Llenar DimProducto\Buscar productos"
           TopLeft="314.99998278916,205.399998571674" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Llenar DimProducto\Destino de ADO NET"
+          TopLeft="204.166655511492,371.799997414549" />
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\Llenar DimProducto\Actualizar DimProducto"
           TopLeft="496.666639529998,376.999997378389" />
         <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Llenar DimProducto\Destino de ADO NET"
-          TopLeft="204.166655511492,371.799997414549" />
+          Size="190.4,41.6"
+          Id="Package\Llenar DimProducto\Leer productos postgres"
+          TopLeft="528.333304466474,85.7999994033577" />
         <EdgeLayout
-          Id="Package\Llenar DimProducto.Paths[Salida de origen de ADO NET]"
-          TopLeft="201.866660838657,128.266666063998">
+          Id="Package\Llenar DimProducto.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="419.79998278916,246.999998571674">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="192.733321950503,77.1333325076764"
+              EndConnector="170.466656740838,129.999998806715"
               Start="0,0"
-              End="192.733321950503,69.6333325076764">
+              End="170.466656740838,122.499998806715">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5666662538382" />
+                    End="0,48.7761189185471" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.5666662538382"
-                    Point2="0,38.5666662538382"
-                    Point3="4,38.5666662538382" />
+                    Point1="0,48.7761189185471"
+                    Point2="0,52.7761189185471"
+                    Point3="4,52.7761189185471" />
                   <mssgle:LineSegment
-                    End="188.733321950503,38.5666662538382" />
+                    End="166.466656740838,52.7761189185471" />
                   <mssgle:CubicBezierSegment
-                    Point1="188.733321950503,38.5666662538382"
-                    Point2="192.733321950503,38.5666662538382"
-                    Point3="192.733321950503,42.5666662538382" />
+                    Point1="166.466656740838,52.7761189185471"
+                    Point2="170.466656740838,52.7761189185471"
+                    Point3="170.466656740838,56.7761189185471" />
                   <mssgle:LineSegment
-                    End="192.733321950503,69.6333325076764" />
+                    End="170.466656740838,122.499998806715" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-14.585695067081,57.7761189185471,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimProducto.Paths[Salida de origen de ADO NET]"
+          TopLeft="623.533304466474,127.399999403358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-228.933321677314,77.9999991683162"
+              Start="0,0"
+              End="-228.933321677314,70.4999991683162">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.9999995841581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.9999995841581"
+                    Point2="0,38.9999995841581"
+                    Point3="-4,38.9999995841581" />
+                  <mssgle:LineSegment
+                    End="-224.933321677314,38.9999995841581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-224.933321677314,38.9999995841581"
+                    Point2="-228.933321677314,38.9999995841581"
+                    Point3="-228.933321677314,42.9999995841581" />
+                  <mssgle:LineSegment
+                    End="-228.933321677314,70.4999991683162" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -813,60 +866,16 @@ pt.categ_id = pc.id</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Llenar DimProducto.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="419.79998278916,246.999998571674">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="170.466656740838,129.999998806715"
-              Start="0,0"
-              End="170.466656740838,122.499998806715">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.7761189185471" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,48.7761189185471"
-                    Point2="0,52.7761189185471"
-                    Point3="4,52.7761189185471" />
-                  <mssgle:LineSegment
-                    End="166.466656740838,52.7761189185471" />
-                  <mssgle:CubicBezierSegment
-                    Point1="166.466656740838,52.7761189185471"
-                    Point2="170.466656740838,52.7761189185471"
-                    Point3="170.466656740838,56.7761189185471" />
-                  <mssgle:LineSegment
-                    End="170.466656740838,122.499998806715" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-14.5856950670811,57.7761189185471,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Llenar DimProducto\Leer productos postgres">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Llenar DimProducto\Buscar productos">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">true</Value>
+          type="q2:string">true</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -876,7 +885,7 @@ pt.categ_id = pc.id</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -885,6 +894,14 @@ pt.categ_id = pc.id</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Llenar DimProducto\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimProducto\Leer productos postgres">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
