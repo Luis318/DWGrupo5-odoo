@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:ObjectName="CM_PG"
-  DTS:DTSID="{0BE17DB4-7C72-4139-A2ED-81DB721CBDDB}"
+  DTS:DTSID="{60BA7266-6AA7-4EE0-B3F5-DAA6F39B86F4}"
   DTS:CreationName="ADO.NET:Npgsql.NpgsqlConnection, Npgsql, Version=4.1.14.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7">
   <DTS:PropertyExpression
     DTS:Name="ConnectionString">"Host=" + @[$Project::Src_Host]+ ";Port=" + (DT_WSTR,10)@[$Project::Src_Port]+ ";Database=" + @[$Project::Src_DB]+ ";Username=" + @[$Project::Src_User]+ ";Password=" + @[$Project::Src_Pwd]+ ";SSL Mode=Prefer;Trust Server Certificate=true;"</DTS:PropertyExpression>
