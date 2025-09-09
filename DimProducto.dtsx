@@ -11,27 +11,10 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimProducto"
   DTS:PackageType="5"
-  DTS:VersionBuild="51"
-  DTS:VersionGUID="{7AC2A94A-2F71-462B-982D-40BA885A0B9A}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{DFBD3720-78FF-4BF2-98F0-31D79A90B06E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[PostgreSQL35Wx64.postgres]"
-      DTS:CreationName="ODBC"
-      DTS:DTSID="{F18FE1F4-E4B3-4D37-8A8F-FC4C999FC190}"
-      DTS:ObjectName="PostgreSQL35Wx64.postgres">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="uid=postgres;Dsn=PostgreSQL35Wx64;">
-          <DTS:Password
-            DTS:Name="pwd"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD/2uJBgezUKGMUNwLwSVUQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADbAXyJPvlyrGQv1pjSl+dT+U4A4oq2wEz/Tsg05ilxmgAAAAAOgAAAAAIAACAAAAA+QZDX91ThJMdRapfUUCyaj5IllstjFEH9vBTZgNlrNhAAAAB4VArYHF9siqcS0h7iJx6eQAAAAAGc36PPvDT3YGRdc8t4itM/+c++k3+YeAEmw/7JZSzRGtOY5b7RHVitkVsDLZDF64YMG9eGnyin4LaGwC47Sxk</DTS:Password>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -755,7 +738,7 @@ pt.categ_id = pc.id</property>
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\Llenar DimProducto\Actualizar DimProducto"
-          TopLeft="496.666639529998,376.999997378389" />
+          TopLeft="496.666639529998,378.733330699669" />
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\Llenar DimProducto\Leer productos postgres"
@@ -766,33 +749,33 @@ pt.categ_id = pc.id</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="170.466656740838,129.999998806715"
+              EndConnector="170.466656740838,131.733332127995"
               Start="0,0"
-              End="170.466656740838,122.499998806715">
+              End="170.466656740838,124.233332127995">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.7761189185471" />
+                    End="0,49.4798005056935" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,48.7761189185471"
-                    Point2="0,52.7761189185471"
-                    Point3="4,52.7761189185471" />
+                    Point1="0,49.4798005056935"
+                    Point2="0,53.4798005056935"
+                    Point3="4,53.4798005056935" />
                   <mssgle:LineSegment
-                    End="166.466656740838,52.7761189185471" />
+                    End="166.466656740838,53.4798005056935" />
                   <mssgle:CubicBezierSegment
-                    Point1="166.466656740838,52.7761189185471"
-                    Point2="170.466656740838,52.7761189185471"
-                    Point3="170.466656740838,56.7761189185471" />
+                    Point1="166.466656740838,53.4798005056935"
+                    Point2="170.466656740838,53.4798005056935"
+                    Point3="170.466656740838,57.4798005056935" />
                   <mssgle:LineSegment
-                    End="170.466656740838,122.499998806715" />
+                    End="170.466656740838,124.233332127995" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-14.585695067081,57.7761189185471,199.638046875,12.1953125"
+              BoundingBox="-23.273683348331,58.4798005056935,217.0140234375,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
