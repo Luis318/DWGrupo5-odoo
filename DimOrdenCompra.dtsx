@@ -1,0 +1,2542 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/11/2025 1:34:01 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CARO"
+  DTS:CreatorName="CARO\campe"
+  DTS:DTSID="{E522F9D1-995C-4428-84B3-411EB32889E2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="17418"
+  DTS:ObjectName="DimOrdenCompra"
+  DTS:PackageType="5"
+  DTS:VersionBuild="53"
+  DTS:VersionGUID="{CAFF57A4-C46E-43FA-B002-678EB1C9536C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Llenar DimOrdenCompra"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{756F2A30-B3BF-4F0B-B56E-210BFDB7083F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Llenar DimOrdenCompra"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Llenar DimOrdenCompra\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Llenar DimOrdenCompra\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Inputs[Data Conversion Input].Columns[codigo_orden]"
+                      cachedDataType="nText"
+                      cachedName="codigo_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[codigo_orden]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Inputs[Data Conversion Input].Columns[estado_orden]"
+                      cachedDataType="nText"
+                      cachedName="estado_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[estado_orden]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Inputs[Data Conversion Input].Columns[unidad_medida]"
+                      cachedDataType="nText"
+                      cachedName="unidad_medida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[unidad_medida]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Inputs[Data Conversion Input].Columns[cantidad_pedida]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_pedida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_pedida]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Inputs[Data Conversion Input].Columns[cantidad_recibida]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_recibida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_recibida]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[codigo_orden_wstr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="64"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[codigo_orden_wstr]"
+                      name="codigo_orden_wstr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[codigo_orden]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[estado_orden_wstr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[estado_orden_wstr]"
+                      name="estado_orden_wstr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[estado_orden]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[unidad_medida_wstr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[unidad_medida_wstr]"
+                      name="unidad_medida_wstr"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[unidad_medida]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_pedida_num]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_pedida_num]"
+                      name="cantidad_pedida_num"
+                      precision="18"
+                      scale="6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_pedida]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_recibida_num]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_recibida_num]"
+                      name="cantidad_recibida_num"
+                      precision="18"
+                      scale="6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_recibida]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimOrdenCompra\Detectar cambios"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Detectar cambios"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[codigo_orden_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="codigo_orden_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[codigo_orden_wstr]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[estado_orden_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="estado_orden_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[estado_orden_wstr]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[unidad_medida_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="unidad_medida_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[unidad_medida_wstr]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[cantidad_pedida_num]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_pedida_num"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_pedida_num]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[cantidad_recibida_num]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_recibida_num"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_recibida_num]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[Codigo_Orden]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="Codigo_Orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Codigo_Orden]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[Estado_Orden]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Estado_Orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Estado_Orden]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[Cantidad_Pedida]"
+                      cachedDataType="numeric"
+                      cachedName="Cantidad_Pedida"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Cantidad_Pedida]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[Cantidad_Recibida]"
+                      cachedDataType="numeric"
+                      cachedName="Cantidad_Recibida"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Cantidad_Recibida]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[Unidad_Medida]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Unidad_Medida"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Unidad_Medida]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input].Columns[Orden_Compra_Key]"
+                      cachedDataType="i4"
+                      cachedName="Orden_Compra_Key"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Orden_Compra_Key]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Detectar cambios.Outputs[CAMBIOS]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="CAMBIOS"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Orden_Compra_Key]}) &amp;&amp; (#{Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[codigo_orden_wstr]} != #{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Codigo_Orden]} || #{Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[estado_orden_wstr]} != #{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Estado_Orden]} || #{Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_pedida_num]} != #{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Cantidad_Pedida]} || #{Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_recibida_num]} != #{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Cantidad_Recibida]} || #{Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[unidad_medida_wstr]} != #{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Unidad_Medida]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(Orden_Compra_Key) &amp;&amp; (codigo_orden_wstr != Codigo_Orden || estado_orden_wstr != Estado_Orden || cantidad_pedida_num != Cantidad_Pedida || cantidad_recibida_num != Cantidad_Recibida || unidad_medida_wstr != Unidad_Medida)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Detectar cambios.Outputs[SIN_CAMBIO]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="SIN_CAMBIO"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Orden_Compra_Key]}) &amp;&amp; (#{Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[codigo_orden_wstr]} == #{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Codigo_Orden]} &amp;&amp; #{Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[estado_orden_wstr]} == #{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Estado_Orden]} &amp;&amp; #{Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_pedida_num]} == #{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Cantidad_Pedida]} &amp;&amp; #{Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_recibida_num]} == #{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Cantidad_Recibida]} &amp;&amp; #{Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[unidad_medida_wstr]} == #{Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Unidad_Medida]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(Orden_Compra_Key) &amp;&amp; (codigo_orden_wstr == Codigo_Orden &amp;&amp; estado_orden_wstr == Estado_Orden &amp;&amp; cantidad_pedida_num == Cantidad_Pedida &amp;&amp; cantidad_recibida_num == Cantidad_Recibida &amp;&amp; unidad_medida_wstr == Unidad_Medida)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Detectar cambios.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Detectar cambios.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Detectar cambios.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Detectar cambios.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Detectar cambios.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimOrdenCompra\DimOrdenCompra"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimOrdenCompra"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dw].[DimOrdenCompra]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Connections[OleDbConnection]"
+                  connectionManagerID="{47344A8D-BE5E-41C1-9992-1A7DE100C005}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[id_orden_compra]"
+                      cachedDataType="i4"
+                      cachedName="id_orden_compra"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Id_Orden_Compra]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[id_orden_compra]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[codigo_orden_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="codigo_orden_wstr"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Codigo_Orden]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden_wstr]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[estado_orden_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="estado_orden_wstr"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Estado_Orden]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden_wstr]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[unidad_medida_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="unidad_medida_wstr"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Unidad_Medida]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida_wstr]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[cantidad_pedida_num]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_pedida_num"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad_Pedida]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida_num]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[cantidad_recibida_num]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_recibida_num"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad_Recibida]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida_num]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[FechaInicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaInicio"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicio]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaInicio]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[FechaFin]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaFin"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[FechaFin]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaFin]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[fecha_orden]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_orden"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Orden]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_orden]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[fecha_creacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_creacion"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Creacion]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_creacion]" />
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].Columns[activo]"
+                      cachedDataType="i4"
+                      cachedName="activo"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Activo]"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[activo]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Orden_Compra_Key]"
+                      dataType="i4"
+                      name="Orden_Compra_Key" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Id_Orden_Compra]"
+                      dataType="i4"
+                      name="Id_Orden_Compra" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Codigo_Orden]"
+                      dataType="wstr"
+                      length="64"
+                      name="Codigo_Orden" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Estado_Orden]"
+                      dataType="wstr"
+                      length="20"
+                      name="Estado_Orden" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Orden]"
+                      dataType="dbTimeStamp2"
+                      name="Fecha_Orden"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Creacion]"
+                      dataType="dbTimeStamp2"
+                      name="Fecha_Creacion"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad_Pedida]"
+                      dataType="numeric"
+                      name="Cantidad_Pedida"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad_Recibida]"
+                      dataType="numeric"
+                      name="Cantidad_Recibida"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Unidad_Medida]"
+                      dataType="wstr"
+                      length="50"
+                      name="Unidad_Medida" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[UltimaActualizacion]"
+                      dataType="dbTimeStamp2"
+                      name="UltimaActualizacion"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicio]"
+                      dataType="dbTimeStamp2"
+                      name="FechaInicio"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[FechaFin]"
+                      dataType="dbTimeStamp2"
+                      name="FechaFin"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Activo]"
+                      dataType="bool"
+                      name="Activo" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimOrdenCompra\Expirar versión"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Expirar versión"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dw.DimOrdenCompra
+SET    Activo   = 0,
+       FechaFin = GETUTCDATE()
+WHERE  Orden_Compra_Key = ?
+  AND  Activo = 1
+  AND  FechaFin = '9999-12-31 00:00:00';
+
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Llenar DimOrdenCompra\Expirar versión.Connections[OleDbConnection]"
+                  connectionManagerID="{47344A8D-BE5E-41C1-9992-1A7DE100C005}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Llenar DimOrdenCompra\Expirar versión.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Expirar versión.Inputs[OLE DB Command Input].Columns[Orden_Compra_Key]"
+                      cachedDataType="i4"
+                      cachedName="Orden_Compra_Key"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Expirar versión.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Orden_Compra_Key]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Expirar versión.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Expirar versión.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Expirar versión.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Expirar versión.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Expirar versión.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Expirar versión.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Expirar versión.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Expirar versión.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Expirar versión.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Leer ordenes de compra"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    po.id              AS Id_Orden_Compra,
+    po.name            AS Codigo_Orden,
+    CASE po.state
+        WHEN 'draft'      THEN 'Borrador'
+        WHEN 'sent'       THEN 'Cotización enviada'
+        WHEN 'to approve' THEN 'Por aprobar'
+        WHEN 'purchase'   THEN 'Pedido confirmado'
+        WHEN 'done'       THEN 'Recibido'
+        WHEN 'cancel'     THEN 'Cancelado'
+        ELSE po.state
+    END                AS Estado_Orden,
+    COALESCE(po.date_order, DATE '1900-01-01')   AS Fecha_Orden,
+    COALESCE(po.create_date, DATE '1900-01-01')  AS Fecha_Creacion,
+    SUM(pol.product_qty)      AS Cantidad_Pedida,
+    SUM(pol.qty_received)     AS Cantidad_Recibida,
+    MIN(uom.name::text)       AS Unidad_Medida,
+    COALESCE(po.write_date, DATE '1900-01-01')   AS UltimaActualizacion,
+    1                         AS Activo 
+FROM purchase_order po
+JOIN purchase_order_line pol 
+    ON pol.order_id = po.id
+JOIN uom_uom uom 
+    ON uom.id = pol.product_uom
+GROUP BY po.id, po.name, po.state, po.date_order, po.create_date, po.write_date;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Connections[IDbConnection]"
+                  connectionManagerID="{60BA7266-6AA7-4EE0-B3F5-DAA6F39B86F4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_PG]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[id_orden_compra]"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]"
+                      name="id_orden_compra"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[codigo_orden]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[codigo_orden]"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[codigo_orden]"
+                      name="codigo_orden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[estado_orden]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[estado_orden]"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[estado_orden]"
+                      name="estado_orden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_orden]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_orden]"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_orden]"
+                      name="fecha_orden"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_creacion]"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion]"
+                      name="fecha_creacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_pedida]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_pedida]"
+                      length="40"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_pedida]"
+                      name="cantidad_pedida"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_recibida]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_recibida]"
+                      length="40"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_recibida]"
+                      name="cantidad_recibida"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[unidad_medida]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[unidad_medida]"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[unidad_medida]"
+                      name="unidad_medida"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[ultimaactualizacion]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[ultimaactualizacion]"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[ultimaactualizacion]"
+                      name="ultimaactualizacion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[activo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[activo]"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[activo]"
+                      name="activo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[id_orden_compra]"
+                      dataType="i4"
+                      name="id_orden_compra" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[codigo_orden]"
+                      dataType="nText"
+                      name="codigo_orden" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[estado_orden]"
+                      dataType="nText"
+                      name="estado_orden" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_orden]"
+                      dataType="dbTimeStamp"
+                      name="fecha_orden" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_creacion]"
+                      dataType="dbTimeStamp"
+                      name="fecha_creacion" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_pedida]"
+                      dataType="numeric"
+                      name="cantidad_pedida" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_recibida]"
+                      dataType="numeric"
+                      name="cantidad_recibida" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[unidad_medida]"
+                      dataType="nText"
+                      name="unidad_medida" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[ultimaactualizacion]"
+                      dataType="dbTimeStamp"
+                      name="ultimaactualizacion" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].ExternalColumns[activo]"
+                      dataType="i4"
+                      name="activo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[id_orden_compra]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[id_orden_compra]"
+                      name="id_orden_compra" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[codigo_orden]"
+                      dataType="nText"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[codigo_orden]"
+                      name="codigo_orden" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[estado_orden]"
+                      dataType="nText"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[estado_orden]"
+                      name="estado_orden" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[fecha_orden]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[fecha_orden]"
+                      name="fecha_orden" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[fecha_creacion]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[fecha_creacion]"
+                      name="fecha_creacion" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_pedida]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_pedida]"
+                      name="cantidad_pedida" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_recibida]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_recibida]"
+                      name="cantidad_recibida" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[unidad_medida]"
+                      dataType="nText"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[unidad_medida]"
+                      name="unidad_medida" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[ultimaactualizacion]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[ultimaactualizacion]"
+                      name="ultimaactualizacion" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[activo]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[activo]"
+                      name="activo" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimOrdenCompra\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dw].[DimOrdenCompra]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[DimOrdenCompra]) [refTable]
+where [refTable].[Id_Orden_Compra] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Orden_Compra_Key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Id_Orden_Compra" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Codigo_Orden" dataType="DT_WSTR" length="64" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Estado_Orden" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fecha_Orden" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fecha_Creacion" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Cantidad_Pedida" dataType="DT_NUMERIC" length="0" precision="18" scale="6" codePage="0"/&gt;&lt;referenceColumn name="Cantidad_Recibida" dataType="DT_NUMERIC" length="0" precision="18" scale="6" codePage="0"/&gt;&lt;referenceColumn name="Unidad_Medida" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UltimaActualizacion" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaInicio" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaFin" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Activo" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Llenar DimOrdenCompra\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{47344A8D-BE5E-41C1-9992-1A7DE100C005}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Llenar DimOrdenCompra\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Inputs[Lookup Input].Columns[id_orden_compra]"
+                      cachedDataType="i4"
+                      cachedName="id_orden_compra"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Id_Orden_Compra</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Codigo_Orden]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="64"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Codigo_Orden]"
+                      name="Codigo_Orden"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Codigo_Orden</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Estado_Orden]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="20"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Estado_Orden]"
+                      name="Estado_Orden"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Estado_Orden</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Cantidad_Pedida]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Cantidad_Pedida]"
+                      name="Cantidad_Pedida"
+                      precision="18"
+                      scale="6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Cantidad_Pedida</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Cantidad_Recibida]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Cantidad_Recibida]"
+                      name="Cantidad_Recibida"
+                      precision="18"
+                      scale="6"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Cantidad_Recibida</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Unidad_Medida]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Unidad_Medida]"
+                      name="Unidad_Medida"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Unidad_Medida</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[UltimaActualizacion]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[UltimaActualizacion]"
+                      name="UltimaActualizacion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">UltimaActualizacion</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[FechaInicio]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[FechaInicio]"
+                      name="FechaInicio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">FechaInicio</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[FechaFin]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[FechaFin]"
+                      name="FechaFin"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">FechaFin</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Activo]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Activo]"
+                      name="Activo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Activo</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Orden_Compra_Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Orden_Compra_Key]"
+                      name="Orden_Compra_Key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Orden_Compra_Key</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Fecha_Orden]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Fecha_Orden]"
+                      name="Fecha_Orden"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Fecha_Orden</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Fecha_Creacion]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output].Columns[Fecha_Creacion]"
+                      name="Fecha_Creacion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Fecha_Creacion</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO)"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Setear Fechas SCD2 (CAMBIO)"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output].Columns[FechaInicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output].Columns[FechaInicio]"
+                      name="FechaInicio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)[SUBSTRING]((DT_WSTR,29)[GETUTCDATE](),1,19)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)SUBSTRING((DT_WSTR,29)GETUTCDATE(),1,19)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output].Columns[FechaFin]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output].Columns[FechaFin]"
+                      name="FechaFin"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)"9999-12-31 00:00:00"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)"9999-12-31 00:00:00"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO)"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Setear Fechas SCD2 (NUEVO)"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaInicio]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaInicio]"
+                      name="FechaInicio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)[SUBSTRING]((DT_WSTR,29)[GETUTCDATE](),1,19)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)SUBSTRING((DT_WSTR,29)GETUTCDATE(),1,19)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaFin]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaFin]"
+                      name="FechaFin"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)"9999-12-31 00:00:00"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)"9999-12-31 00:00:00"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Llenar DimOrdenCompra\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[id_orden_compra]"
+                      cachedDataType="i4"
+                      cachedName="id_orden_compra"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[id_orden_compra]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[codigo_orden]"
+                      cachedDataType="nText"
+                      cachedName="codigo_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[codigo_orden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[estado_orden]"
+                      cachedDataType="nText"
+                      cachedName="estado_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[estado_orden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[fecha_orden]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_orden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_orden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[fecha_creacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_creacion"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_creacion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[cantidad_pedida]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_pedida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_pedida]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[cantidad_recibida]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_recibida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_recibida]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[unidad_medida]"
+                      cachedDataType="nText"
+                      cachedName="unidad_medida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[unidad_medida]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[ultimaactualizacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ultimaactualizacion"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[ultimaactualizacion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[ultimaactualizacion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[activo]"
+                      cachedDataType="i4"
+                      cachedName="activo"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[codigo_orden_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="codigo_orden_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[codigo_orden_wstr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden_wstr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[estado_orden_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="estado_orden_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[estado_orden_wstr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden_wstr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[unidad_medida_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="unidad_medida_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[unidad_medida_wstr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida_wstr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[cantidad_pedida_num]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_pedida_num"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_pedida_num]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida_num]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[cantidad_recibida_num]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_recibida_num"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_recibida_num]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida_num]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[FechaInicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaInicio"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaInicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaInicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[FechaFin]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaFin"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaFin]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaFin]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[id_orden_compra]"
+                      cachedDataType="i4"
+                      cachedName="id_orden_compra"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[id_orden_compra]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[codigo_orden]"
+                      cachedDataType="nText"
+                      cachedName="codigo_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[codigo_orden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[estado_orden]"
+                      cachedDataType="nText"
+                      cachedName="estado_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[estado_orden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[fecha_orden]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_orden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_orden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[fecha_creacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_creacion"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_creacion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[cantidad_pedida]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_pedida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_pedida]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[cantidad_recibida]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_recibida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_recibida]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[unidad_medida]"
+                      cachedDataType="nText"
+                      cachedName="unidad_medida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[unidad_medida]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[ultimaactualizacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ultimaactualizacion"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[ultimaactualizacion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[ultimaactualizacion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[activo]"
+                      cachedDataType="i4"
+                      cachedName="activo"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[codigo_orden_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="codigo_orden_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[codigo_orden_wstr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden_wstr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[estado_orden_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="estado_orden_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[estado_orden_wstr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden_wstr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[unidad_medida_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="unidad_medida_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[unidad_medida_wstr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida_wstr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[cantidad_pedida_num]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_pedida_num"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_pedida_num]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida_num]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[cantidad_recibida_num]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_recibida_num"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_recibida_num]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida_num]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[FechaInicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaInicio"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output].Columns[FechaInicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaInicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[FechaFin]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaFin"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output].Columns[FechaFin]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaFin]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[id_orden_compra]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[id_orden_compra]"
+                      name="id_orden_compra" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden]"
+                      dataType="nText"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden]"
+                      name="codigo_orden" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden]"
+                      dataType="nText"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden]"
+                      name="estado_orden" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_orden]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_orden]"
+                      name="fecha_orden" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_creacion]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_creacion]"
+                      name="fecha_creacion" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida]"
+                      name="cantidad_pedida" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida]"
+                      name="cantidad_recibida" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida]"
+                      dataType="nText"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida]"
+                      name="unidad_medida" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[ultimaactualizacion]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[ultimaactualizacion]"
+                      name="ultimaactualizacion" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[activo]"
+                      dataType="i4"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[activo]"
+                      name="activo" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden_wstr]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden_wstr]"
+                      name="codigo_orden_wstr" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden_wstr]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden_wstr]"
+                      name="estado_orden_wstr" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida_wstr]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida_wstr]"
+                      name="unidad_medida_wstr" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida_num]"
+                      dataType="numeric"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida_num]"
+                      name="cantidad_pedida_num"
+                      precision="18"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida_num]"
+                      dataType="numeric"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida_num]"
+                      name="cantidad_recibida_num"
+                      precision="18"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaInicio]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaInicio]"
+                      name="FechaInicio" />
+                    <outputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaFin]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaFin]"
+                      name="FechaFin" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Llenar DimOrdenCompra.Paths[CAMBIOS]"
+              endId="Package\Llenar DimOrdenCompra\Expirar versión.Inputs[OLE DB Command Input]"
+              name="CAMBIOS"
+              startId="Package\Llenar DimOrdenCompra\Detectar cambios.Outputs[CAMBIOS]" />
+            <path
+              refId="Package\Llenar DimOrdenCompra.Paths[Data Conversion Output]"
+              endId="Package\Llenar DimOrdenCompra\Lookup.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Llenar DimOrdenCompra.Paths[Derived Column Output]"
+              endId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Llenar DimOrdenCompra.Paths[Derived Column Output1]"
+              endId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Llenar DimOrdenCompra.Paths[Lookup Match Output]"
+              endId="Package\Llenar DimOrdenCompra\Detectar cambios.Inputs[Conditional Split Input]"
+              name="Lookup Match Output"
+              startId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Llenar DimOrdenCompra.Paths[Lookup No Match Output]"
+              endId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Llenar DimOrdenCompra\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Llenar DimOrdenCompra.Paths[OLE DB Command Output]"
+              endId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Inputs[Derived Column Input]"
+              name="OLE DB Command Output"
+              startId="Package\Llenar DimOrdenCompra\Expirar versión.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\Llenar DimOrdenCompra.Paths[Salida de origen de ADO NET]"
+              endId="Package\Llenar DimOrdenCompra\Data Conversion.Inputs[Data Conversion Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\Llenar DimOrdenCompra.Paths[Union All Output 1]"
+              endId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\Llenar DimOrdenCompra"
+          TopLeft="240,186" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Llenar DimOrdenCompra">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Llenar DimOrdenCompra\Detectar cambios"
+          TopLeft="252.272713489153,195.315150156954" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Llenar DimOrdenCompra\Lookup"
+          TopLeft="71.7424203225911,195.236362278715" />
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Llenar DimOrdenCompra\Expirar versión"
+          TopLeft="482.575731208982,198.545453164794" />
+        <NodeLayout
+          Size="227.2,41.6"
+          Id="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO)"
+          TopLeft="480.30300406043,297.030300964791" />
+        <NodeLayout
+          Size="191.2,41.6"
+          Id="Package\Llenar DimOrdenCompra\Leer ordenes de compra"
+          TopLeft="42.6666712197992,23.8000003977616" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\Llenar DimOrdenCompra\DimOrdenCompra"
+          TopLeft="300.757559324907,488.484845613952" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Llenar DimOrdenCompra\Data Conversion"
+          TopLeft="53.0303001328551,103.212120494397" />
+        <NodeLayout
+          Size="223.2,41.6"
+          Id="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO)"
+          TopLeft="47.7272701195697,300.181816094391" />
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Lookup Match Output]"
+          TopLeft="184.542420322591,216.075756217834">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67.7302931665623,0"
+              Start="0,0"
+              End="60.2302931665623,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="60.2302931665623,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-18.0762401354689,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Data Conversion Output]"
+          TopLeft="129.586360227723,144.812120494397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.424241784318"
+              Start="0,0"
+              End="0,42.924241784318">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.924241784318" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[CAMBIOS]"
+          TopLeft="411.472713489153,217.730301660874">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.1030177198284,0"
+              Start="0,0"
+              End="63.6030177198284,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="63.6030177198284,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="10.0915088599142,5,43.42,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[OLE DB Command Output]"
+          TopLeft="556.575731208982,240.145453164794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.3272728514487,56.8848477999971"
+              Start="0,0"
+              End="37.3272728514487,49.3848477999971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4424238999986" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4424238999986"
+                    Point2="0,28.4424238999986"
+                    Point3="4,28.4424238999986" />
+                  <mssgle:LineSegment
+                    End="33.3272728514487,28.4424238999986" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.3272728514487,28.4424238999986"
+                    Point2="37.3272728514487,28.4424238999986"
+                    Point3="37.3272728514487,32.4424238999986" />
+                  <mssgle:LineSegment
+                    End="37.3272728514487,49.3848477999971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Salida de origen de ADO NET]"
+          TopLeft="134.648485676327,65.4000003977616">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.8121200966354"
+              Start="0,0"
+              End="0,30.3121200966354">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.3121200966354" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Lookup No Match Output]"
+          TopLeft="128.142420322591,236.836362278715">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.1848497969786,63.345453815676"
+              Start="0,0"
+              End="31.1848497969786,55.845453815676">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.672726907838" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.672726907838"
+                    Point2="0,31.672726907838"
+                    Point3="4,31.672726907838" />
+                  <mssgle:LineSegment
+                    End="27.1848497969786,31.672726907838" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.1848497969786,31.672726907838"
+                    Point2="31.1848497969786,31.672726907838"
+                    Point3="31.1848497969786,35.672726907838" />
+                  <mssgle:LineSegment
+                    End="31.1848497969786,55.845453815676" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-40.2139618202607,36.672726907838,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Llenar DimOrdenCompra\Union All"
+          TopLeft="323.33331566718,389.333331477112" />
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Derived Column Output]"
+          TopLeft="159.32727011957,341.781816094391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="224.00604554761,47.5515153827212"
+              Start="0,0"
+              End="224.00604554761,40.0515153827212">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7757576913606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.7757576913606"
+                    Point2="0,23.7757576913606"
+                    Point3="4,23.7757576913606" />
+                  <mssgle:LineSegment
+                    End="220.00604554761,23.7757576913606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="220.00604554761,23.7757576913606"
+                    Point2="224.00604554761,23.7757576913606"
+                    Point3="224.00604554761,27.7757576913606" />
+                  <mssgle:LineSegment
+                    End="224.00604554761,40.0515153827212" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Derived Column Output1]"
+          TopLeft="593.90300406043,338.630300964791">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-191.903021726584,50.7030305123212"
+              Start="0,0"
+              End="-191.903021726584,43.2030305123212">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0215312244007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0215312244007"
+                    Point2="0,30.0215312244007"
+                    Point3="-4,30.0215312244007" />
+                  <mssgle:LineSegment
+                    End="-187.903021726584,30.0215312244007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-187.903021726584,30.0215312244007"
+                    Point2="-191.903021726584,30.0215312244007"
+                    Point3="-191.903021726584,34.0215312244007" />
+                  <mssgle:LineSegment
+                    End="-191.903021726584,43.2030305123212" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Union All Output 1]"
+          TopLeft="382.845437496043,430.933331477112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.5515141368398"
+              Start="0,0"
+              End="0,50.0515141368398">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.0515141368398" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimOrdenCompra\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DimOrdenCompra]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimOrdenCompra\Leer ordenes de compra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Llenar DimOrdenCompra\DimOrdenCompra">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
