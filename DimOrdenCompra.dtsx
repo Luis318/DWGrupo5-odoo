@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="CARO"
   DTS:CreatorName="CARO\campe"
-  DTS:DTSID="{E522F9D1-995C-4428-84B3-411EB32889E2}"
+  DTS:DTSID="{0A755DCD-9EDD-4D58-BCF0-144F6F5A593B}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.2"
   DTS:LocaleID="17418"
   DTS:ObjectName="DimOrdenCompra"
   DTS:PackageType="5"
-  DTS:VersionBuild="53"
-  DTS:VersionGUID="{CAFF57A4-C46E-43FA-B002-678EB1C9536C}">
+  DTS:VersionBuild="54"
+  DTS:VersionGUID="{693269C9-B199-4144-B407-C41219D222C4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\Llenar DimOrdenCompra"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{756F2A30-B3BF-4F0B-B56E-210BFDB7083F}"
+      DTS:DTSID="{15664E61-6F83-4C5B-B5E8-B900665881C6}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Llenar DimOrdenCompra"
@@ -2500,7 +2500,7 @@ where [refTable].[Id_Orden_Compra] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
