@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimOrdenCompra"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{693269C9-B199-4144-B407-C41219D222C4}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{AA24680B-D6EB-4494-815C-F5C60AE2AC40}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -768,7 +768,12 @@ WHERE  Orden_Compra_Key = ?
     COALESCE(po.create_date, DATE '1900-01-01')  AS Fecha_Creacion,
     SUM(pol.product_qty)      AS Cantidad_Pedida,
     SUM(pol.qty_received)     AS Cantidad_Recibida,
-    MIN(uom.name::text)       AS Unidad_Medida,
+    MIN(
+        COALESCE(
+            uom.name::json -&gt;&gt; 'es_CO',   -- 🔹 si existe en español
+            uom.name::json -&gt;&gt; 'en_US'    -- 🔹 si no, toma inglés
+        )
+    ) AS Unidad_Medida,
     COALESCE(po.write_date, DATE '1900-01-01')   AS UltimaActualizacion,
     1                         AS Activo 
 FROM purchase_order po
@@ -1081,7 +1086,7 @@ where [refTable].[Id_Orden_Compra] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]};</property>
+                  name="ParameterMap">#{Package\Llenar DimOrdenCompra\117:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1541,7 +1546,246 @@ where [refTable].[Id_Orden_Compra] = ?</property>
               version="1">
               <inputs>
                 <input
+                  refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[id_orden_compra]"
+                      cachedDataType="i4"
+                      cachedName="id_orden_compra"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[id_orden_compra]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[codigo_orden]"
+                      cachedDataType="nText"
+                      cachedName="codigo_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[codigo_orden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[estado_orden]"
+                      cachedDataType="nText"
+                      cachedName="estado_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[estado_orden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[fecha_orden]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_orden"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_orden]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_orden]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[fecha_creacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="fecha_creacion"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_creacion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[cantidad_pedida]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_pedida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_pedida]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[cantidad_recibida]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_recibida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_recibida]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[unidad_medida]"
+                      cachedDataType="nText"
+                      cachedName="unidad_medida"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[unidad_medida]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[ultimaactualizacion]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ultimaactualizacion"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[ultimaactualizacion]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[ultimaactualizacion]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[activo]"
+                      cachedDataType="i4"
+                      cachedName="activo"
+                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[activo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[activo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[codigo_orden_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="codigo_orden_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[codigo_orden_wstr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden_wstr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[estado_orden_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="estado_orden_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[estado_orden_wstr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden_wstr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[unidad_medida_wstr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="unidad_medida_wstr"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[unidad_medida_wstr]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida_wstr]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[cantidad_pedida_num]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_pedida_num"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_pedida_num]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida_num]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[cantidad_recibida_num]"
+                      cachedDataType="numeric"
+                      cachedName="cantidad_recibida_num"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_recibida_num]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida_num]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[FechaInicio]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaInicio"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaInicio]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaInicio]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3].Columns[FechaFin]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaFin"
+                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaFin]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaFin]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
                   refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1]"
+                  hasSideEffects="true"
                   name="Union All Input 1">
                   <inputColumns>
                     <inputColumn
@@ -1752,244 +1996,6 @@ where [refTable].[Id_Orden_Compra] = ?</property>
                       refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[FechaInicio]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaInicio"
-                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaInicio]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaInicio]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[FechaFin]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="FechaFin"
-                      lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output].Columns[FechaFin]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[FechaFin]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2]"
-                  hasSideEffects="true"
-                  name="Union All Input 2">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[id_orden_compra]"
-                      cachedDataType="i4"
-                      cachedName="id_orden_compra"
-                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[id_orden_compra]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[codigo_orden]"
-                      cachedDataType="nText"
-                      cachedName="codigo_orden"
-                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[codigo_orden]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[estado_orden]"
-                      cachedDataType="nText"
-                      cachedName="estado_orden"
-                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[estado_orden]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[fecha_orden]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="fecha_orden"
-                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_orden]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_orden]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[fecha_creacion]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="fecha_creacion"
-                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[fecha_creacion]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[cantidad_pedida]"
-                      cachedDataType="wstr"
-                      cachedLength="40"
-                      cachedName="cantidad_pedida"
-                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_pedida]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[cantidad_recibida]"
-                      cachedDataType="wstr"
-                      cachedLength="40"
-                      cachedName="cantidad_recibida"
-                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[cantidad_recibida]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[unidad_medida]"
-                      cachedDataType="nText"
-                      cachedName="unidad_medida"
-                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[unidad_medida]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[ultimaactualizacion]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="ultimaactualizacion"
-                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[ultimaactualizacion]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[ultimaactualizacion]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[activo]"
-                      cachedDataType="i4"
-                      cachedName="activo"
-                      lineageId="Package\Llenar DimOrdenCompra\Leer ordenes de compra.Outputs[Salida de origen de ADO NET].Columns[activo]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[activo]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[codigo_orden_wstr]"
-                      cachedDataType="wstr"
-                      cachedLength="64"
-                      cachedName="codigo_orden_wstr"
-                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[codigo_orden_wstr]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[codigo_orden_wstr]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[estado_orden_wstr]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
-                      cachedName="estado_orden_wstr"
-                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[estado_orden_wstr]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[estado_orden_wstr]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[unidad_medida_wstr]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="unidad_medida_wstr"
-                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[unidad_medida_wstr]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[unidad_medida_wstr]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[cantidad_pedida_num]"
-                      cachedDataType="numeric"
-                      cachedName="cantidad_pedida_num"
-                      cachedPrecision="18"
-                      cachedScale="6"
-                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_pedida_num]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_pedida_num]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[cantidad_recibida_num]"
-                      cachedDataType="numeric"
-                      cachedName="cantidad_recibida_num"
-                      cachedPrecision="18"
-                      cachedScale="6"
-                      lineageId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output].Columns[cantidad_recibida_num]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Llenar DimOrdenCompra\Union All.Outputs[Union All Output 1].Columns[cantidad_recibida_num]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[FechaInicio]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="FechaInicio"
                       lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output].Columns[FechaInicio]">
                       <properties>
                         <property
@@ -2000,7 +2006,7 @@ where [refTable].[Id_Orden_Compra] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2].Columns[FechaFin]"
+                      refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1].Columns[FechaFin]"
                       cachedDataType="dbTimeStamp"
                       cachedName="FechaFin"
                       lineageId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output].Columns[FechaFin]">
@@ -2016,10 +2022,10 @@ where [refTable].[Id_Orden_Compra] = ?</property>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3]"
+                  refId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2]"
                   dangling="true"
                   hasSideEffects="true"
-                  name="Union All Input 3">
+                  name="Union All Input 2">
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -2141,12 +2147,12 @@ where [refTable].[Id_Orden_Compra] = ?</property>
               startId="Package\Llenar DimOrdenCompra\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Llenar DimOrdenCompra.Paths[Derived Column Output]"
-              endId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1]"
+              endId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 3]"
               name="Derived Column Output"
               startId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO).Outputs[Derived Column Output]" />
             <path
               refId="Package\Llenar DimOrdenCompra.Paths[Derived Column Output1]"
-              endId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 2]"
+              endId="Package\Llenar DimOrdenCompra\Union All.Inputs[Union All Input 1]"
               name="Derived Column Output"
               startId="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO).Outputs[Derived Column Output]" />
             <path
@@ -2204,25 +2210,29 @@ where [refTable].[Id_Orden_Compra] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Llenar DimOrdenCompra\Detectar cambios"
-          TopLeft="252.272713489153,195.315150156954" />
-        <NodeLayout
           Size="112.8,41.6"
           Id="Package\Llenar DimOrdenCompra\Lookup"
           TopLeft="71.7424203225911,195.236362278715" />
-        <NodeLayout
-          Size="148,41.6"
-          Id="Package\Llenar DimOrdenCompra\Expirar versión"
-          TopLeft="482.575731208982,198.545453164794" />
         <NodeLayout
           Size="227.2,41.6"
           Id="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (CAMBIO)"
           TopLeft="480.30300406043,297.030300964791" />
         <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Llenar DimOrdenCompra\Detectar cambios"
+          TopLeft="252.272713489153,195.315150156954" />
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Llenar DimOrdenCompra\Expirar versión"
+          TopLeft="482.575731208982,198.545453164794" />
+        <NodeLayout
           Size="191.2,41.6"
           Id="Package\Llenar DimOrdenCompra\Leer ordenes de compra"
           TopLeft="42.6666712197992,23.8000003977616" />
+        <NodeLayout
+          Size="223.2,41.6"
+          Id="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO)"
+          TopLeft="47.7272701195697,300.181816094391" />
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\Llenar DimOrdenCompra\DimOrdenCompra"
@@ -2232,9 +2242,123 @@ where [refTable].[Id_Orden_Compra] = ?</property>
           Id="Package\Llenar DimOrdenCompra\Data Conversion"
           TopLeft="53.0303001328551,103.212120494397" />
         <NodeLayout
-          Size="223.2,41.6"
-          Id="Package\Llenar DimOrdenCompra\Setear Fechas SCD2 (NUEVO)"
-          TopLeft="47.7272701195697,300.181816094391" />
+          Size="120,41.6"
+          Id="Package\Llenar DimOrdenCompra\Union All"
+          TopLeft="323.33331566718,389.333331477112" />
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Union All Output 1]"
+          TopLeft="382.845437496043,430.933331477112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.5515141368398"
+              Start="0,0"
+              End="0,50.0515141368398">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.0515141368398" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Salida de origen de ADO NET]"
+          TopLeft="134.648485676327,65.4000003977616">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.8121200966354"
+              Start="0,0"
+              End="0,30.3121200966354">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.3121200966354" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[OLE DB Command Output]"
+          TopLeft="556.575731208982,240.145453164794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.3272728514487,56.8848477999971"
+              Start="0,0"
+              End="37.3272728514487,49.3848477999971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4424238999986" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4424238999986"
+                    Point2="0,28.4424238999986"
+                    Point3="4,28.4424238999986" />
+                  <mssgle:LineSegment
+                    End="33.3272728514487,28.4424238999986" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.3272728514487,28.4424238999986"
+                    Point2="37.3272728514487,28.4424238999986"
+                    Point3="37.3272728514487,32.4424238999986" />
+                  <mssgle:LineSegment
+                    End="37.3272728514487,49.3848477999971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Lookup No Match Output]"
+          TopLeft="128.142420322591,236.836362278715">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.1848497969786,63.345453815676"
+              Start="0,0"
+              End="31.1848497969786,55.845453815676">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.672726907838" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.672726907838"
+                    Point2="0,31.672726907838"
+                    Point3="4,31.672726907838" />
+                  <mssgle:LineSegment
+                    End="27.1848497969786,31.672726907838" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.1848497969786,31.672726907838"
+                    Point2="31.1848497969786,31.672726907838"
+                    Point3="31.1848497969786,35.672726907838" />
+                  <mssgle:LineSegment
+                    End="31.1848497969786,55.845453815676" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-40.2139618202607,36.672726907838,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Llenar DimOrdenCompra.Paths[Lookup Match Output]"
           TopLeft="184.542420322591,216.075756217834">
@@ -2306,127 +2430,31 @@ where [refTable].[Id_Orden_Compra] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Llenar DimOrdenCompra.Paths[OLE DB Command Output]"
-          TopLeft="556.575731208982,240.145453164794">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="37.3272728514487,56.8848477999971"
-              Start="0,0"
-              End="37.3272728514487,49.3848477999971">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.4424238999986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.4424238999986"
-                    Point2="0,28.4424238999986"
-                    Point3="4,28.4424238999986" />
-                  <mssgle:LineSegment
-                    End="33.3272728514487,28.4424238999986" />
-                  <mssgle:CubicBezierSegment
-                    Point1="33.3272728514487,28.4424238999986"
-                    Point2="37.3272728514487,28.4424238999986"
-                    Point3="37.3272728514487,32.4424238999986" />
-                  <mssgle:LineSegment
-                    End="37.3272728514487,49.3848477999971" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Llenar DimOrdenCompra.Paths[Salida de origen de ADO NET]"
-          TopLeft="134.648485676327,65.4000003977616">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.8121200966354"
-              Start="0,0"
-              End="0,30.3121200966354">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.3121200966354" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Llenar DimOrdenCompra.Paths[Lookup No Match Output]"
-          TopLeft="128.142420322591,236.836362278715">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="31.1848497969786,63.345453815676"
-              Start="0,0"
-              End="31.1848497969786,55.845453815676">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27.672726907838" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27.672726907838"
-                    Point2="0,31.672726907838"
-                    Point3="4,31.672726907838" />
-                  <mssgle:LineSegment
-                    End="27.1848497969786,31.672726907838" />
-                  <mssgle:CubicBezierSegment
-                    Point1="27.1848497969786,31.672726907838"
-                    Point2="31.1848497969786,31.672726907838"
-                    Point3="31.1848497969786,35.672726907838" />
-                  <mssgle:LineSegment
-                    End="31.1848497969786,55.845453815676" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-40.2139618202607,36.672726907838,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="120,41.6"
-          Id="Package\Llenar DimOrdenCompra\Union All"
-          TopLeft="323.33331566718,389.333331477112" />
-        <EdgeLayout
           Id="Package\Llenar DimOrdenCompra.Paths[Derived Column Output]"
           TopLeft="159.32727011957,341.781816094391">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="224.00604554761,47.5515153827212"
+              EndConnector="224.00604554761,47.5515153827209"
               Start="0,0"
-              End="224.00604554761,40.0515153827212">
+              End="224.00604554761,40.0515153827209">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7757576913606" />
+                    End="0,19.7757576913605" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.7757576913606"
-                    Point2="0,23.7757576913606"
-                    Point3="4,23.7757576913606" />
+                    Point1="0,19.7757576913605"
+                    Point2="0,23.7757576913605"
+                    Point3="4,23.7757576913605" />
                   <mssgle:LineSegment
-                    End="220.00604554761,23.7757576913606" />
+                    End="220.00604554761,23.7757576913605" />
                   <mssgle:CubicBezierSegment
-                    Point1="220.00604554761,23.7757576913606"
-                    Point2="224.00604554761,23.7757576913606"
-                    Point3="224.00604554761,27.7757576913606" />
+                    Point1="220.00604554761,23.7757576913605"
+                    Point2="224.00604554761,23.7757576913605"
+                    Point3="224.00604554761,27.7757576913605" />
                   <mssgle:LineSegment
-                    End="224.00604554761,40.0515153827212" />
+                    End="224.00604554761,40.0515153827209" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2441,48 +2469,26 @@ where [refTable].[Id_Orden_Compra] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-191.903021726584,50.7030305123212"
+              EndConnector="-191.903021726583,50.7030305123209"
               Start="0,0"
-              End="-191.903021726584,43.2030305123212">
+              End="-191.903021726583,43.2030305123209">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.0215312244007" />
+                    End="0,26.0215312244006" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.0215312244007"
-                    Point2="0,30.0215312244007"
-                    Point3="-4,30.0215312244007" />
+                    Point1="0,26.0215312244006"
+                    Point2="0,30.0215312244006"
+                    Point3="-4,30.0215312244006" />
                   <mssgle:LineSegment
-                    End="-187.903021726584,30.0215312244007" />
+                    End="-187.903021726583,30.0215312244006" />
                   <mssgle:CubicBezierSegment
-                    Point1="-187.903021726584,30.0215312244007"
-                    Point2="-191.903021726584,30.0215312244007"
-                    Point3="-191.903021726584,34.0215312244007" />
+                    Point1="-187.903021726583,30.0215312244006"
+                    Point2="-191.903021726583,30.0215312244006"
+                    Point3="-191.903021726583,34.0215312244006" />
                   <mssgle:LineSegment
-                    End="-191.903021726584,43.2030305123212" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Llenar DimOrdenCompra.Paths[Union All Output 1]"
-          TopLeft="382.845437496043,430.933331477112">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.5515141368398"
-              Start="0,0"
-              End="0,50.0515141368398">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.0515141368398" />
+                    End="-191.903021726583,43.2030305123209" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
