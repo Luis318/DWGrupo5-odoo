@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-FS5TT22</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAM0DDiKS8k+5B7P2PGRKswAAAAACAAAAAAAQZgAAAAEAACAAAACeTDRDiiE5KB13hw1H+omD7NwsBqh4h9y5XNuvUxkxnwAAAAAOgAAAAAIAACAAAABQYbs+b6uJ/PZl5HyO1ZIhzc4XHRXE6tmB4qzK5yfU95AAAABUePRlqeuhmiEFM6uZCav09yqRnLXxe0NGuhxfvOkERZafjWanhxmrIRaE0iMdLal0X2dFtd7VHIl8iorA8qUrBFnyQwxdfpQHt5r96f6I+2f9MxNP0DjOnNj9hzfwxd+D4qgLSR+MmwZyImjz/H+zdm7endcRKBUwgzbgd6YCjAwTZxIX2IaBiT238CA2QQZAAAAAndeZtf9ylsj63nNUkkXl/n7xAqNgd4A91gemW/fBSeQ0tPw5E67AVU4lGPDyI1eBqN/ZmDaS8BurPs/ptTNtlw==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAM0DDiKS8k+5B7P2PGRKswAAAAACAAAAAAAQZgAAAAEAACAAAABZujUmVy7YbBoPvoDrFycrTwpDFzyJVse6B/0Mq2c8xgAAAAAOgAAAAAIAACAAAAB4W0BLxAANxf8EKKOs09bYBAKEgfe6IAHXbqWujMwluJAAAAAZ4b+yqy+N1q6SGlNh/XiTCltRVyylLJbiC975P/M2qYQBIUJVi5RhNGaiOyEnllQgF2KwrKoJ2FHHOz1goXyQrXgBbIhfK9u1L/B3eU62QcdQxQhdhYkp9b62Jy/SsQcuZV7mPzqGi59lODOUYND4h4QNgPkPRjInaval0k0bIYlfdCmYB94wdURrZDNdXxxAAAAAJEL7HRWaU+c5z2A3rf1sMEI8wBx1ovQ54XgkSBSIegsIhaFJ6gRX0XL/vCQAvq1QrxrhCyzOrAjd+EJyV1PWYA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -35,6 +35,7 @@
           <SSIS:Package SSIS:Name="DimAlmacen.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DimOrdenCompra.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DimAveria.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="FactInventariosOdoo.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="CM_DW.conmgr" />
@@ -462,6 +463,23 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{9D845E0A-C4E4-4153-9546-83249E25C8EB}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="FactInventariosOdoo.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{8402B7B9-A805-4C15-8722-64D630F2658F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{F371D72D-B1E0-4D36-83DD-9D8F8F6606F7}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

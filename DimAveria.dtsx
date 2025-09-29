@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{4ADBC822-36BD-4401-81E6-0273F2AE6153}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{0C20F438-CB31-4042-8874-0287A1C5E020}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -566,40 +566,6 @@ LEFT JOIN product_template pt ON pt.id = p.product_tmpl_id;</property>
           Id="Package\Llenar DimAveria\Leer averias postgres"
           TopLeft="158.888886499184,49.5888881453651" />
         <EdgeLayout
-          Id="Package\Llenar DimAveria.Paths[Salida de origen de ADO NET]"
-          TopLeft="248.088886499184,91.1888881453651">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="138.01109642657,74.3444440368699"
-              Start="0,0"
-              End="138.01109642657,66.8444440368699">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.1722220184349" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.1722220184349"
-                    Point2="0,37.1722220184349"
-                    Point3="4,37.1722220184349" />
-                  <mssgle:LineSegment
-                    End="134.01109642657,37.1722220184349" />
-                  <mssgle:CubicBezierSegment
-                    Point1="134.01109642657,37.1722220184349"
-                    Point2="138.01109642657,37.1722220184349"
-                    Point3="138.01109642657,41.1722220184349" />
-                  <mssgle:LineSegment
-                    End="138.01109642657,66.8444440368699" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Llenar DimAveria.Paths[Lookup No Match Output]"
           TopLeft="386.099982925754,207.133332182235">
           <EdgeLayout.Curve>
@@ -633,6 +599,40 @@ LEFT JOIN product_template pt ON pt.id = p.product_tmpl_id;</property>
             <mssgm:EdgeLabel
               BoundingBox="-118.406382894119,54.9777772855981,111.6127734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimAveria.Paths[Salida de origen de ADO NET]"
+          TopLeft="248.088886499184,91.1888881453651">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="138.01109642657,74.3444440368699"
+              Start="0,0"
+              End="138.01109642657,66.8444440368699">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.1722220184349" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.1722220184349"
+                    Point2="0,37.1722220184349"
+                    Point3="4,37.1722220184349" />
+                  <mssgle:LineSegment
+                    End="134.01109642657,37.1722220184349" />
+                  <mssgle:CubicBezierSegment
+                    Point1="134.01109642657,37.1722220184349"
+                    Point2="138.01109642657,37.1722220184349"
+                    Point3="138.01109642657,41.1722220184349" />
+                  <mssgle:LineSegment
+                    End="138.01109642657,66.8444440368699" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
