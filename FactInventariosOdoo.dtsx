@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{F371D72D-B1E0-4D36-83DD-9D8F8F6606F7}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{6A419DD7-D6D2-4E4C-BB2C-8B52A43AF8C8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -29,7 +29,1925 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
-          version="1" />
+          version="1">
+          <components>
+            <component
+              refId="Package\FactInventariosOdoo\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\FactInventariosOdoo\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Data Conversion.Inputs[Data Conversion Input].Columns[createdat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="createdat"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[createdat]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Output].Columns[createdat convert]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Output].Columns[createdat convert]"
+                      name="createdat convert"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[createdat]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventariosOdoo\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\FactInventariosOdoo\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventariosOdoo\Destino de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino de ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dw"."FT_Inventario"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventariosOdoo\Destino de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="{FDA421CD-E225-43E8-A463-9584F576D76B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ADO2-destino]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[cantidad_ingresada]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_ingresada"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cantidad_Ingresada]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_ingresada]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[cantidad_descargada]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_descargada"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cantidad_Descargada]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_descargada]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[cantidad_devoluciones]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_devoluciones"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cantidad_Devoluciones]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_devoluciones]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[cantidad_averiada]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="cantidad_averiada"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cantidad_Averiada]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_averiada]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[inventario_fisico]"
+                      cachedDataType="numeric"
+                      cachedName="inventario_fisico"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Inventario_Fisico]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_fisico]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[diferencia_inventario]"
+                      cachedDataType="numeric"
+                      cachedName="diferencia_inventario"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Diferencia_Inventario]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[diferencia_inventario]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[recepcion_aprobada]"
+                      cachedDataType="i4"
+                      cachedName="recepcion_aprobada"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Recepcion_Aprobada]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[recepcion_aprobada]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[recepcion_rechazada]"
+                      cachedDataType="i4"
+                      cachedName="recepcion_rechazada"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Recepcion_Rechazada]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[recepcion_rechazada]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[stock_minimo]"
+                      cachedDataType="numeric"
+                      cachedName="stock_minimo"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Stock_Minimo]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[stock_minimo]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[stock]"
+                      cachedDataType="numeric"
+                      cachedName="stock"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Stock]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[stock]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[estado_stock]"
+                      cachedDataType="nText"
+                      cachedName="estado_stock"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Estado_Stock]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[estado_stock]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tipo_evento]"
+                      cachedDataType="nText"
+                      cachedName="tipo_evento"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Tipo_Evento]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tipo_evento]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[lote_serie]"
+                      cachedDataType="nText"
+                      cachedName="lote_serie"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Lote_Serie]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[lote_serie]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[ProductoKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductoKey"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductoKey]"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Match Output].Columns[ProductoKey]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Orden_Compra_Key]"
+                      cachedDataType="i4"
+                      cachedName="Orden_Compra_Key"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Orden_Compra_Key]"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Match Output].Columns[Orden_Compra_Key]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[AlmacenKey]"
+                      cachedDataType="i4"
+                      cachedName="AlmacenKey"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[AlmacenKey]"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Match Output].Columns[AlmacenKey]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[AveriaKey]"
+                      cachedDataType="i4"
+                      cachedName="AveriaKey"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[AveriaKey]"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Match Output].Columns[AveriaKey]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[FechaKey]"
+                      cachedDataType="i4"
+                      cachedName="FechaKey"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaKey]"
+                      lineageId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output].Columns[FechaKey]" />
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[createdat convert]"
+                      cachedDataType="dbDate"
+                      cachedName="createdat convert"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CreatedAt]"
+                      lineageId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Output].Columns[createdat convert]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[RowID]"
+                      dataType="i8"
+                      name="RowID" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaKey]"
+                      dataType="i4"
+                      name="FechaKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductoKey]"
+                      dataType="i4"
+                      name="ProductoKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[AlmacenKey]"
+                      dataType="i4"
+                      name="AlmacenKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Orden_Compra_Key]"
+                      dataType="i4"
+                      name="Orden_Compra_Key" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[AveriaKey]"
+                      dataType="i4"
+                      name="AveriaKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cantidad_Ingresada]"
+                      dataType="numeric"
+                      name="Cantidad_Ingresada"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cantidad_Averiada]"
+                      dataType="numeric"
+                      name="Cantidad_Averiada"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cantidad_Devoluciones]"
+                      dataType="numeric"
+                      name="Cantidad_Devoluciones"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Cantidad_Descargada]"
+                      dataType="numeric"
+                      name="Cantidad_Descargada"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Inventario_Fisico]"
+                      dataType="numeric"
+                      name="Inventario_Fisico"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Diferencia_Inventario]"
+                      dataType="numeric"
+                      name="Diferencia_Inventario"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Recepcion_Aprobada]"
+                      dataType="i4"
+                      name="Recepcion_Aprobada" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Recepcion_Rechazada]"
+                      dataType="i4"
+                      name="Recepcion_Rechazada" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Stock_Minimo]"
+                      dataType="numeric"
+                      name="Stock_Minimo"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Stock]"
+                      dataType="numeric"
+                      name="Stock"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Estado_Stock]"
+                      dataType="wstr"
+                      length="12"
+                      name="Estado_Stock" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Tipo_Evento]"
+                      dataType="wstr"
+                      length="20"
+                      name="Tipo_Evento" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Lote_Serie]"
+                      dataType="wstr"
+                      length="64"
+                      name="Lote_Serie" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CreatedAt]"
+                      dataType="dbTimeStamp"
+                      name="CreatedAt" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventariosOdoo\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventariosOdoo\Lookup createdAt"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup createdAt"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dw].[DimFecha]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[DimFecha]) [refTable]
+where [refTable].[Fecha] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="FechaKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fecha" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Dia_Mes" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Dia" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Mes" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Mes" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Anio" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Dia_Anio" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Numero_Semana" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semestre" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Output].Columns[createdat convert]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventariosOdoo\Lookup createdAt.Connections[OleDbConnection]"
+                  connectionManagerID="{47344A8D-BE5E-41C1-9992-1A7DE100C005}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactInventariosOdoo\Lookup createdAt.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Lookup createdAt.Inputs[Lookup Input].Columns[createdat convert]"
+                      cachedDataType="dbDate"
+                      cachedName="createdat convert"
+                      lineageId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Output].Columns[createdat convert]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Fecha</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup createdAt.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output].Columns[FechaKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output].Columns[FechaKey]"
+                      name="FechaKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">FechaKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup createdAt.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup createdAt.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventariosOdoo\Lookup DimAlmacen"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup DimAlmacen"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dw].[DimAlmacen]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[DimAlmacen]) [refTable]
+where [refTable].[Id_Almacen] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="AlmacenKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Id_Almacen" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Almacen" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Es_Ubicacion_Scrap" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fecha_Creacion_Almacen" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fecha_Ultimo_Inventario" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fecha_Proximo_Inventario" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Activo" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaInicio" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaFin" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_almacen]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventariosOdoo\Lookup DimAlmacen.Connections[OleDbConnection]"
+                  connectionManagerID="{47344A8D-BE5E-41C1-9992-1A7DE100C005}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactInventariosOdoo\Lookup DimAlmacen.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimAlmacen.Inputs[Lookup Input].Columns[id_almacen]"
+                      cachedDataType="i4"
+                      cachedName="id_almacen"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_almacen]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Id_Almacen</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimAlmacen.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Match Output].Columns[AlmacenKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Match Output].Columns[AlmacenKey]"
+                      name="AlmacenKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">AlmacenKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimAlmacen.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimAlmacen.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventariosOdoo\Lookup DimAveria"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup DimAveria"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dw].[DimAveria]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[DimAveria]) [refTable]
+where [refTable].[Id_Averia] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="AveriaKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Id_Averia" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Averia" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Cantidad_Averiada" dataType="DT_NUMERIC" length="0" precision="18" scale="6" codePage="0"/&gt;&lt;referenceColumn name="Fecha_Averia" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Producto" dataType="DT_WSTR" length="256" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_averia]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventariosOdoo\Lookup DimAveria.Connections[OleDbConnection]"
+                  connectionManagerID="{47344A8D-BE5E-41C1-9992-1A7DE100C005}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactInventariosOdoo\Lookup DimAveria.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimAveria.Inputs[Lookup Input].Columns[id_averia]"
+                      cachedDataType="i4"
+                      cachedName="id_averia"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_averia]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Id_Averia</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimAveria.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Match Output].Columns[AveriaKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Match Output].Columns[AveriaKey]"
+                      name="AveriaKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">AveriaKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimAveria.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimAveria.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup DimOrdenCompra"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dw].[DimOrdenCompra]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[DimOrdenCompra] where Activo=1) [refTable]
+where [refTable].[Id_Orden_Compra] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Orden_Compra_Key" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Id_Orden_Compra" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Codigo_Orden" dataType="DT_WSTR" length="64" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Estado_Orden" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fecha_Orden" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="Fecha_Creacion" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="Cantidad_Pedida" dataType="DT_NUMERIC" length="0" precision="18" scale="6" codePage="0"/&gt;&lt;referenceColumn name="Cantidad_Recibida" dataType="DT_NUMERIC" length="0" precision="18" scale="6" codePage="0"/&gt;&lt;referenceColumn name="Unidad_Medida" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UltimaActualizacion" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="FechaInicio" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaFin" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Activo" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Connections[OleDbConnection]"
+                  connectionManagerID="{47344A8D-BE5E-41C1-9992-1A7DE100C005}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Inputs[Lookup Input].Columns[id_orden_compra]"
+                      cachedDataType="i4"
+                      cachedName="id_orden_compra"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Id_Orden_Compra</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Match Output].Columns[Orden_Compra_Key]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Match Output].Columns[Orden_Compra_Key]"
+                      name="Orden_Compra_Key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Orden_Compra_Key</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventariosOdoo\Lookup DimProducto"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup DimProducto"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dw].[DimProducto]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[DimProducto]) [refTable]
+where [refTable].[Id_Producto] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductoKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Id_Producto" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Codigo_Producto" dataType="DT_WSTR" length="64" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Producto" dataType="DT_WSTR" length="256" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Categoria_Producto" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fecha_Creacion_Producto" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Activo" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaInicio" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FechaFin" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_producto]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventariosOdoo\Lookup DimProducto.Connections[OleDbConnection]"
+                  connectionManagerID="{47344A8D-BE5E-41C1-9992-1A7DE100C005}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactInventariosOdoo\Lookup DimProducto.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimProducto.Inputs[Lookup Input].Columns[id_producto]"
+                      cachedDataType="i4"
+                      cachedName="id_producto"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_producto]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Id_Producto</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimProducto.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Match Output].Columns[ProductoKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Match Output].Columns[ProductoKey]"
+                      name="ProductoKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ProductoKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimProducto.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactInventariosOdoo\Lookup DimProducto.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventariosOdoo\Origen de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen de ADO NET"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">WITH uom AS (
+  SELECT id, COALESCE(name-&gt;&gt;'es_MX',name-&gt;&gt;'es_ES',name-&gt;&gt;'es_CO',name-&gt;&gt;'en_US',name-&gt;&gt;'0')::text AS uom_name
+  FROM public.uom_uom
+),
+pt_names AS (
+  SELECT id, COALESCE(name-&gt;&gt;'es_MX',name-&gt;&gt;'es_ES',name-&gt;&gt;'es_CO',name-&gt;&gt;'en_US',name-&gt;&gt;'0')::text AS producto_nombre
+  FROM public.product_template
+),
+picking_type AS (
+  SELECT id,
+         COALESCE(name-&gt;&gt;'es_MX',name-&gt;&gt;'es_ES',name-&gt;&gt;'es_CO',name-&gt;&gt;'en_US',name-&gt;&gt;'0')::text AS picking_type_name,
+         code::text AS picking_type_code
+  FROM public.stock_picking_type
+),
+-- Snapshot de stock por producto/ubicación (para la columna Stock)
+quant AS (
+  SELECT product_id, location_id,
+         COALESCE(SUM(quantity),0)::numeric(18,6) AS qty_on_hand,
+         COALESCE(SUM(reserved_quantity),0)::numeric(18,6) AS qty_reserved
+  FROM public.stock_quant
+  GROUP BY product_id, location_id
+),
+/* ================= movimientos base (recepción/entrega/transferencia) */
+base_mov AS (
+  SELECT
+    sml.id::int                                    AS id_evento,
+    sml."date"::timestamp                          AS fecha,
+    COALESCE(sml.product_id,sm.product_id)::int    AS id_producto,
+    COALESCE(pp.default_code,'SIN_CODIGO')::text   AS codigo_producto,
+    ptn.producto_nombre::text                      AS nombre_producto,
+    pt.categ_id::int                               AS id_categoria,
+    COALESCE(pc.name,'Sin categoría')::text        AS nombre_categoria,
+    sml.location_id::int                           AS id_ubic_origen,
+    sml.location_dest_id::int                      AS id_ubic_destino,
+    COALESCE(sml.quantity,sml.quantity_product_uom,sm.quantity,0)::numeric(18,6) AS cantidad,
+    u.uom_name::text                               AS unidad_medida,
+    ptp.picking_type_code::text                    AS picking_type_codigo,
+    (CASE ptp.picking_type_code
+       WHEN 'incoming' THEN 'recepcion'
+       WHEN 'outgoing' THEN 'entrega'
+       WHEN 'internal' THEN 'transferencia'
+       ELSE COALESCE(ptp.picking_type_code,'otro')
+     END)::text                                    AS tipo_evento,
+    sm.state::text                                 AS estado_move,
+    sp.id::int                                     AS id_picking,
+    COALESCE(sp.name,'')::text                     AS codigo_picking,
+    pol.order_id::int                              AS id_orden_compra,
+    COALESCE(po.name,'')::text                     AS codigo_orden_compra,
+    sm.production_id::int                          AS id_orden_produccion,
+    COALESCE(mp.name,'')::text                     AS codigo_orden_produccion,
+    sml.lot_id::int                                AS id_lote,
+    COALESCE(sml.lot_name,'')::text                AS lote_serie,
+    COALESCE(sm.reference,'')::text                AS referencia,
+    sm.company_id::int                             AS id_compania,
+    sm.origin_returned_move_id::int                AS origen_devolucion_move_id
+  FROM public.stock_move_line sml
+  JOIN public.stock_move sm              ON sm.id = sml.move_id
+  LEFT JOIN public.stock_picking sp      ON sp.id = sm.picking_id
+  LEFT JOIN picking_type ptp             ON ptp.id = sm.picking_type_id
+  LEFT JOIN public.product_product pp    ON pp.id = COALESCE(sml.product_id, sm.product_id)
+  LEFT JOIN public.product_template pt   ON pt.id = pp.product_tmpl_id
+  LEFT JOIN pt_names ptn                 ON ptn.id = pt.id
+  LEFT JOIN public.product_category pc   ON pc.id = pt.categ_id
+  LEFT JOIN uom u                        ON u.id = sm.product_uom
+  LEFT JOIN public.purchase_order_line pol ON pol.id = sm.purchase_line_id
+  LEFT JOIN public.purchase_order po       ON po.id = pol.order_id
+  LEFT JOIN public.mrp_production mp       ON mp.id = sm.production_id
+),
+/* ================= scrap = avería (egreso) */
+base_scrap AS (
+  SELECT
+    ss.id::int                                   AS id_evento,
+    COALESCE(ss.date_done,ss.create_date)::timestamp AS fecha,
+    ss.product_id::int                           AS id_producto,
+    COALESCE(pp.default_code,'SIN_CODIGO')::text AS codigo_producto,
+    ptn.producto_nombre::text                    AS nombre_producto,
+    pt.categ_id::int                             AS id_categoria,
+    COALESCE(pc.name,'Sin categoría')::text      AS nombre_categoria,
+    ss.location_id::int                          AS id_ubic_origen,
+    ss.scrap_location_id::int                    AS id_ubic_destino,
+    (ss.scrap_qty * -1)::numeric(18,6)           AS cantidad,
+    u.uom_name::text                             AS unidad_medida,
+    'scrap'::text                                AS picking_type_codigo,
+    'scrap'::text                                AS tipo_evento,
+    COALESCE(ss.state,'done')::text              AS estado_move,
+    ss.picking_id::int                           AS id_picking,
+    ''::text                                     AS codigo_picking,
+    NULL::int                                    AS id_orden_compra,
+    NULL::text                                   AS codigo_orden_compra,
+    ss.production_id::int                        AS id_orden_produccion,
+    ''::text                                     AS codigo_orden_produccion,
+    ss.lot_id::int                               AS id_lote,
+    ''::text                                     AS lote_serie,
+    COALESCE(ss.origin,'')::text                 AS referencia,
+    ss.company_id::int                           AS id_compania,
+    ss.id::int                                   AS id_averia
+  FROM public.stock_scrap ss
+  LEFT JOIN public.product_product pp  ON pp.id = ss.product_id
+  LEFT JOIN public.product_template pt ON pt.id = pp.product_tmpl_id
+  LEFT JOIN pt_names ptn               ON ptn.id = pt.id
+  LEFT JOIN public.product_category pc ON pc.id = pt.categ_id
+  LEFT JOIN uom u                      ON u.id = ss.product_uom_id
+),
+/* ========= explotar transferencias en 2 filas (egreso e ingreso) */
+mov_transfer_expand AS (
+  -- egreso en origen
+  SELECT bm.*, bm.id_ubic_origen AS id_almacen, (-ABS(bm.cantidad))::numeric(18,6) AS cantidad_neta, 'transferencia_egreso'::text AS subtipo, NULL::int AS id_averia
+  FROM base_mov bm WHERE bm.tipo_evento = 'transferencia'
+  UNION ALL
+  -- ingreso en destino
+  SELECT bm.*, bm.id_ubic_destino AS id_almacen, (ABS(bm.cantidad))::numeric(18,6) AS cantidad_neta, 'transferencia_ingreso'::text AS subtipo, NULL::int AS id_averia
+  FROM base_mov bm WHERE bm.tipo_evento = 'transferencia'
+),
+/* ========= filas finales unificadas (recep/entrega + transfer expand + scrap + ajustes) */
+f AS (
+  -- recepciones y entregas (una fila)
+  SELECT bm.*, 
+         CASE WHEN bm.tipo_evento='recepcion' THEN bm.id_ubic_destino
+              WHEN bm.tipo_evento='entrega'   THEN bm.id_ubic_origen
+              ELSE bm.id_ubic_destino END::int AS id_almacen,
+         bm.cantidad::numeric(18,6)            AS cantidad_neta,
+         NULL::text                             AS subtipo,
+         NULL::int                              AS id_averia
+  FROM base_mov bm
+  WHERE bm.tipo_evento IN ('recepcion','entrega')
+
+  UNION ALL
+  -- transferencias (dos filas)
+  SELECT * FROM mov_transfer_expand
+
+  UNION ALL
+  -- scrap (avería)
+  SELECT bs.*, bs.id_ubic_origen AS id_almacen, bs.cantidad::numeric(18,6) AS cantidad_neta, NULL::text AS subtipo, bs.id_averia
+  FROM base_scrap bs
+
+  UNION ALL
+  -- ajustes de inventario (tratados aparte si los tienes; aquí como movimiento simple)
+  SELECT bm.*,
+         CASE WHEN bm.picking_type_codigo='inventory' AND bm.cantidad&gt;=0 THEN bm.id_ubic_destino
+              WHEN bm.picking_type_codigo='inventory' AND bm.cantidad&lt;0  THEN bm.id_ubic_origen
+              ELSE bm.id_ubic_destino END::int AS id_almacen,
+         bm.cantidad::numeric(18,6) AS cantidad_neta,
+         'ajuste'::text AS subtipo,
+         NULL::int AS id_averia
+  FROM base_mov bm
+  WHERE bm.picking_type_codigo='inventory'
+)
+SELECT
+  /* ==== Claves para lookups a Dim ==== */
+  CAST(to_char(f.fecha,'YYYYMMDD') AS int)             AS FechaKey,
+  f.id_producto                                        AS Id_Producto,      -- lookup a DimProducto
+  f.id_almacen                                         AS Id_Almacen,       -- lookup a DimAlmacen
+  COALESCE(f.id_orden_compra,0)                        AS Id_Orden_Compra,  -- lookup a DimOrdenCompra (usa 0=Desconocido)
+  COALESCE(f.id_averia,0)                              AS Id_Averia,        -- lookup a DimAveria (0 si no aplica)
+
+  /* ==== Métricas ==== */
+  CASE
+    WHEN f.tipo_evento='recepcion' THEN ABS(f.cantidad_neta)
+    WHEN f.tipo_evento='transferencia' AND f.subtipo='transferencia_ingreso' THEN ABS(f.cantidad_neta)
+    ELSE 0::numeric(18,6)
+  END                                                  AS Cantidad_Ingresada,
+
+  CASE
+    WHEN f.tipo_evento='entrega' THEN ABS(f.cantidad_neta)
+    WHEN f.tipo_evento='transferencia' AND f.subtipo='transferencia_egreso' THEN ABS(f.cantidad_neta)
+    ELSE 0::numeric(18,6)
+  END                                                  AS Cantidad_Descargada,
+
+  CASE
+    WHEN f.tipo_evento IN ('recepcion','entrega') AND f.origen_devolucion_move_id IS NOT NULL
+      THEN ABS(f.cantidad_neta)
+    ELSE 0::numeric(18,6)
+  END                                                  AS Cantidad_Devoluciones,
+
+  CASE WHEN f.tipo_evento='scrap' THEN ABS(f.cantidad_neta) ELSE 0::numeric(18,6) END AS Cantidad_Averiada,
+
+  /* Inventario físico / diferencia: deja NULL si no tienes conteos */
+  NULL::numeric(18,6)                                   AS Inventario_Fisico,
+  NULL::numeric(18,6)                                   AS Diferencia_Inventario,
+
+  /* Recepción aprobada/rechazada (por movimiento) */
+  CASE WHEN f.tipo_evento='recepcion' AND f.estado_move='done'   THEN 1 ELSE 0 END AS Recepcion_Aprobada,
+  CASE WHEN f.tipo_evento='recepcion' AND f.estado_move='cancel' THEN 1 ELSE 0 END AS Recepcion_Rechazada,
+
+  /* Stock mínimo y Stock/Estado (snapshot) */
+  /* Para mínimos: une a stock_warehouse_orderpoint si lo tienes por product/location y reemplaza el 0 */
+  0::numeric(18,6)                                      AS Stock_Minimo,
+  COALESCE(q.qty_on_hand - q.qty_reserved,0)::numeric(18,6) AS Stock,
+  CASE
+    WHEN COALESCE(q.qty_on_hand - q.qty_reserved,0) &lt;= 0 THEN 'Agotado'
+    WHEN COALESCE(q.qty_on_hand - q.qty_reserved,0) &lt;= 0 /* &lt;--- reemplaza por Stock_Minimo si lo unes */ THEN 'Por agotarse'
+    ELSE 'Disponible'
+  END::text                                             AS Estado_Stock,
+
+  /* Otros */
+  f.tipo_evento::text                                   AS Tipo_Evento,
+  f.lote_serie::text                                    AS Lote_Serie,
+  NOW()                                                 AS CreatedAt
+
+FROM f
+LEFT JOIN quant q
+  ON q.product_id = f.id_producto
+ AND q.location_id = f.id_almacen;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventariosOdoo\Origen de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="{60BA7266-6AA7-4EE0-B3F5-DAA6F39B86F4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CM_PG]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fechakey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[fechakey]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fechakey]"
+                      name="fechakey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_producto]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id_producto]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_producto]"
+                      name="id_producto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_almacen]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id_almacen]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_almacen]"
+                      name="id_almacen"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id_orden_compra]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_orden_compra]"
+                      name="id_orden_compra"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_averia]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id_averia]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_averia]"
+                      name="id_averia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_ingresada]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_ingresada]"
+                      length="40"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_ingresada]"
+                      name="cantidad_ingresada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_descargada]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_descargada]"
+                      length="40"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_descargada]"
+                      name="cantidad_descargada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_devoluciones]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_devoluciones]"
+                      length="40"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_devoluciones]"
+                      name="cantidad_devoluciones"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_averiada]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_averiada]"
+                      length="40"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_averiada]"
+                      name="cantidad_averiada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_fisico]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[inventario_fisico]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_fisico]"
+                      name="inventario_fisico"
+                      precision="18"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[diferencia_inventario]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[diferencia_inventario]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[diferencia_inventario]"
+                      name="diferencia_inventario"
+                      precision="18"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[recepcion_aprobada]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[recepcion_aprobada]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[recepcion_aprobada]"
+                      name="recepcion_aprobada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[recepcion_rechazada]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[recepcion_rechazada]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[recepcion_rechazada]"
+                      name="recepcion_rechazada"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[stock_minimo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[stock_minimo]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[stock_minimo]"
+                      name="stock_minimo"
+                      precision="18"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[stock]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[stock]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[stock]"
+                      name="stock"
+                      precision="18"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[estado_stock]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[estado_stock]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[estado_stock]"
+                      name="estado_stock"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tipo_evento]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo_evento]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tipo_evento]"
+                      name="tipo_evento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[lote_serie]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[lote_serie]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[lote_serie]"
+                      name="lote_serie"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[createdat]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[createdat]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[createdat]"
+                      name="createdat"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[fechakey]"
+                      dataType="i4"
+                      name="fechakey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id_producto]"
+                      dataType="i4"
+                      name="id_producto" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id_almacen]"
+                      dataType="i4"
+                      name="id_almacen" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id_orden_compra]"
+                      dataType="i4"
+                      name="id_orden_compra" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id_averia]"
+                      dataType="i4"
+                      name="id_averia" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_ingresada]"
+                      dataType="numeric"
+                      name="cantidad_ingresada" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_descargada]"
+                      dataType="numeric"
+                      name="cantidad_descargada" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_devoluciones]"
+                      dataType="numeric"
+                      name="cantidad_devoluciones" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_averiada]"
+                      dataType="numeric"
+                      name="cantidad_averiada" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[inventario_fisico]"
+                      dataType="numeric"
+                      name="inventario_fisico"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[diferencia_inventario]"
+                      dataType="numeric"
+                      name="diferencia_inventario"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[recepcion_aprobada]"
+                      dataType="i4"
+                      name="recepcion_aprobada" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[recepcion_rechazada]"
+                      dataType="i4"
+                      name="recepcion_rechazada" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[stock_minimo]"
+                      dataType="numeric"
+                      name="stock_minimo"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[stock]"
+                      dataType="numeric"
+                      name="stock"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[estado_stock]"
+                      dataType="nText"
+                      name="estado_stock" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[tipo_evento]"
+                      dataType="nText"
+                      name="tipo_evento" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[lote_serie]"
+                      dataType="nText"
+                      name="lote_serie" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[createdat]"
+                      dataType="dbTimeStamp"
+                      name="createdat" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[fechakey]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[fechakey]"
+                      name="fechakey" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id_producto]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id_producto]"
+                      name="id_producto" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id_almacen]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id_almacen]"
+                      name="id_almacen" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id_orden_compra]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id_orden_compra]"
+                      name="id_orden_compra" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id_averia]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id_averia]"
+                      name="id_averia" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_ingresada]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_ingresada]"
+                      name="cantidad_ingresada" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_descargada]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_descargada]"
+                      name="cantidad_descargada" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_devoluciones]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_devoluciones]"
+                      name="cantidad_devoluciones" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_averiada]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_averiada]"
+                      name="cantidad_averiada" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[inventario_fisico]"
+                      dataType="numeric"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[inventario_fisico]"
+                      name="inventario_fisico"
+                      precision="18"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[diferencia_inventario]"
+                      dataType="numeric"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[diferencia_inventario]"
+                      name="diferencia_inventario"
+                      precision="18"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[recepcion_aprobada]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[recepcion_aprobada]"
+                      name="recepcion_aprobada" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[recepcion_rechazada]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[recepcion_rechazada]"
+                      name="recepcion_rechazada" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[stock_minimo]"
+                      dataType="numeric"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[stock_minimo]"
+                      name="stock_minimo"
+                      precision="18"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[stock]"
+                      dataType="numeric"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[stock]"
+                      name="stock"
+                      precision="18"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[estado_stock]"
+                      dataType="nText"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[estado_stock]"
+                      name="estado_stock" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[tipo_evento]"
+                      dataType="nText"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[tipo_evento]"
+                      name="tipo_evento" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[lote_serie]"
+                      dataType="nText"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[lote_serie]"
+                      name="lote_serie" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[createdat]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[createdat]"
+                      name="createdat" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FactInventariosOdoo.Paths[Data Conversion Output]"
+              endId="Package\FactInventariosOdoo\Lookup createdAt.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output]"
+              endId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
+              endId="Package\FactInventariosOdoo\Lookup DimAlmacen.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
+              endId="Package\FactInventariosOdoo\Lookup DimAveria.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output3]"
+              endId="Package\FactInventariosOdoo\Data Conversion.Inputs[Data Conversion Input]"
+              name="Lookup Match Output"
+              startId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output4]"
+              endId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+              name="Lookup Match Output"
+              startId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactInventariosOdoo.Paths[Lookup No Match Output]"
+              endId="Package\FactInventariosOdoo\Derived Column.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\FactInventariosOdoo.Paths[Salida de origen de ADO NET]"
+              endId="Package\FactInventariosOdoo\Lookup DimProducto.Inputs[Lookup Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -52,5 +1970,464 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\FactInventariosOdoo">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\FactInventariosOdoo\Lookup DimAveria"
+          TopLeft="397.499978281558,406.466663840148" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\FactInventariosOdoo\Lookup DimProducto"
+          TopLeft="159.166657970184,149.933332290716" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\FactInventariosOdoo\Lookup DimAlmacen"
+          TopLeft="291.666650730703,318.066664454871" />
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\FactInventariosOdoo\Lookup DimOrdenCompra"
+          TopLeft="204.999988799294,241.799998318553" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\FactInventariosOdoo\Origen de ADO NET"
+          TopLeft="94.9999948094291,59.7999995841583" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\FactInventariosOdoo\Lookup createdAt"
+          TopLeft="739.166626280382,399.533330555028" />
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Salida de origen de ADO NET]"
+          TopLeft="181.399994809429,101.399999584158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="65.3666631607547,48.5333327065574"
+              Start="0,0"
+              End="65.3666631607547,41.0333327065574">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2666663532787" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2666663532787"
+                    Point2="0,24.2666663532787"
+                    Point3="4,24.2666663532787" />
+                  <mssgle:LineSegment
+                    End="61.3666631607547,24.2666663532787" />
+                  <mssgle:CubicBezierSegment
+                    Point1="61.3666631607547,24.2666663532787"
+                    Point2="65.3666631607547,24.2666663532787"
+                    Point3="65.3666631607547,28.2666663532787" />
+                  <mssgle:LineSegment
+                    End="65.3666631607547,41.0333327065574" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
+          TopLeft="378.866650730703,359.666664454871">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="100.233327550855,46.799999385277"
+              Start="0,0"
+              End="100.233327550855,39.299999385277">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3999996926385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.3999996926385"
+                    Point2="0,23.3999996926385"
+                    Point3="4,23.3999996926385" />
+                  <mssgle:LineSegment
+                    End="96.2333275508549,23.3999996926385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="96.2333275508549,23.3999996926385"
+                    Point2="100.233327550855,23.3999996926385"
+                    Point3="100.233327550855,27.3999996926385" />
+                  <mssgle:LineSegment
+                    End="100.233327550855,39.299999385277" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="1.92527705667744,28.3999996926385,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
+          TopLeft="304.999988799294,283.399998318553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.8666619314091,34.666666136318"
+              Start="0,0"
+              End="73.8666619314091,27.166666136318">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.333333068159" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.333333068159"
+                    Point2="0,17.333333068159"
+                    Point3="4,17.333333068159" />
+                  <mssgle:LineSegment
+                    End="69.8666619314091,17.333333068159" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.8666619314091,17.333333068159"
+                    Point2="73.8666619314091,17.333333068159"
+                    Point3="73.8666619314091,21.333333068159" />
+                  <mssgle:LineSegment
+                    End="73.8666619314091,27.166666136318" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-11.2580557530455,22.333333068159,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output]"
+          TopLeft="246.766657970184,191.533332290716">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.23333082911,50.266666027837"
+              Start="0,0"
+              End="58.23333082911,42.766666027837">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1333330139185" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.1333330139185"
+                    Point2="0,25.1333330139185"
+                    Point3="4,25.1333330139185" />
+                  <mssgle:LineSegment
+                    End="54.23333082911,25.1333330139185" />
+                  <mssgle:CubicBezierSegment
+                    Point1="54.23333082911,25.1333330139185"
+                    Point2="58.23333082911,25.1333330139185"
+                    Point3="58.23333082911,29.1333330139185" />
+                  <mssgle:LineSegment
+                    End="58.23333082911,42.766666027837" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.074721304195,30.1333330139185,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\FactInventariosOdoo\Data Conversion"
+          TopLeft="565.833302417564,476.666663351986" />
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output3]"
+          TopLeft="479.099978281558,448.066663840148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.06665746934,28.5999995118381"
+              Start="0,0"
+              End="140.06665746934,21.0999995118381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.9857865121069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.9857865121069"
+                    Point2="0,16.9857865121069"
+                    Point3="4,16.9857865121069" />
+                  <mssgle:LineSegment
+                    End="136.06665746934,16.9857865121069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.06665746934,16.9857865121069"
+                    Point2="140.06665746934,16.9857865121069"
+                    Point3="140.06665746934,20.9857865121069" />
+                  <mssgle:LineSegment
+                    End="140.06665746934,21.0999995118381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="21.84194201592,21.9857865121069,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Data Conversion Output]"
+          TopLeft="668.499969084231,476.666663351986">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="150.666657196151,-35.533332796958"
+              Start="0,0"
+              End="150.666657196151,-28.033332796958">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-10.4297798160236" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-10.4297798160236"
+                    Point2="0,-14.4297798160236"
+                    Point3="4,-14.4297798160236" />
+                  <mssgle:LineSegment
+                    End="146.666657196151,-14.4297798160236" />
+                  <mssgle:CubicBezierSegment
+                    Point1="146.666657196151,-14.4297798160236"
+                    Point2="150.666657196151,-14.4297798160236"
+                    Point3="150.666657196151,-18.4297798160236" />
+                  <mssgle:LineSegment
+                    End="150.666657196151,-28.033332796958" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\FactInventariosOdoo\Destino de ADO NET"
+          TopLeft="827.499954787395,285.999998011192" />
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output4]"
+          TopLeft="819.166626280382,399.533330555028">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96.7333285070135,-71.9333325438365"
+              Start="0,0"
+              End="96.7333285070135,-64.4333325438365">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-31.9666662719182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-31.9666662719182"
+                    Point2="0,-35.9666662719182"
+                    Point3="4,-35.9666662719182" />
+                  <mssgle:LineSegment
+                    End="92.7333285070135,-35.9666662719182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="92.7333285070135,-35.9666662719182"
+                    Point2="96.7333285070135,-35.9666662719182"
+                    Point3="96.7333285070135,-39.9666662719182" />
+                  <mssgle:LineSegment
+                    End="96.7333285070135,-64.4333325438365" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0.175277534756766,-30.9666662719182,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\FactInventariosOdoo\Derived Column"
+          TopLeft="471.666640895938,127.399999114076" />
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup No Match Output]"
+          TopLeft="336.999988799294,241.799998318553">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="211.066652096644,-72.7999992044766"
+              Start="0,0"
+              End="211.066652096644,-65.2999992044766">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-25.4666663446691" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-25.4666663446691"
+                    Point2="0,-29.4666663446691"
+                    Point3="4,-29.4666663446691" />
+                  <mssgle:LineSegment
+                    End="207.066652096644,-29.4666663446691" />
+                  <mssgle:CubicBezierSegment
+                    Point1="207.066652096644,-29.4666663446691"
+                    Point2="211.066652096644,-29.4666663446691"
+                    Point3="211.066652096644,-33.4666663446691" />
+                  <mssgle:LineSegment
+                    End="211.066652096644,-65.2999992044766" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="49.7269393295718,-24.4666663446691,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Lookup DimAveria">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DimAveria]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Lookup DimProducto">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DimProducto]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Lookup DimAlmacen">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DimAlmacen]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Lookup DimOrdenCompra">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">true</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DimOrdenCompra]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Lookup createdAt">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DimFecha]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
