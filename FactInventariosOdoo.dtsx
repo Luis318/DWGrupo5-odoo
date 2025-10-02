@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="24"
-  DTS:VersionGUID="{6A419DD7-D6D2-4E4C-BB2C-8B52A43AF8C8}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{B31F120B-487C-4F9F-AB55-199684925604}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -99,55 +99,6 @@
                       refId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\FactInventariosOdoo\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\FactInventariosOdoo\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\FactInventariosOdoo\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\FactInventariosOdoo\Derived Column.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\FactInventariosOdoo\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\FactInventariosOdoo\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -496,7 +447,7 @@ where [refTable].[Fecha] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -564,7 +515,6 @@ where [refTable].[Fecha] = ?</property>
                 <output
                   refId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\FactInventariosOdoo\Lookup createdAt.Inputs[Lookup Input]">
@@ -654,7 +604,7 @@ where [refTable].[Id_Almacen] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -722,7 +672,6 @@ where [refTable].[Id_Almacen] = ?</property>
                 <output
                   refId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\FactInventariosOdoo\Lookup DimAlmacen.Inputs[Lookup Input]">
@@ -812,7 +761,7 @@ where [refTable].[Id_Averia] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -880,7 +829,6 @@ where [refTable].[Id_Averia] = ?</property>
                 <output
                   refId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\FactInventariosOdoo\Lookup DimAveria.Inputs[Lookup Input]">
@@ -970,7 +918,7 @@ where [refTable].[Id_Orden_Compra] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -1038,7 +986,6 @@ where [refTable].[Id_Orden_Compra] = ?</property>
                 <output
                   refId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Inputs[Lookup Input]">
@@ -1128,7 +1075,7 @@ where [refTable].[Id_Producto] = ?</property>
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
+                  typeConverter="LookupNoMatchBehavior">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
@@ -1196,7 +1143,6 @@ where [refTable].[Id_Producto] = ?</property>
                 <output
                   refId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
                   synchronousInputId="Package\FactInventariosOdoo\Lookup DimProducto.Inputs[Lookup Input]">
@@ -1937,11 +1883,6 @@ LEFT JOIN quant q
               name="Lookup Match Output"
               startId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\FactInventariosOdoo.Paths[Lookup No Match Output]"
-              endId="Package\FactInventariosOdoo\Derived Column.Inputs[Derived Column Input]"
-              name="Lookup No Match Output"
-              startId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup No Match Output]" />
-            <path
               refId="Package\FactInventariosOdoo.Paths[Salida de origen de ADO NET]"
               endId="Package\FactInventariosOdoo\Lookup DimProducto.Inputs[Lookup Input]"
               name="Salida de origen de ADO NET"
@@ -1974,7 +1915,15 @@ LEFT JOIN quant q
     design-time-name="Package\FactInventariosOdoo">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\FactInventariosOdoo\Destino de ADO NET"
+          TopLeft="827.499954787395,285.999998011192" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\FactInventariosOdoo\Lookup createdAt"
+          TopLeft="739.166626280382,399.533330555028" />
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\FactInventariosOdoo\Lookup DimAveria"
@@ -1988,17 +1937,17 @@ LEFT JOIN quant q
           Id="Package\FactInventariosOdoo\Lookup DimAlmacen"
           TopLeft="291.666650730703,318.066664454871" />
         <NodeLayout
+          Size="156,41.6"
+          Id="Package\FactInventariosOdoo\Data Conversion"
+          TopLeft="565.833302417564,476.666663351986" />
+        <NodeLayout
           Size="200,41.6"
           Id="Package\FactInventariosOdoo\Lookup DimOrdenCompra"
-          TopLeft="204.999988799294,241.799998318553" />
+          TopLeft="204.999988799294,242.666664979193" />
         <NodeLayout
           Size="172.8,41.6"
           Id="Package\FactInventariosOdoo\Origen de ADO NET"
           TopLeft="94.9999948094291,59.7999995841583" />
-        <NodeLayout
-          Size="160,41.6"
-          Id="Package\FactInventariosOdoo\Lookup createdAt"
-          TopLeft="739.166626280382,399.533330555028" />
         <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Salida de origen de ADO NET]"
           TopLeft="181.399994809429,101.399999584158">
@@ -2031,6 +1980,78 @@ LEFT JOIN quant q
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output4]"
+          TopLeft="819.166626280382,399.533330555028">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96.7333285070135,-71.9333325438365"
+              Start="0,0"
+              End="96.7333285070135,-64.4333325438365">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-31.9666662719182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-31.9666662719182"
+                    Point2="0,-35.9666662719182"
+                    Point3="4,-35.9666662719182" />
+                  <mssgle:LineSegment
+                    End="92.7333285070135,-35.9666662719182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="92.7333285070135,-35.9666662719182"
+                    Point2="96.7333285070135,-35.9666662719182"
+                    Point3="96.7333285070135,-39.9666662719182" />
+                  <mssgle:LineSegment
+                    End="96.7333285070135,-64.4333325438365" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0.175277534756766,-30.9666662719182,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output3]"
+          TopLeft="479.099978281558,448.066663840148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.06665746934,28.5999995118381"
+              Start="0,0"
+              End="140.06665746934,21.0999995118381">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.9857865121069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.9857865121069"
+                    Point2="0,16.9857865121069"
+                    Point3="4,16.9857865121069" />
+                  <mssgle:LineSegment
+                    End="136.06665746934,16.9857865121069" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.06665746934,16.9857865121069"
+                    Point2="140.06665746934,16.9857865121069"
+                    Point3="140.06665746934,20.9857865121069" />
+                  <mssgle:LineSegment
+                    End="140.06665746934,21.0999995118381" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="21.84194201592,21.9857865121069,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2071,37 +2092,37 @@ LEFT JOIN quant q
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
-          TopLeft="304.999988799294,283.399998318553">
+          TopLeft="304.999988799294,284.266664979193">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="73.8666619314091,34.666666136318"
+              EndConnector="73.866661931409,33.799999475678"
               Start="0,0"
-              End="73.8666619314091,27.166666136318">
+              End="73.866661931409,26.299999475678">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,13.333333068159" />
+                    End="0,12.899999737839" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,13.333333068159"
-                    Point2="0,17.333333068159"
-                    Point3="4,17.333333068159" />
+                    Point1="0,12.899999737839"
+                    Point2="0,16.899999737839"
+                    Point3="4,16.899999737839" />
                   <mssgle:LineSegment
-                    End="69.8666619314091,17.333333068159" />
+                    End="69.866661931409,16.899999737839" />
                   <mssgle:CubicBezierSegment
-                    Point1="69.8666619314091,17.333333068159"
-                    Point2="73.8666619314091,17.333333068159"
-                    Point3="73.8666619314091,21.333333068159" />
+                    Point1="69.866661931409,16.899999737839"
+                    Point2="73.866661931409,16.899999737839"
+                    Point3="73.866661931409,20.899999737839" />
                   <mssgle:LineSegment
-                    End="73.8666619314091,27.166666136318" />
+                    End="73.866661931409,26.299999475678" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-11.2580557530455,22.333333068159,96.3827734375,11.609375"
+              BoundingBox="-11.2580557530455,21.899999737839,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2111,73 +2132,33 @@ LEFT JOIN quant q
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.23333082911,50.266666027837"
+              EndConnector="58.23333082911,51.1333326884769"
               Start="0,0"
-              End="58.23333082911,42.766666027837">
+              End="58.23333082911,43.6333326884769">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.1333330139185" />
+                    End="0,21.5666663442385" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.1333330139185"
-                    Point2="0,25.1333330139185"
-                    Point3="4,25.1333330139185" />
+                    Point1="0,21.5666663442385"
+                    Point2="0,25.5666663442385"
+                    Point3="4,25.5666663442385" />
                   <mssgle:LineSegment
-                    End="54.23333082911,25.1333330139185" />
+                    End="54.23333082911,25.5666663442385" />
                   <mssgle:CubicBezierSegment
-                    Point1="54.23333082911,25.1333330139185"
-                    Point2="58.23333082911,25.1333330139185"
-                    Point3="58.23333082911,29.1333330139185" />
+                    Point1="54.23333082911,25.5666663442385"
+                    Point2="58.23333082911,25.5666663442385"
+                    Point3="58.23333082911,29.5666663442385" />
                   <mssgle:LineSegment
-                    End="58.23333082911,42.766666027837" />
+                    End="58.23333082911,43.6333326884769" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-19.074721304195,30.1333330139185,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\FactInventariosOdoo\Data Conversion"
-          TopLeft="565.833302417564,476.666663351986" />
-        <EdgeLayout
-          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output3]"
-          TopLeft="479.099978281558,448.066663840148">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="140.06665746934,28.5999995118381"
-              Start="0,0"
-              End="140.06665746934,21.0999995118381">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.9857865121069" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.9857865121069"
-                    Point2="0,16.9857865121069"
-                    Point3="4,16.9857865121069" />
-                  <mssgle:LineSegment
-                    End="136.06665746934,16.9857865121069" />
-                  <mssgle:CubicBezierSegment
-                    Point1="136.06665746934,16.9857865121069"
-                    Point2="140.06665746934,16.9857865121069"
-                    Point3="140.06665746934,20.9857865121069" />
-                  <mssgle:LineSegment
-                    End="140.06665746934,21.0999995118381" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="21.84194201592,21.9857865121069,96.3827734375,11.609375"
+              BoundingBox="-19.074721304195,30.5666663442385,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2215,89 +2196,40 @@ LEFT JOIN quant q
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\FactInventariosOdoo\Destino de ADO NET"
-          TopLeft="827.499954787395,285.999998011192" />
-        <EdgeLayout
-          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output4]"
-          TopLeft="819.166626280382,399.533330555028">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="96.7333285070135,-71.9333325438365"
-              Start="0,0"
-              End="96.7333285070135,-64.4333325438365">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-31.9666662719182" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-31.9666662719182"
-                    Point2="0,-35.9666662719182"
-                    Point3="4,-35.9666662719182" />
-                  <mssgle:LineSegment
-                    End="92.7333285070135,-35.9666662719182" />
-                  <mssgle:CubicBezierSegment
-                    Point1="92.7333285070135,-35.9666662719182"
-                    Point2="96.7333285070135,-35.9666662719182"
-                    Point3="96.7333285070135,-39.9666662719182" />
-                  <mssgle:LineSegment
-                    End="96.7333285070135,-64.4333325438365" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0.175277534756766,-30.9666662719182,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\FactInventariosOdoo\Derived Column"
-          TopLeft="471.666640895938,127.399999114076" />
-        <EdgeLayout
-          Id="Package\FactInventariosOdoo.Paths[Lookup No Match Output]"
-          TopLeft="336.999988799294,241.799998318553">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="211.066652096644,-72.7999992044766"
-              Start="0,0"
-              End="211.066652096644,-65.2999992044766">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-25.4666663446691" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-25.4666663446691"
-                    Point2="0,-29.4666663446691"
-                    Point3="4,-29.4666663446691" />
-                  <mssgle:LineSegment
-                    End="207.066652096644,-29.4666663446691" />
-                  <mssgle:CubicBezierSegment
-                    Point1="207.066652096644,-29.4666663446691"
-                    Point2="211.066652096644,-29.4666663446691"
-                    Point3="211.066652096644,-33.4666663446691" />
-                  <mssgle:LineSegment
-                    End="211.066652096644,-65.2999992044766" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="49.7269393295718,-24.4666663446691,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Lookup createdAt">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DimFecha]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FactInventariosOdoo\Lookup DimAveria">
     <Properties>
@@ -2327,7 +2259,7 @@ LEFT JOIN quant q
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2373,7 +2305,7 @@ LEFT JOIN quant q
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">true</Value>
+          type="q2:string">true</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2383,7 +2315,7 @@ LEFT JOIN quant q
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2392,37 +2324,6 @@ LEFT JOIN quant q
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FactInventariosOdoo\Origen de ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FactInventariosOdoo\Lookup createdAt">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dw].[DimFecha]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FactInventariosOdoo\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
