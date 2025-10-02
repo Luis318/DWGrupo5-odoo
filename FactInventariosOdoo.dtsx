@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{B31F120B-487C-4F9F-AB55-199684925604}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{B79A4D7C-92AF-42CC-A528-970C388B9789}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -185,18 +185,14 @@
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[cantidad_averiada]" />
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[inventario_fisico]"
-                      cachedDataType="numeric"
+                      cachedDataType="i4"
                       cachedName="inventario_fisico"
-                      cachedPrecision="18"
-                      cachedScale="6"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Inventario_Fisico]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_fisico]" />
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[diferencia_inventario]"
-                      cachedDataType="numeric"
+                      cachedDataType="i4"
                       cachedName="diferencia_inventario"
-                      cachedPrecision="18"
-                      cachedScale="6"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Diferencia_Inventario]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[diferencia_inventario]" />
                     <inputColumn
@@ -258,6 +254,12 @@
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Orden_Compra_Key]"
                       lineageId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Match Output].Columns[Orden_Compra_Key]" />
                     <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[FechaKey]"
+                      cachedDataType="i4"
+                      cachedName="FechaKey"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaKey]"
+                      lineageId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output].Columns[FechaKey]" />
+                    <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[AlmacenKey]"
                       cachedDataType="i4"
                       cachedName="AlmacenKey"
@@ -269,12 +271,6 @@
                       cachedName="AveriaKey"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[AveriaKey]"
                       lineageId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Match Output].Columns[AveriaKey]" />
-                    <inputColumn
-                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[FechaKey]"
-                      cachedDataType="i4"
-                      cachedName="FechaKey"
-                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaKey]"
-                      lineageId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output].Columns[FechaKey]" />
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[createdat convert]"
                       cachedDataType="dbDate"
@@ -625,7 +621,7 @@ where [refTable].[Id_Almacen] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_almacen]};</property>
+                  name="ParameterMap">#{Package\FactInventariosOdoo\198:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -782,7 +778,7 @@ where [refTable].[Id_Averia] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_averia]};</property>
+                  name="ParameterMap">#{Package\FactInventariosOdoo\200:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -902,7 +898,7 @@ where [refTable].[Id_Averia] = ?</property>
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[DimOrdenCompra] where Activo=1) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dw].[DimOrdenCompra]) [refTable]
 where [refTable].[Id_Orden_Compra] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -913,7 +909,7 @@ where [refTable].[Id_Orden_Compra] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">1</property>
+                  typeConverter="CacheType">0</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -1096,7 +1092,7 @@ where [refTable].[Id_Producto] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_producto]};</property>
+                  name="ParameterMap">#{Package\FactInventariosOdoo\197:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1224,15 +1220,25 @@ picking_type AS (
          code::text AS picking_type_code
   FROM public.stock_picking_type
 ),
--- Snapshot de stock por producto/ubicación (para la columna Stock)
-quant AS (
-  SELECT product_id, location_id,
-         COALESCE(SUM(quantity),0)::numeric(18,6) AS qty_on_hand,
-         COALESCE(SUM(reserved_quantity),0)::numeric(18,6) AS qty_reserved
-  FROM public.stock_quant
-  GROUP BY product_id, location_id
+/* ============ Mapeo de ubicaciones -&gt; almacén */
+loc_wh AS (
+  SELECT loc.id AS location_id, w.id AS warehouse_id
+  FROM stock_location loc
+  JOIN stock_warehouse w
+    ON loc.parent_path LIKE (
+        SELECT parent_path FROM stock_location WHERE id = w.view_location_id
+      ) || '%'
 ),
-/* ================= movimientos base (recepción/entrega/transferencia) */
+/* Snapshot de stock por producto/almacén */
+quant AS (
+  SELECT q.product_id, lw.warehouse_id,
+         COALESCE(SUM(q.quantity),0)::numeric(18,6) AS qty_on_hand,
+         COALESCE(SUM(q.reserved_quantity),0)::numeric(18,6) AS qty_reserved
+  FROM public.stock_quant q
+  JOIN loc_wh lw ON lw.location_id = q.location_id
+  GROUP BY q.product_id, lw.warehouse_id
+),
+/* ================= movimientos base */
 base_mov AS (
   SELECT
     sml.id::int                                    AS id_evento,
@@ -1278,7 +1284,7 @@ base_mov AS (
   LEFT JOIN public.purchase_order po       ON po.id = pol.order_id
   LEFT JOIN public.mrp_production mp       ON mp.id = sm.production_id
 ),
-/* ================= scrap = avería (egreso) */
+/* ================= scrap = avería */
 base_scrap AS (
   SELECT
     ss.id::int                                   AS id_evento,
@@ -1313,106 +1319,95 @@ base_scrap AS (
   LEFT JOIN public.product_category pc ON pc.id = pt.categ_id
   LEFT JOIN uom u                      ON u.id = ss.product_uom_id
 ),
-/* ========= explotar transferencias en 2 filas (egreso e ingreso) */
+/* ========= expandir transferencias */
 mov_transfer_expand AS (
-  -- egreso en origen
-  SELECT bm.*, bm.id_ubic_origen AS id_almacen, (-ABS(bm.cantidad))::numeric(18,6) AS cantidad_neta, 'transferencia_egreso'::text AS subtipo, NULL::int AS id_averia
+  SELECT bm.*, bm.id_ubic_origen AS id_ubic, (-ABS(bm.cantidad))::numeric(18,6) AS cantidad_neta, 'transferencia_egreso'::text AS subtipo, NULL::int AS id_averia
   FROM base_mov bm WHERE bm.tipo_evento = 'transferencia'
   UNION ALL
-  -- ingreso en destino
-  SELECT bm.*, bm.id_ubic_destino AS id_almacen, (ABS(bm.cantidad))::numeric(18,6) AS cantidad_neta, 'transferencia_ingreso'::text AS subtipo, NULL::int AS id_averia
+  SELECT bm.*, bm.id_ubic_destino AS id_ubic, (ABS(bm.cantidad))::numeric(18,6) AS cantidad_neta, 'transferencia_ingreso'::text AS subtipo, NULL::int AS id_averia
   FROM base_mov bm WHERE bm.tipo_evento = 'transferencia'
 ),
-/* ========= filas finales unificadas (recep/entrega + transfer expand + scrap + ajustes) */
+/* ========= unificación */
 f AS (
-  -- recepciones y entregas (una fila)
-  SELECT bm.*, 
+  SELECT bm.*,
          CASE WHEN bm.tipo_evento='recepcion' THEN bm.id_ubic_destino
               WHEN bm.tipo_evento='entrega'   THEN bm.id_ubic_origen
-              ELSE bm.id_ubic_destino END::int AS id_almacen,
-         bm.cantidad::numeric(18,6)            AS cantidad_neta,
-         NULL::text                             AS subtipo,
-         NULL::int                              AS id_averia
+              ELSE bm.id_ubic_destino END::int AS id_ubic,
+         bm.cantidad::numeric(18,6) AS cantidad_neta,
+         NULL::text AS subtipo,
+         NULL::int  AS id_averia
   FROM base_mov bm
   WHERE bm.tipo_evento IN ('recepcion','entrega')
 
   UNION ALL
-  -- transferencias (dos filas)
   SELECT * FROM mov_transfer_expand
 
   UNION ALL
-  -- scrap (avería)
-  SELECT bs.*, bs.id_ubic_origen AS id_almacen, bs.cantidad::numeric(18,6) AS cantidad_neta, NULL::text AS subtipo, bs.id_averia
+  SELECT bs.*, bs.id_ubic_origen AS id_ubic, bs.cantidad::numeric(18,6) AS cantidad_neta, NULL::text AS subtipo, bs.id_averia
   FROM base_scrap bs
 
   UNION ALL
-  -- ajustes de inventario (tratados aparte si los tienes; aquí como movimiento simple)
   SELECT bm.*,
          CASE WHEN bm.picking_type_codigo='inventory' AND bm.cantidad&gt;=0 THEN bm.id_ubic_destino
               WHEN bm.picking_type_codigo='inventory' AND bm.cantidad&lt;0  THEN bm.id_ubic_origen
-              ELSE bm.id_ubic_destino END::int AS id_almacen,
+              ELSE bm.id_ubic_destino END::int AS id_ubic,
          bm.cantidad::numeric(18,6) AS cantidad_neta,
          'ajuste'::text AS subtipo,
          NULL::int AS id_averia
   FROM base_mov bm
   WHERE bm.picking_type_codigo='inventory'
 )
+/* ========= salida final con warehouse.id */
 SELECT
-  /* ==== Claves para lookups a Dim ==== */
   CAST(to_char(f.fecha,'YYYYMMDD') AS int)             AS FechaKey,
-  f.id_producto                                        AS Id_Producto,      -- lookup a DimProducto
-  f.id_almacen                                         AS Id_Almacen,       -- lookup a DimAlmacen
-  COALESCE(f.id_orden_compra,0)                        AS Id_Orden_Compra,  -- lookup a DimOrdenCompra (usa 0=Desconocido)
-  COALESCE(f.id_averia,0)                              AS Id_Averia,        -- lookup a DimAveria (0 si no aplica)
+  f.id_producto                                        AS Id_Producto,
+  COALESCE(lw.warehouse_id,0)                          AS Id_Almacen,   -- ahora siempre warehouse.id
+  COALESCE(f.id_orden_compra,0)                        AS Id_Orden_Compra,
+  COALESCE(f.id_averia,0)                              AS Id_Averia,
 
-  /* ==== Métricas ==== */
   CASE
     WHEN f.tipo_evento='recepcion' THEN ABS(f.cantidad_neta)
     WHEN f.tipo_evento='transferencia' AND f.subtipo='transferencia_ingreso' THEN ABS(f.cantidad_neta)
-    ELSE 0::numeric(18,6)
-  END                                                  AS Cantidad_Ingresada,
+    ELSE 0
+  END AS Cantidad_Ingresada,
 
   CASE
     WHEN f.tipo_evento='entrega' THEN ABS(f.cantidad_neta)
     WHEN f.tipo_evento='transferencia' AND f.subtipo='transferencia_egreso' THEN ABS(f.cantidad_neta)
-    ELSE 0::numeric(18,6)
-  END                                                  AS Cantidad_Descargada,
+    ELSE 0
+  END AS Cantidad_Descargada,
 
   CASE
     WHEN f.tipo_evento IN ('recepcion','entrega') AND f.origen_devolucion_move_id IS NOT NULL
       THEN ABS(f.cantidad_neta)
-    ELSE 0::numeric(18,6)
-  END                                                  AS Cantidad_Devoluciones,
+    ELSE 0
+  END AS Cantidad_Devoluciones,
 
-  CASE WHEN f.tipo_evento='scrap' THEN ABS(f.cantidad_neta) ELSE 0::numeric(18,6) END AS Cantidad_Averiada,
+  CASE WHEN f.tipo_evento='scrap' THEN ABS(f.cantidad_neta) ELSE 0 END AS Cantidad_Averiada,
 
-  /* Inventario físico / diferencia: deja NULL si no tienes conteos */
-  NULL::numeric(18,6)                                   AS Inventario_Fisico,
-  NULL::numeric(18,6)                                   AS Diferencia_Inventario,
+  0 AS Inventario_Fisico,
+ 0 AS Diferencia_Inventario,
 
-  /* Recepción aprobada/rechazada (por movimiento) */
   CASE WHEN f.tipo_evento='recepcion' AND f.estado_move='done'   THEN 1 ELSE 0 END AS Recepcion_Aprobada,
   CASE WHEN f.tipo_evento='recepcion' AND f.estado_move='cancel' THEN 1 ELSE 0 END AS Recepcion_Rechazada,
 
-  /* Stock mínimo y Stock/Estado (snapshot) */
-  /* Para mínimos: une a stock_warehouse_orderpoint si lo tienes por product/location y reemplaza el 0 */
-  0::numeric(18,6)                                      AS Stock_Minimo,
+  0::numeric(18,6) AS Stock_Minimo,
   COALESCE(q.qty_on_hand - q.qty_reserved,0)::numeric(18,6) AS Stock,
   CASE
     WHEN COALESCE(q.qty_on_hand - q.qty_reserved,0) &lt;= 0 THEN 'Agotado'
-    WHEN COALESCE(q.qty_on_hand - q.qty_reserved,0) &lt;= 0 /* &lt;--- reemplaza por Stock_Minimo si lo unes */ THEN 'Por agotarse'
+    WHEN COALESCE(q.qty_on_hand - q.qty_reserved,0) &lt;= 0 THEN 'Por agotarse'
     ELSE 'Disponible'
-  END::text                                             AS Estado_Stock,
+  END::text AS Estado_Stock,
 
-  /* Otros */
-  f.tipo_evento::text                                   AS Tipo_Evento,
-  f.lote_serie::text                                    AS Lote_Serie,
-  NOW()                                                 AS CreatedAt
+  f.tipo_evento::text AS Tipo_Evento,
+  f.lote_serie::text  AS Lote_Serie,
+  NOW()               AS CreatedAt
 
 FROM f
+LEFT JOIN loc_wh lw ON lw.location_id = f.id_ubic
 LEFT JOIN quant q
   ON q.product_id = f.id_producto
- AND q.location_id = f.id_almacen;</property>
+ AND q.warehouse_id = lw.warehouse_id;</property>
                 <property
                   dataType="System.Int32"
                   description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
@@ -1536,25 +1531,21 @@ LEFT JOIN quant q
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_fisico]"
-                      dataType="numeric"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[inventario_fisico]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_fisico]"
                       name="inventario_fisico"
-                      precision="18"
-                      scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[diferencia_inventario]"
-                      dataType="numeric"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[diferencia_inventario]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[diferencia_inventario]"
                       name="diferencia_inventario"
-                      precision="18"
-                      scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[recepcion_aprobada]"
@@ -1673,16 +1664,12 @@ LEFT JOIN quant q
                       name="cantidad_averiada" />
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[inventario_fisico]"
-                      dataType="numeric"
-                      name="inventario_fisico"
-                      precision="18"
-                      scale="6" />
+                      dataType="i4"
+                      name="inventario_fisico" />
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[diferencia_inventario]"
-                      dataType="numeric"
-                      name="diferencia_inventario"
-                      precision="18"
-                      scale="6" />
+                      dataType="i4"
+                      name="diferencia_inventario" />
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[recepcion_aprobada]"
                       dataType="i4"
@@ -1777,18 +1764,14 @@ LEFT JOIN quant q
                       name="cantidad_averiada" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[inventario_fisico]"
-                      dataType="numeric"
+                      dataType="i4"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[inventario_fisico]"
-                      name="inventario_fisico"
-                      precision="18"
-                      scale="6" />
+                      name="inventario_fisico" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[diferencia_inventario]"
-                      dataType="numeric"
+                      dataType="i4"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[diferencia_inventario]"
-                      name="diferencia_inventario"
-                      precision="18"
-                      scale="6" />
+                      name="diferencia_inventario" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[recepcion_aprobada]"
                       dataType="i4"
@@ -1864,24 +1847,24 @@ LEFT JOIN quant q
               startId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Match Output]" />
             <path
               refId="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
-              endId="Package\FactInventariosOdoo\Lookup DimAlmacen.Inputs[Lookup Input]"
+              endId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
               name="Lookup Match Output"
-              startId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Match Output]" />
+              startId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output]" />
             <path
               refId="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
-              endId="Package\FactInventariosOdoo\Lookup DimAveria.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output3]"
               endId="Package\FactInventariosOdoo\Data Conversion.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
               startId="Package\FactInventariosOdoo\Lookup DimAveria.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output4]"
-              endId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output3]"
+              endId="Package\FactInventariosOdoo\Lookup DimAlmacen.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output]" />
+              startId="Package\FactInventariosOdoo\Lookup DimOrdenCompra.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output4]"
+              endId="Package\FactInventariosOdoo\Lookup DimAveria.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Match Output]" />
             <path
               refId="Package\FactInventariosOdoo.Paths[Salida de origen de ADO NET]"
               endId="Package\FactInventariosOdoo\Lookup DimProducto.Inputs[Lookup Input]"
@@ -1954,26 +1937,26 @@ LEFT JOIN quant q
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="65.3666631607547,48.5333327065574"
+              EndConnector="65.3666631607549,48.5333327065577"
               Start="0,0"
-              End="65.3666631607547,41.0333327065574">
+              End="65.3666631607549,41.0333327065577">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2666663532787" />
+                    End="0,20.2666663532789" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2666663532787"
-                    Point2="0,24.2666663532787"
-                    Point3="4,24.2666663532787" />
+                    Point1="0,20.2666663532789"
+                    Point2="0,24.2666663532789"
+                    Point3="4,24.2666663532789" />
                   <mssgle:LineSegment
-                    End="61.3666631607547,24.2666663532787" />
+                    End="61.3666631607549,24.2666663532789" />
                   <mssgle:CubicBezierSegment
-                    Point1="61.3666631607547,24.2666663532787"
-                    Point2="65.3666631607547,24.2666663532787"
-                    Point3="65.3666631607547,28.2666663532787" />
+                    Point1="61.3666631607549,24.2666663532789"
+                    Point2="65.3666631607549,24.2666663532789"
+                    Point3="65.3666631607549,28.2666663532789" />
                   <mssgle:LineSegment
-                    End="65.3666631607547,41.0333327065574" />
+                    End="65.3666631607549,41.0333327065577" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1984,42 +1967,78 @@ LEFT JOIN quant q
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Lookup Match Output4]"
-          TopLeft="819.166626280382,399.533330555028">
+          TopLeft="378.866650730703,359.666664454871">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="96.7333285070135,-71.9333325438365"
+              EndConnector="100.233327550855,46.799999385277"
               Start="0,0"
-              End="96.7333285070135,-64.4333325438365">
+              End="100.233327550855,39.299999385277">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-31.9666662719182" />
+                    End="0,19.3999996926385" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,-31.9666662719182"
-                    Point2="0,-35.9666662719182"
-                    Point3="4,-35.9666662719182" />
+                    Point1="0,19.3999996926385"
+                    Point2="0,23.3999996926385"
+                    Point3="4,23.3999996926385" />
                   <mssgle:LineSegment
-                    End="92.7333285070135,-35.9666662719182" />
+                    End="96.2333275508549,23.3999996926385" />
                   <mssgle:CubicBezierSegment
-                    Point1="92.7333285070135,-35.9666662719182"
-                    Point2="96.7333285070135,-35.9666662719182"
-                    Point3="96.7333285070135,-39.9666662719182" />
+                    Point1="96.2333275508549,23.3999996926385"
+                    Point2="100.233327550855,23.3999996926385"
+                    Point3="100.233327550855,27.3999996926385" />
                   <mssgle:LineSegment
-                    End="96.7333285070135,-64.4333325438365" />
+                    End="100.233327550855,39.299999385277" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0.175277534756766,-30.9666662719182,96.3827734375,11.609375"
+              BoundingBox="-6.94337528707256,28.3999996926385,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Lookup Match Output3]"
+          TopLeft="304.999988799294,284.266664979193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.866661931409,33.799999475678"
+              Start="0,0"
+              End="73.866661931409,26.299999475678">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.899999737839" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.899999737839"
+                    Point2="0,16.899999737839"
+                    Point3="4,16.899999737839" />
+                  <mssgle:LineSegment
+                    End="69.866661931409,16.899999737839" />
+                  <mssgle:CubicBezierSegment
+                    Point1="69.866661931409,16.899999737839"
+                    Point2="73.866661931409,16.899999737839"
+                    Point3="73.866661931409,20.899999737839" />
+                  <mssgle:LineSegment
+                    End="73.866661931409,26.299999475678" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-20.1267080967955,21.899999737839,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
           TopLeft="479.099978281558,448.066663840148">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2055,74 +2074,38 @@ LEFT JOIN quant q
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
-          TopLeft="378.866650730703,359.666664454871">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="100.233327550855,46.799999385277"
-              Start="0,0"
-              End="100.233327550855,39.299999385277">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.3999996926385" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.3999996926385"
-                    Point2="0,23.3999996926385"
-                    Point3="4,23.3999996926385" />
-                  <mssgle:LineSegment
-                    End="96.2333275508549,23.3999996926385" />
-                  <mssgle:CubicBezierSegment
-                    Point1="96.2333275508549,23.3999996926385"
-                    Point2="100.233327550855,23.3999996926385"
-                    Point3="100.233327550855,27.3999996926385" />
-                  <mssgle:LineSegment
-                    End="100.233327550855,39.299999385277" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="1.92527705667744,28.3999996926385,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
-          TopLeft="304.999988799294,284.266664979193">
+          TopLeft="819.166626280382,399.533330555028">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="73.866661931409,33.799999475678"
+              EndConnector="96.7333285070135,-71.9333325438365"
               Start="0,0"
-              End="73.866661931409,26.299999475678">
+              End="96.7333285070135,-64.4333325438365">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.899999737839" />
+                    End="0,-31.9666662719182" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.899999737839"
-                    Point2="0,16.899999737839"
-                    Point3="4,16.899999737839" />
+                    Point1="0,-31.9666662719182"
+                    Point2="0,-35.9666662719182"
+                    Point3="4,-35.9666662719182" />
                   <mssgle:LineSegment
-                    End="69.866661931409,16.899999737839" />
+                    End="92.7333285070135,-35.9666662719182" />
                   <mssgle:CubicBezierSegment
-                    Point1="69.866661931409,16.899999737839"
-                    Point2="73.866661931409,16.899999737839"
-                    Point3="73.866661931409,20.899999737839" />
+                    Point1="92.7333285070135,-35.9666662719182"
+                    Point2="96.7333285070135,-35.9666662719182"
+                    Point3="96.7333285070135,-39.9666662719182" />
                   <mssgle:LineSegment
-                    End="73.866661931409,26.299999475678" />
+                    End="96.7333285070135,-64.4333325438365" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-11.2580557530455,21.899999737839,96.3827734375,11.609375"
+              BoundingBox="0.175277534756745,-30.9666662719182,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2132,9 +2115,9 @@ LEFT JOIN quant q
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.23333082911,51.1333326884769"
+              EndConnector="58.23333082911,51.133332688477"
               Start="0,0"
-              End="58.23333082911,43.6333326884769">
+              End="58.23333082911,43.633332688477">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -2151,7 +2134,7 @@ LEFT JOIN quant q
                     Point2="58.23333082911,25.5666663442385"
                     Point3="58.23333082911,29.5666663442385" />
                   <mssgle:LineSegment
-                    End="58.23333082911,43.6333326884769" />
+                    End="58.23333082911,43.633332688477" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2208,58 +2191,12 @@ LEFT JOIN quant q
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\FactInventariosOdoo\Lookup createdAt">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dw].[DimFecha]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FactInventariosOdoo\Lookup DimAveria">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dw].[DimAveria]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\FactInventariosOdoo\Lookup DimProducto">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2282,7 +2219,7 @@ LEFT JOIN quant q
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2305,7 +2242,7 @@ LEFT JOIN quant q
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">true</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
