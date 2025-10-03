@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimOrdenCompra"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{FDF86322-6BDA-4382-B0B0-2697E11A3F82}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{6A68BD18-619D-4451-92C6-91DBA033881D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -565,13 +565,11 @@
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Orden]"
                       dataType="dbTimeStamp2"
-                      name="Fecha_Orden"
-                      scale="7" />
+                      name="Fecha_Orden" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Creacion]"
                       dataType="dbTimeStamp2"
-                      name="Fecha_Creacion"
-                      scale="7" />
+                      name="Fecha_Creacion" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad_Pedida]"
                       dataType="numeric"
@@ -592,8 +590,7 @@
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[UltimaActualizacion]"
                       dataType="dbTimeStamp2"
-                      name="UltimaActualizacion"
-                      scale="7" />
+                      name="UltimaActualizacion" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicio]"
                       dataType="dbTimeStamp2"

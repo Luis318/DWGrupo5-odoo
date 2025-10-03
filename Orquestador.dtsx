@@ -1,0 +1,312 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/2/2025 6:45:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MENDOZA_QA"
+  DTS:CreatorName="MENDOZA_QA\luism"
+  DTS:DTSID="{146840BF-5CE0-423C-B1D3-C48FEE298C67}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="Orquestador"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{222AECFA-A840-40FB-86BF-1DBE5369E1FE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Ejecutar DimAlmacen"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{3ECBE7E4-C7DA-4510-95B9-33FE73462995}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ejecutar DimAlmacen"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>DimAlmacen.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ejecutar DimAveria"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{45092FA6-EE0A-4620-A3A8-6ED0AE60A98A}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ejecutar DimAveria"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>DimAveria.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ejecutar DimOrdenCompra"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{4764ACB2-C3A7-4D86-906D-85E15A2A65EC}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ejecutar DimOrdenCompra"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>DimOrdenCompra.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ejecutar DimProducto"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{CB5CE7E1-BC3B-42B1-8075-CF3A9892FEDE}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ejecutar DimProducto"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>DimProducto.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Ejecutar FT_inventario"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{CAB3A643-879D-4496-A536-25F318186434}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Ejecutar FT_inventario"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>FactInventariosOdoo.dtsx</PackageName>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{E3876A1A-9AA7-4657-A61B-5DF793B0AE64}"
+      DTS:From="Package\Ejecutar DimAlmacen"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Ejecutar DimProducto" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7EED99F2-837C-44E8-BB26-1BA96438CA9F}"
+      DTS:From="Package\Ejecutar DimProducto"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Ejecutar DimOrdenCompra" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1C9F68D9-0F98-4402-B6E5-3DFE271F9DAC}"
+      DTS:From="Package\Ejecutar DimOrdenCompra"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\Ejecutar DimAveria" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{093E8888-BCF7-4329-A0D1-2AFDACD3AB59}"
+      DTS:From="Package\Ejecutar DimAveria"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\Ejecutar FT_inventario" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Ejecutar DimAlmacen"
+          TopLeft="105.833327550855,68.466666190558" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\Ejecutar DimProducto"
+          TopLeft="174.999990438422,136.066665720476" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="195.033327550855,110.066666190558">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.3666628875669,25.9999995299181"
+              Start="0,0"
+              End="72.3666628875669,18.4999995299181">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.99999976495903" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.99999976495903"
+                    Point2="0,12.999999764959"
+                    Point3="4,12.999999764959" />
+                  <mssgle:LineSegment
+                    End="68.3666628875669,12.999999764959" />
+                  <mssgle:CubicBezierSegment
+                    Point1="68.3666628875669,12.999999764959"
+                    Point2="72.3666628875669,12.999999764959"
+                    Point3="72.3666628875669,16.999999764959" />
+                  <mssgle:LineSegment
+                    End="72.3666628875669,18.4999995299181" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204,41.6"
+          Id="Package\Ejecutar DimOrdenCompra"
+          TopLeft="251.666652916207,227.066665087673" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="267.399990438422,177.666665720476">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.2666624777849,49.3999993671974"
+              Start="0,0"
+              End="86.2666624777849,41.8999993671974">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6999996835987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6999996835987"
+                    Point2="0,24.6999996835987"
+                    Point3="4,24.6999996835987" />
+                  <mssgle:LineSegment
+                    End="82.2666624777849,24.6999996835987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.2666624777849,24.6999996835987"
+                    Point2="86.2666624777849,24.6999996835987"
+                    Point3="86.2666624777849,28.6999996835987" />
+                  <mssgle:LineSegment
+                    End="86.2666624777849,41.8999993671974" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Ejecutar DimAveria"
+          TopLeft="364.99998005728,311.999997830391" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="353.666652916207,268.666665087673">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="94.9333271410732,43.3333327427175"
+              Start="0,0"
+              End="94.9333271410732,35.8333327427175">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6666663713588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6666663713588"
+                    Point2="0,21.6666663713588"
+                    Point3="4,21.6666663713588" />
+                  <mssgle:LineSegment
+                    End="90.9333271410732,21.6666663713588" />
+                  <mssgle:CubicBezierSegment
+                    Point1="90.9333271410732,21.6666663713588"
+                    Point2="94.9333271410732,21.6666663713588"
+                    Point3="94.9333271410732,25.6666663713588" />
+                  <mssgle:LineSegment
+                    End="94.9333271410732,35.8333327427175" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Ejecutar FT_inventario"
+          TopLeft="489.999973227582,382.199997342229" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="448.59998005728,353.599997830391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="132.999993170301,28.5999995118379"
+              Start="0,0"
+              End="132.999993170301,21.0999995118379">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.2999997559189" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.2999997559189"
+                    Point2="0,14.2999997559189"
+                    Point3="4,14.2999997559189" />
+                  <mssgle:LineSegment
+                    End="128.999993170301,14.2999997559189" />
+                  <mssgle:CubicBezierSegment
+                    Point1="128.999993170301,14.2999997559189"
+                    Point2="132.999993170301,14.2999997559189"
+                    Point3="132.999993170301,18.2999997559189" />
+                  <mssgle:LineSegment
+                    End="132.999993170301,21.0999995118379" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

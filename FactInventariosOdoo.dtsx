@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="47"
-  DTS:VersionGUID="{B79A4D7C-92AF-42CC-A528-970C388B9789}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{619A36A9-8BDB-48DF-9C72-C25E3E01A51F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -459,7 +459,7 @@ where [refTable].[Fecha] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="FechaKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fecha" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Dia_Mes" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Dia" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Mes" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Mes" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Anio" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Dia_Anio" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Numero_Semana" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semestre" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="FechaKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Fecha" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Dia_Mes" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Dia" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Mes" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Mes" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Anio" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Dia_Anio" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Numero_Semana" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Semestre" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Trimestre" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Nombre_Trimestre" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
@@ -621,7 +621,7 @@ where [refTable].[Id_Almacen] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\FactInventariosOdoo\198:invalid};</property>
+                  name="ParameterMap">#{Package\FactInventariosOdoo\323:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -778,7 +778,7 @@ where [refTable].[Id_Averia] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\FactInventariosOdoo\200:invalid};</property>
+                  name="ParameterMap">#{Package\FactInventariosOdoo\324:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1092,7 +1092,7 @@ where [refTable].[Id_Producto] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\FactInventariosOdoo\197:invalid};</property>
+                  name="ParameterMap">#{Package\FactInventariosOdoo\325:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1874,7 +1874,34 @@ LEFT JOIN quant q
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limpiar"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{51C29AF6-8255-45DE-9190-EBD17FB652C5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpiar"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{47344A8D-BE5E-41C1-9992-1A7DE100C005}"
+          SQLTask:SqlStatementSource="Delete dw.FT_Inventario;&#xA;DBCC CHECKIDENT('dw.FT_Inventario', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{B7B0C8CC-3B5C-4FF5-904A-F337E256AE21}"
+      DTS:From="Package\Limpiar"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\FactInventariosOdoo" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -1886,11 +1913,49 @@ LEFT JOIN quant q
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="175.2,41.6"
           Id="Package\FactInventariosOdoo"
-          TopLeft="262.499985657633,135.199999059836" />
+          TopLeft="264.999985521039,155.999998915195" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Limpiar"
+          TopLeft="96.6666613850331,47.6666663351986" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="153.066661385033,89.2666663351986">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="199.533324136006,66.7333325799968"
+              Start="0,0"
+              End="199.533324136006,59.2333325799968">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.3666662899984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.3666662899984"
+                    Point2="0,33.3666662899984"
+                    Point3="4,33.3666662899984" />
+                  <mssgle:LineSegment
+                    End="195.533324136006,33.3666662899984" />
+                  <mssgle:CubicBezierSegment
+                    Point1="195.533324136006,33.3666662899984"
+                    Point2="199.533324136006,33.3666662899984"
+                    Point3="199.533324136006,37.3666662899984" />
+                  <mssgle:LineSegment
+                    End="199.533324136006,59.2333325799968" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1930,33 +1995,33 @@ LEFT JOIN quant q
         <NodeLayout
           Size="172.8,41.6"
           Id="Package\FactInventariosOdoo\Origen de ADO NET"
-          TopLeft="94.9999948094291,59.7999995841583" />
+          TopLeft="97.4999946728351,61.5333329054382" />
         <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Salida de origen de ADO NET]"
-          TopLeft="181.399994809429,101.399999584158">
+          TopLeft="183.899994672835,103.133332905438">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="65.3666631607549,48.5333327065577"
+              EndConnector="62.8666632973489,46.7999993852778"
               Start="0,0"
-              End="65.3666631607549,41.0333327065577">
+              End="62.8666632973489,39.2999993852778">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2666663532789" />
+                    End="0,19.3999996926389" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2666663532789"
-                    Point2="0,24.2666663532789"
-                    Point3="4,24.2666663532789" />
+                    Point1="0,19.3999996926389"
+                    Point2="0,23.3999996926389"
+                    Point3="4,23.3999996926389" />
                   <mssgle:LineSegment
-                    End="61.3666631607549,24.2666663532789" />
+                    End="58.8666632973489,23.3999996926389" />
                   <mssgle:CubicBezierSegment
-                    Point1="61.3666631607549,24.2666663532789"
-                    Point2="65.3666631607549,24.2666663532789"
-                    Point3="65.3666631607549,28.2666663532789" />
+                    Point1="58.8666632973489,23.3999996926389"
+                    Point2="62.8666632973489,23.3999996926389"
+                    Point3="62.8666632973489,27.3999996926389" />
                   <mssgle:LineSegment
-                    End="65.3666631607549,41.0333327065577" />
+                    End="62.8666632973489,39.2999993852778" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2191,6 +2256,29 @@ LEFT JOIN quant q
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Lookup createdAt">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DimFecha]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\FactInventariosOdoo\Lookup DimProducto">
     <Properties>
       <Property>
@@ -2242,7 +2330,7 @@ LEFT JOIN quant q
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
