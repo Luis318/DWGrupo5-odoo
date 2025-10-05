@@ -12,7 +12,7 @@
   DTS:ObjectName="DimOrdenCompra"
   DTS:PackageType="5"
   DTS:VersionBuild="56"
-  DTS:VersionGUID="{AA24680B-D6EB-4494-815C-F5C60AE2AC40}">
+  DTS:VersionGUID="{6A68BD18-619D-4451-92C6-91DBA033881D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -565,13 +565,11 @@
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Orden]"
                       dataType="dbTimeStamp2"
-                      name="Fecha_Orden"
-                      scale="7" />
+                      name="Fecha_Orden" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Fecha_Creacion]"
                       dataType="dbTimeStamp2"
-                      name="Fecha_Creacion"
-                      scale="7" />
+                      name="Fecha_Creacion" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Cantidad_Pedida]"
                       dataType="numeric"
@@ -592,18 +590,15 @@
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[UltimaActualizacion]"
                       dataType="dbTimeStamp2"
-                      name="UltimaActualizacion"
-                      scale="7" />
+                      name="UltimaActualizacion" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[FechaInicio]"
                       dataType="dbTimeStamp2"
-                      name="FechaInicio"
-                      scale="7" />
+                      name="FechaInicio" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[FechaFin]"
                       dataType="dbTimeStamp2"
-                      name="FechaFin"
-                      scale="7" />
+                      name="FechaFin" />
                     <externalMetadataColumn
                       refId="Package\Llenar DimOrdenCompra\DimOrdenCompra.Inputs[OLE DB Destination Input].ExternalColumns[Activo]"
                       dataType="bool"
@@ -2384,6 +2379,74 @@ where [refTable].[Id_Orden_Compra] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Derived Column Output1]"
+          TopLeft="593.90300406043,338.630300964791">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-191.903021726584,50.7030305123212"
+              Start="0,0"
+              End="-191.903021726584,43.2030305123212">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0215312244007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0215312244007"
+                    Point2="0,30.0215312244007"
+                    Point3="-4,30.0215312244007" />
+                  <mssgle:LineSegment
+                    End="-187.903021726584,30.0215312244007" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-187.903021726584,30.0215312244007"
+                    Point2="-191.903021726584,30.0215312244007"
+                    Point3="-191.903021726584,34.0215312244007" />
+                  <mssgle:LineSegment
+                    End="-191.903021726584,43.2030305123212" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Llenar DimOrdenCompra.Paths[Derived Column Output]"
+          TopLeft="159.32727011957,341.781816094391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="224.00604554761,47.5515153827212"
+              Start="0,0"
+              End="224.00604554761,40.0515153827212">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7757576913606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.7757576913606"
+                    Point2="0,23.7757576913606"
+                    Point3="4,23.7757576913606" />
+                  <mssgle:LineSegment
+                    End="220.00604554761,23.7757576913606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="220.00604554761,23.7757576913606"
+                    Point2="224.00604554761,23.7757576913606"
+                    Point3="224.00604554761,27.7757576913606" />
+                  <mssgle:LineSegment
+                    End="224.00604554761,40.0515153827212" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Llenar DimOrdenCompra.Paths[Data Conversion Output]"
           TopLeft="129.586360227723,144.812120494397">
           <EdgeLayout.Curve>
@@ -2427,74 +2490,6 @@ where [refTable].[Id_Orden_Compra] = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="10.0915088599142,5,43.42,9.5732421875"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Llenar DimOrdenCompra.Paths[Derived Column Output]"
-          TopLeft="159.32727011957,341.781816094391">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="224.00604554761,47.5515153827209"
-              Start="0,0"
-              End="224.00604554761,40.0515153827209">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.7757576913605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.7757576913605"
-                    Point2="0,23.7757576913605"
-                    Point3="4,23.7757576913605" />
-                  <mssgle:LineSegment
-                    End="220.00604554761,23.7757576913605" />
-                  <mssgle:CubicBezierSegment
-                    Point1="220.00604554761,23.7757576913605"
-                    Point2="224.00604554761,23.7757576913605"
-                    Point3="224.00604554761,27.7757576913605" />
-                  <mssgle:LineSegment
-                    End="224.00604554761,40.0515153827209" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Llenar DimOrdenCompra.Paths[Derived Column Output1]"
-          TopLeft="593.90300406043,338.630300964791">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-191.903021726583,50.7030305123209"
-              Start="0,0"
-              End="-191.903021726583,43.2030305123209">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.0215312244006" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.0215312244006"
-                    Point2="0,30.0215312244006"
-                    Point3="-4,30.0215312244006" />
-                  <mssgle:LineSegment
-                    End="-187.903021726583,30.0215312244006" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-187.903021726583,30.0215312244006"
-                    Point2="-191.903021726583,30.0215312244006"
-                    Point3="-191.903021726583,34.0215312244006" />
-                  <mssgle:LineSegment
-                    End="-191.903021726583,43.2030305123209" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
