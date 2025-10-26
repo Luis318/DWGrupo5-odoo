@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{5146D445-DB85-4854-9F88-832765041F97}">
+  DTS:VersionBuild="65"
+  DTS:VersionGUID="{7AF76586-A483-4850-90DA-F2F03599B2E0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -134,12 +134,6 @@
                       cachedName="estado_stock"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Estado_Stock]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[estado_stock]" />
-                    <inputColumn
-                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[createdat]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="createdat"
-                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[CreatedAt]"
-                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[createdat]" />
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[ProductoKey]"
                       cachedDataType="i4"
@@ -1462,20 +1456,20 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Limpiar"
+      DTS:refId="Package\Verificar fecha de hoy"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
       DTS:DTSID="{51C29AF6-8255-45DE-9190-EBD17FB652C5}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Limpiar"
+      DTS:ObjectName="Verificar fecha de hoy"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{47344A8D-BE5E-41C1-9992-1A7DE100C005}"
-          SQLTask:SqlStatementSource="Delete dw.FT_Inventario;&#xA;DBCC CHECKIDENT('dw.FT_Inventario', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;DECLARE @inicioHoy    datetime2 = DATEADD(DAY, DATEDIFF(DAY, 0, SYSDATETIME()), 0);&#xA;DECLARE @inicioManana datetime2 = DATEADD(DAY, 1, @inicioHoy);&#xA;&#xA;DELETE FROM dw.FT_Inventario&#xA;WHERE CreatedAt &gt;= @inicioHoy&#xA;  AND CreatedAt &lt;  @inicioManana;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1484,7 +1478,7 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
       DTS:DTSID="{B7B0C8CC-3B5C-4FF5-904A-F337E256AE21}"
-      DTS:From="Package\Limpiar"
+      DTS:From="Package\Verificar fecha de hoy"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
       DTS:To="Package\FactInventariosOdoo" />
@@ -1506,35 +1500,35 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
           Id="Package\FactInventariosOdoo"
           TopLeft="264.999985521039,155.999998915195" />
         <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Limpiar"
+          Size="178.4,41.6"
+          Id="Package\Verificar fecha de hoy"
           TopLeft="96.6666613850331,47.6666663351986" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="153.066661385033,89.2666663351986">
+          TopLeft="185.866661385033,89.2666663351986">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="199.533324136006,66.7333325799968"
+              EndConnector="166.733324136006,66.7333325799964"
               Start="0,0"
-              End="199.533324136006,59.2333325799968">
+              End="166.733324136006,59.2333325799964">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.3666662899984" />
+                    End="0,29.3666662899982" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.3666662899984"
-                    Point2="0,33.3666662899984"
-                    Point3="4,33.3666662899984" />
+                    Point1="0,29.3666662899982"
+                    Point2="0,33.3666662899982"
+                    Point3="4,33.3666662899982" />
                   <mssgle:LineSegment
-                    End="195.533324136006,33.3666662899984" />
+                    End="162.733324136006,33.3666662899982" />
                   <mssgle:CubicBezierSegment
-                    Point1="195.533324136006,33.3666662899984"
-                    Point2="199.533324136006,33.3666662899984"
-                    Point3="199.533324136006,37.3666662899984" />
+                    Point1="162.733324136006,33.3666662899982"
+                    Point2="166.733324136006,33.3666662899982"
+                    Point3="166.733324136006,37.3666662899982" />
                   <mssgle:LineSegment
-                    End="199.533324136006,59.2333325799968" />
+                    End="166.733324136006,59.2333325799964" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1552,6 +1546,10 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\FactInventariosOdoo\Destino de ADO NET"
+          TopLeft="707.708294665856,400.833330545989" />
+        <NodeLayout
           Size="174.4,41.6"
           Id="Package\FactInventariosOdoo\Lookup DimAlmacen"
           TopLeft="249.999986340602,254.149998232673" />
@@ -1567,80 +1565,6 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
           Size="175.2,41.6"
           Id="Package\FactInventariosOdoo\Lookup DimProducto"
           TopLeft="159.166657970184,149.933332290716" />
-        <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\FactInventariosOdoo\Destino de ADO NET"
-          TopLeft="707.708294665856,400.833330545989" />
-        <EdgeLayout
-          Id="Package\FactInventariosOdoo.Paths[Salida de origen de ADO NET]"
-          TopLeft="183.899994672835,103.133332905438">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="62.8666632973489,46.7999993852778"
-              Start="0,0"
-              End="62.8666632973489,39.2999993852778">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.3999996926389" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.3999996926389"
-                    Point2="0,23.3999996926389"
-                    Point3="4,23.3999996926389" />
-                  <mssgle:LineSegment
-                    End="58.8666632973489,23.3999996926389" />
-                  <mssgle:CubicBezierSegment
-                    Point1="58.8666632973489,23.3999996926389"
-                    Point2="62.8666632973489,23.3999996926389"
-                    Point3="62.8666632973489,27.3999996926389" />
-                  <mssgle:LineSegment
-                    End="62.8666632973489,39.2999993852778" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
-          TopLeft="337.199986340602,295.749998232673">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="85.0916616240725,70.1999992225562"
-              Start="0,0"
-              End="85.0916616240725,62.6999992225562">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.0999996112781" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.0999996112781"
-                    Point2="0,35.0999996112781"
-                    Point3="4,35.0999996112781" />
-                  <mssgle:LineSegment
-                    End="81.0916616240725,35.0999996112781" />
-                  <mssgle:CubicBezierSegment
-                    Point1="81.0916616240725,35.0999996112781"
-                    Point2="85.0916616240725,35.0999996112781"
-                    Point3="85.0916616240725,39.0999996112781" />
-                  <mssgle:LineSegment
-                    End="85.0916616240725,62.6999992225562" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-5.64555590671375,40.0999996112781,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
           TopLeft="246.766657970184,191.533332290716">
@@ -1713,9 +1637,118 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Salida de origen de ADO NET]"
+          TopLeft="183.899994672835,103.133332905438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="62.8666632973489,46.7999993852778"
+              Start="0,0"
+              End="62.8666632973489,39.2999993852778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3999996926389" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.3999996926389"
+                    Point2="0,23.3999996926389"
+                    Point3="4,23.3999996926389" />
+                  <mssgle:LineSegment
+                    End="58.8666632973489,23.3999996926389" />
+                  <mssgle:CubicBezierSegment
+                    Point1="58.8666632973489,23.3999996926389"
+                    Point2="62.8666632973489,23.3999996926389"
+                    Point3="62.8666632973489,27.3999996926389" />
+                  <mssgle:LineSegment
+                    End="62.8666632973489,39.2999993852778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
+          TopLeft="337.199986340602,295.749998232673">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.0916616240725,70.1999992225562"
+              Start="0,0"
+              End="85.0916616240725,62.6999992225562">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.0999996112781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.0999996112781"
+                    Point2="0,35.0999996112781"
+                    Point3="4,35.0999996112781" />
+                  <mssgle:LineSegment
+                    End="81.0916616240725,35.0999996112781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.0916616240725,35.0999996112781"
+                    Point2="85.0916616240725,35.0999996112781"
+                    Point3="85.0916616240725,39.0999996112781" />
+                  <mssgle:LineSegment
+                    End="85.0916616240725,62.6999992225562" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-5.64555590671375,40.0999996112781,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Lookup DimAlmacen">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DimAlmacen]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FactInventariosOdoo\Lookup DimProducto">
     <Properties>
@@ -1745,51 +1778,12 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dw].[DimFecha]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FactInventariosOdoo\Destino de ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FactInventariosOdoo\Origen de ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FactInventariosOdoo\Lookup DimAlmacen">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
           type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dw].[DimAlmacen]</Value>
+          type="q3:string">[dw].[DimFecha]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
