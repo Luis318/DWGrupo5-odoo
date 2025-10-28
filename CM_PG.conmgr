@@ -7,10 +7,10 @@
     DTS:Name="ConnectionString">"Host=" + @[$Project::Src_Host]+ ";Port=" + (DT_WSTR,10)@[$Project::Src_Port]+ ";Database=" + @[$Project::Src_DB]+ ";Username=" + @[$Project::Src_User]+ ";Password=" + @[$Project::Src_Pwd]+ ";SSL Mode=Prefer;Trust Server Certificate=true;"</DTS:PropertyExpression>
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Host=localhost;Port=5432;Database=odoo_server;Username=postgres;SSL Mode=Prefer;Trust Server Certificate=true;">
+      DTS:ConnectionString="Host=167.99.233.226;Port=5432;Database=odoo-db;Username=odoo;SSL Mode=Prefer;Trust Server Certificate=true;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD/2uJBgezUKGMUNwLwSVUQAAAAACAAAAAAAQZgAAAAEAACAAAACoUSfQ6llf3DO5F0Jcpo2UqByFEtIJ8AnZ+yh7dNBsxwAAAAAOgAAAAAIAACAAAACS2XUVKIB3LgsFYQKTKnXgqeSNaZQe0mhyyC5AWw5cs3AAAABVdF/lbRLAGWOPekYMqVsIwz4bEf+V+pGt9oLE1t/AL6aBvE6aza5ZhdKjRDkn+zPfGrC2RyudJFg5ck+7GO4ZSobHk8Yj1vj5oDsnVoYSYxYKCB+wd+pnyaYv1tx+IjO6JKCsqXr+/fML1C6rJpotQAAAAHTawUu1KHrWrkny6RUad5XWSCwe3FD7k7V1LPNx48fiHtE32XKHoCkxeHF5KxPoJ0au/u6u8/0tgUvsDNcSM+s=</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAM0DDiKS8k+5B7P2PGRKswAAAAACAAAAAAAQZgAAAAEAACAAAABwMMSJML4UXWjsTMA1xdDWPda7DCCJSziHneEAaDKIhwAAAAAOgAAAAAIAACAAAAD+g6t6e8x0Bs33KN0IPPeEe9NA1sBahQKcCU2JrMxhpHAAAAD74Mbj6BecUx5d2ltwYDycHrG59CTNiqooxbGGBFoZXlL4unl8kugTN/w+ML0nKZ4ne509uqE+9HMnWsOnHhRowTge1UAQr+R0b5AHS71A4SY+v6dJviaBf11H7iCb4xEUTUtq5406sR24CTWHwj/wQAAAAIleq5x9a5MkffMz8E5L/JTRS6ieh/hjaM0GxZSQnCeoljkHj9W884+bcCQbyY4esuGNBRPkSQOTJ4uSLb4ON1A=</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

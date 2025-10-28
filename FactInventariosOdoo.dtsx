@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="65"
-  DTS:VersionGUID="{7AF76586-A483-4850-90DA-F2F03599B2E0}">
+  DTS:VersionBuild="72"
+  DTS:VersionGUID="{7BAA4AF3-A611-417A-834E-38D020D6BA9E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -105,6 +105,14 @@
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Costo_Producto_Entrante]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo_producto_entrante]" />
                     <inputColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[costo_producto_saliente]"
+                      cachedDataType="numeric"
+                      cachedName="costo_producto_saliente"
+                      cachedPrecision="18"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Costo_Producto_Saliente]"
+                      lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo_producto_saliente]" />
+                    <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[inventario_fisico]"
                       cachedDataType="numeric"
                       cachedName="inventario_fisico"
@@ -178,9 +186,21 @@
                       precision="18"
                       scale="6" />
                     <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Costo_Producto_Entrante]"
+                      dataType="numeric"
+                      name="Costo_Producto_Entrante"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Salida_Producto]"
                       dataType="numeric"
                       name="Salida_Producto"
+                      precision="18"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Costo_Producto_Saliente]"
+                      dataType="numeric"
+                      name="Costo_Producto_Saliente"
                       precision="18"
                       scale="6" />
                     <externalMetadataColumn
@@ -199,12 +219,6 @@
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Diferencia_Inventarios]"
                       dataType="numeric"
                       name="Diferencia_Inventarios"
-                      precision="18"
-                      scale="6" />
-                    <externalMetadataColumn
-                      refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Costo_Producto_Entrante]"
-                      dataType="numeric"
-                      name="Costo_Producto_Entrante"
                       precision="18"
                       scale="6" />
                     <externalMetadataColumn
@@ -1433,19 +1447,19 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
           <paths>
             <path
               refId="Package\FactInventariosOdoo.Paths[Lookup Match Output]"
-              endId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
-              name="Lookup Match Output"
-              startId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
               endId="Package\FactInventariosOdoo\Lookup DimAlmacen.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\FactInventariosOdoo\Lookup DimProducto.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
+              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
               endId="Package\FactInventariosOdoo\Lookup createdAt.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\FactInventariosOdoo\Lookup DimAlmacen.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
+              endId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+              name="Lookup Match Output"
+              startId="Package\FactInventariosOdoo\Lookup createdAt.Outputs[Lookup Match Output]" />
             <path
               refId="Package\FactInventariosOdoo.Paths[Salida de origen de ADO NET]"
               endId="Package\FactInventariosOdoo\Lookup DimProducto.Inputs[Lookup Input]"
@@ -1546,10 +1560,6 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\FactInventariosOdoo\Destino de ADO NET"
-          TopLeft="707.708294665856,400.833330545989" />
-        <NodeLayout
           Size="174.4,41.6"
           Id="Package\FactInventariosOdoo\Lookup DimAlmacen"
           TopLeft="249.999986340602,254.149998232673" />
@@ -1567,6 +1577,42 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
           TopLeft="159.166657970184,149.933332290716" />
         <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
+          TopLeft="337.199986340602,295.749998232673">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.0916616240725,70.1999992225562"
+              Start="0,0"
+              End="85.0916616240725,62.6999992225562">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.0999996112781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.0999996112781"
+                    Point2="0,35.0999996112781"
+                    Point3="4,35.0999996112781" />
+                  <mssgle:LineSegment
+                    End="81.0916616240725,35.0999996112781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.0916616240725,35.0999996112781"
+                    Point2="85.0916616240725,35.0999996112781"
+                    Point3="85.0916616240725,39.0999996112781" />
+                  <mssgle:LineSegment
+                    End="85.0916616240725,62.6999992225562" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-5.64555590671375,40.0999996112781,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output]"
           TopLeft="246.766657970184,191.533332290716">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1598,42 +1644,6 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="-2.97472253354076,36.3083329709784,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output]"
-          TopLeft="502.291647964675,386.749997455229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="205.416646701181,34.8833330907597"
-              Start="0,0"
-              End="197.916646701181,34.8833330907597">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="98.7083233505907,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="98.7083233505907,0"
-                    Point2="102.708323350591,0"
-                    Point3="102.708323350591,4" />
-                  <mssgle:LineSegment
-                    End="102.708323350591,30.8833330907597" />
-                  <mssgle:CubicBezierSegment
-                    Point1="102.708323350591,30.8833330907597"
-                    Point2="102.708323350591,34.8833330907597"
-                    Point3="106.708323350591,34.8833330907597" />
-                  <mssgle:LineSegment
-                    End="197.916646701181,34.8833330907597" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="54.516936631841,-17.609375,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1671,39 +1681,43 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\FactInventariosOdoo\Destino de ADO NET"
+          TopLeft="619.999966124695,313.199997938871" />
         <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
-          TopLeft="337.199986340602,295.749998232673">
+          TopLeft="502.291647964675,386.749997455229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="85.0916616240725,70.1999992225562"
+              EndConnector="117.70831816002,-52.7499995163575"
               Start="0,0"
-              End="85.0916616240725,62.6999992225562">
+              End="110.20831816002,-52.7499995163575">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.0999996112781" />
+                    End="54.85415908001,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.0999996112781"
-                    Point2="0,35.0999996112781"
-                    Point3="4,35.0999996112781" />
+                    Point1="54.85415908001,0"
+                    Point2="58.85415908001,0"
+                    Point3="58.85415908001,-4" />
                   <mssgle:LineSegment
-                    End="81.0916616240725,35.0999996112781" />
+                    End="58.85415908001,-48.7499995163575" />
                   <mssgle:CubicBezierSegment
-                    Point1="81.0916616240725,35.0999996112781"
-                    Point2="85.0916616240725,35.0999996112781"
-                    Point3="85.0916616240725,39.0999996112781" />
+                    Point1="58.85415908001,-48.7499995163575"
+                    Point2="58.85415908001,-52.7499995163575"
+                    Point3="62.85415908001,-52.7499995163575" />
                   <mssgle:LineSegment
-                    End="85.0916616240725,62.6999992225562" />
+                    End="110.20831816002,-52.7499995163575" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-5.64555590671375,40.0999996112781,96.3827734375,11.609375"
+              BoundingBox="10.66277236126,1,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1724,7 +1738,7 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1734,16 +1748,8 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FactInventariosOdoo\Destino de ADO NET">
-    <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -1778,7 +1784,7 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1788,8 +1794,16 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Destino de ADO NET">
+    <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
