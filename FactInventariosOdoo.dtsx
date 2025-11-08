@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="72"
-  DTS:VersionGUID="{7BAA4AF3-A611-417A-834E-38D020D6BA9E}">
+  DTS:VersionBuild="73"
+  DTS:VersionGUID="{2B281018-4DC8-4997-A7A6-CA09AABD3093}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -315,7 +315,7 @@ where [refTable].[FechaKey] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fechakey]};</property>
+                  name="ParameterMap">#{Package\FactInventariosOdoo\121:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -472,7 +472,7 @@ where [refTable].[Id_Almacen] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_almacen]};</property>
+                  name="ParameterMap">#{Package\FactInventariosOdoo\123:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1081,7 +1081,7 @@ CASE
 
 WHEN COALESCE(MAX(q.qty_on_hand - q.qty_reserved),0) &lt;= 0 THEN 'Agotado' 
 
-WHEN COALESCE(MAX(q.qty_on_hand - q.qty_reserved),0) &lt;= 5 THEN 'Por agotarse' 
+WHEN COALESCE(MAX(q.qty_on_hand - q.qty_reserved),0) &lt;= 50 THEN 'Por agotarse' 
 
 ELSE 'Disponible' 
 
@@ -1568,49 +1568,17 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
           Id="Package\FactInventariosOdoo\Origen de ADO NET"
           TopLeft="97.4999946728351,61.5333329054382" />
         <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\FactInventariosOdoo\Lookup DimProducto"
+          TopLeft="159.166657970184,149.933332290716" />
+        <NodeLayout
           Size="160,41.6"
           Id="Package\FactInventariosOdoo\Lookup createdAt"
           TopLeft="342.291647964675,365.949997455229" />
         <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\FactInventariosOdoo\Lookup DimProducto"
-          TopLeft="159.166657970184,149.933332290716" />
-        <EdgeLayout
-          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
-          TopLeft="337.199986340602,295.749998232673">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="85.0916616240725,70.1999992225562"
-              Start="0,0"
-              End="85.0916616240725,62.6999992225562">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.0999996112781" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.0999996112781"
-                    Point2="0,35.0999996112781"
-                    Point3="4,35.0999996112781" />
-                  <mssgle:LineSegment
-                    End="81.0916616240725,35.0999996112781" />
-                  <mssgle:CubicBezierSegment
-                    Point1="81.0916616240725,35.0999996112781"
-                    Point2="85.0916616240725,35.0999996112781"
-                    Point3="85.0916616240725,39.0999996112781" />
-                  <mssgle:LineSegment
-                    End="85.0916616240725,62.6999992225562" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-5.64555590671375,40.0999996112781,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="176.8,41.6"
+          Id="Package\FactInventariosOdoo\Destino de ADO NET"
+          TopLeft="619.999966124695,313.199997938871" />
         <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Lookup Match Output]"
           TopLeft="246.766657970184,191.533332290716">
@@ -1681,10 +1649,6 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\FactInventariosOdoo\Destino de ADO NET"
-          TopLeft="619.999966124695,313.199997938871" />
         <EdgeLayout
           Id="Package\FactInventariosOdoo.Paths[Lookup Match Output2]"
           TopLeft="502.291647964675,386.749997455229">
@@ -1721,52 +1685,57 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventariosOdoo.Paths[Lookup Match Output1]"
+          TopLeft="337.199986340602,295.749998232673">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.0916616240725,70.1999992225562"
+              Start="0,0"
+              End="85.0916616240725,62.6999992225562">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.0999996112781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.0999996112781"
+                    Point2="0,35.0999996112781"
+                    Point3="4,35.0999996112781" />
+                  <mssgle:LineSegment
+                    End="81.0916616240725,35.0999996112781" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.0916616240725,35.0999996112781"
+                    Point2="85.0916616240725,35.0999996112781"
+                    Point3="85.0916616240725,39.0999996112781" />
+                  <mssgle:LineSegment
+                    End="85.0916616240725,62.6999992225562" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-5.64555590671375,40.0999996112781,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\FactInventariosOdoo\Origen de ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FactInventariosOdoo\Lookup DimAlmacen">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dw].[DimAlmacen]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FactInventariosOdoo\Lookup DimProducto">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">true</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dw].[DimProducto]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -1779,12 +1748,43 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventariosOdoo\Lookup DimProducto">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">true</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dw].[DimProducto]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\FactInventariosOdoo\Lookup createdAt">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1794,7 +1794,7 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
