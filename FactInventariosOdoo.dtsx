@@ -11,8 +11,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="73"
-  DTS:VersionGUID="{2B281018-4DC8-4997-A7A6-CA09AABD3093}">
+  DTS:VersionBuild="74"
+  DTS:VersionGUID="{75EBFE7D-52C2-430B-9F51-060595A31A22}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -82,58 +82,50 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[entrada_producto]"
-                      cachedDataType="numeric"
+                      cachedDataType="wstr"
+                      cachedLength="40"
                       cachedName="entrada_producto"
-                      cachedPrecision="18"
-                      cachedScale="6"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Entrada_Producto]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[entrada_producto]" />
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[salida_producto]"
-                      cachedDataType="numeric"
+                      cachedDataType="wstr"
+                      cachedLength="40"
                       cachedName="salida_producto"
-                      cachedPrecision="18"
-                      cachedScale="6"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Salida_Producto]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[salida_producto]" />
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[costo_producto_entrante]"
-                      cachedDataType="numeric"
+                      cachedDataType="wstr"
+                      cachedLength="40"
                       cachedName="costo_producto_entrante"
-                      cachedPrecision="18"
-                      cachedScale="6"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Costo_Producto_Entrante]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo_producto_entrante]" />
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[costo_producto_saliente]"
-                      cachedDataType="numeric"
+                      cachedDataType="wstr"
+                      cachedLength="40"
                       cachedName="costo_producto_saliente"
-                      cachedPrecision="18"
-                      cachedScale="6"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Costo_Producto_Saliente]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo_producto_saliente]" />
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[inventario_fisico]"
-                      cachedDataType="numeric"
+                      cachedDataType="wstr"
+                      cachedLength="40"
                       cachedName="inventario_fisico"
-                      cachedPrecision="18"
-                      cachedScale="6"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Inventario_Fisico]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_fisico]" />
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[inventario_logico]"
-                      cachedDataType="numeric"
+                      cachedDataType="wstr"
+                      cachedLength="40"
                       cachedName="inventario_logico"
-                      cachedPrecision="18"
-                      cachedScale="6"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Inventario_Logico]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_logico]" />
                     <inputColumn
                       refId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[diferencia_inventarios]"
-                      cachedDataType="numeric"
+                      cachedDataType="i4"
                       cachedName="diferencia_inventarios"
-                      cachedPrecision="18"
-                      cachedScale="6"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Diferencia_Inventarios]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[diferencia_inventarios]" />
                     <inputColumn
@@ -315,7 +307,7 @@ where [refTable].[FechaKey] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\FactInventariosOdoo\121:invalid};</property>
+                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[fechakey]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -472,7 +464,7 @@ where [refTable].[Id_Almacen] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\FactInventariosOdoo\123:invalid};</property>
+                  name="ParameterMap">#{Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[fechakey]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -743,59 +735,67 @@ where [refTable].[Id_Producto] = ?</property>
                   description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">/* ============================================================ 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">/* ============================================================  
 
-SNAPSHOT DIARIO DE INVENTARIOS (DW) 
+SNAPSHOT DIARIO DE INVENTARIOS (DW)  
 
-============================================================ */ 
+INVENTARIO HISTÓRICO + COSTOS RESTAURADOS  
+
+============================================================ */  
 
  
 
-WITH 
+WITH  
+
+ 
 
 uom AS ( 
 
 SELECT id, 
 
-COALESCE(name-&gt;&gt;'es_MX', name-&gt;&gt;'es_ES', name-&gt;&gt;'es_CO', name-&gt;&gt;'en_US', name-&gt;&gt;'0')::text AS uom_name 
+COALESCE(name-&gt;&gt;'es_MX', name-&gt;&gt;'es_ES', name-&gt;&gt;'es_CO', name-&gt;&gt;'en_US', name-&gt;&gt;'0') AS uom_name 
 
 FROM public.uom_uom 
 
 ), 
 
+ 
+
 pt_names AS ( 
 
 SELECT id, 
 
-COALESCE(name-&gt;&gt;'es_MX', name-&gt;&gt;'es_ES', name-&gt;&gt;'es_CO', name-&gt;&gt;'en_US', name-&gt;&gt;'0')::text AS producto_nombre 
+COALESCE(name-&gt;&gt;'es_MX', name-&gt;&gt;'es_ES', name-&gt;&gt;'es_CO', name-&gt;&gt;'en_US', name-&gt;&gt;'0') AS producto_nombre 
 
 FROM public.product_template 
 
 ), 
 
+ 
+
 picking_type AS ( 
 
 SELECT id, 
 
-COALESCE(name-&gt;&gt;'es_MX', name-&gt;&gt;'es_ES', name-&gt;&gt;'es_CO', name-&gt;&gt;'en_US', name-&gt;&gt;'0')::text AS picking_type_name, 
+COALESCE(name-&gt;&gt;'es_MX', name-&gt;&gt;'es_ES', name-&gt;&gt;'es_CO', name-&gt;&gt;'en_US', name-&gt;&gt;'0') AS picking_type_name, 
 
-code::text AS picking_type_code 
+code AS picking_type_code 
 
 FROM public.stock_picking_type 
 
 ), 
 
+ 
+
 loc AS ( 
 
-SELECT l.id, 
+SELECT id, complete_name, usage 
 
-l.complete_name, 
-
-l.usage::text AS usage 
-
-FROM public.stock_location l 
+FROM public.stock_location 
 
 ), 
+
+ 
 
 loc_wh AS ( 
 
@@ -803,33 +803,15 @@ SELECT loc.id AS location_id, w.id AS warehouse_id
 
 FROM stock_location loc 
 
-JOIN stock_warehouse w 
+JOIN stock_warehouse w  
 
 ON loc.parent_path LIKE (SELECT parent_path FROM stock_location WHERE id = w.view_location_id) || '%' 
 
 ), 
 
-quant AS ( 
-
-SELECT q.product_id, 
-
-lw.warehouse_id, 
-
-COALESCE(SUM(q.quantity),0)::numeric(18,6) AS qty_on_hand, 
-
-COALESCE(SUM(q.reserved_quantity),0)::numeric(18,6) AS qty_reserved 
-
-FROM public.stock_quant q 
-
-JOIN loc_wh lw ON lw.location_id = q.location_id 
-
-GROUP BY q.product_id, lw.warehouse_id 
-
-), 
-
  
 
-/* Costeo contable por movimiento (fallback) */ 
+/* Costeo contable */  
 
 val_layer AS ( 
 
@@ -839,15 +821,15 @@ svl.product_id,
 
 svl.stock_move_id::int AS move_id, 
 
-svl.create_date::timestamp AS fecha_costo, 
+svl.create_date AS fecha_costo, 
 
 CASE WHEN svl.quantity IS DISTINCT FROM 0 
 
 THEN ABS(REPLACE(svl.value::text, ',', '.')::numeric / svl.quantity) 
 
-ELSE 0 END::numeric(18,6) AS costo_unitario, 
+ELSE 0 END AS costo_unitario, 
 
-REPLACE(svl.value::text, ',', '.')::numeric(18,6) AS valor_total 
+REPLACE(svl.value::text, ',', '.')::numeric AS valor_total 
 
 FROM public.stock_valuation_layer svl 
 
@@ -855,17 +837,17 @@ FROM public.stock_valuation_layer svl
 
  
 
-/* Precios de venta/compra por movimiento */ 
+/* Precios de venta/compra */  
 
 move_price AS ( 
 
 SELECT 
 
-sm.id::int AS move_id, 
+sm.id AS move_id, 
 
-sol.price_unit::numeric(18,6) AS price_unit_sale, 
+sol.price_unit AS price_unit_sale, 
 
-pol.price_unit::numeric(18,6) AS price_unit_purchase 
+pol.price_unit AS price_unit_purchase 
 
 FROM public.stock_move sm 
 
@@ -877,67 +859,49 @@ LEFT JOIN public.purchase_order_line pol ON pol.id = sm.purchase_line_id
 
  
 
-/* Movimientos (state=done), SIN dividir entre 100 */ 
+/* Movimientos */  
 
 base_mov AS ( 
 
 SELECT DISTINCT 
 
-sml.id::int AS id_evento, 
+sml.id AS id_evento, 
 
-sml."date"::timestamp AS fecha, 
+sml.date AS fecha, 
 
-COALESCE(sml.product_id, sm.product_id)::int AS id_producto, 
+COALESCE(sml.product_id, sm.product_id) AS id_producto, 
 
-COALESCE(pp.default_code,'SIN_CODIGO')::text AS codigo_producto, 
+COALESCE(pp.default_code,'SIN_CODIGO') AS codigo_producto, 
 
-ptn.producto_nombre::text AS nombre_producto, 
+ptn.producto_nombre, 
 
-pt.categ_id::int AS id_categoria, 
+pt.categ_id AS id_categoria, 
 
-COALESCE(pc.name,'Sin categoría')::text AS nombre_categoria, 
+COALESCE(pc.name,'Sin categoría') AS nombre_categoria, 
 
- 
-
-sml.location_id::int AS id_ubic_origen, 
+sml.location_id AS id_ubic_origen, 
 
 l_from.usage AS usage_origen, 
 
-sml.location_dest_id::int AS id_ubic_destino, 
+sml.location_dest_id AS id_ubic_destino, 
 
 l_to.usage AS usage_destino, 
 
- 
+COALESCE(sml.quantity_product_uom, sml.quantity, sm.product_uom_qty, 0) AS cantidad, 
 
-/* &lt;- AQUÍ: cantidades sin /100 */ 
+u.uom_name AS unidad_medida, 
 
-COALESCE( 
+sm.state AS estado_move, 
 
-sml.quantity_product_uom, -- presente en tu base 
+sm.id AS id_move, 
 
-sml.quantity, -- alternativa 
+sp.id AS id_picking, 
 
-sm.product_uom_qty, -- fallback 
+COALESCE(sp.name,'') AS codigo_picking, 
 
-0 
+sm.company_id AS id_compania, 
 
-)::numeric(18,6) AS cantidad, 
-
- 
-
-u.uom_name::text AS unidad_medida, 
-
-sm.state::text AS estado_move, 
-
-sm.id::int AS id_move, 
-
-sp.id::int AS id_picking, 
-
-COALESCE(sp.name,'')::text AS codigo_picking, 
-
-sm.company_id::int AS id_compania, 
-
-ptp.picking_type_code::text AS picking_type_codigo 
+ptp.picking_type_code 
 
 FROM public.stock_move_line sml 
 
@@ -967,7 +931,7 @@ WHERE sm.state = 'done'
 
  
 
-/* Clasificación por usage */ 
+/* Clasificación */  
 
 f AS ( 
 
@@ -983,7 +947,7 @@ WHEN bm.usage_origen = 'internal' THEN bm.id_ubic_origen
 
 ELSE bm.id_ubic_destino 
 
-END::int AS id_ubic_interna, 
+END AS id_ubic_interna, 
 
  
 
@@ -991,49 +955,39 @@ END::int AS id_ubic_interna,
 
 (bm.usage_origen = 'internal' AND bm.usage_destino &lt;&gt; 'internal') AS es_salida, 
 
-(bm.usage_origen = 'internal' AND bm.usage_destino = 'internal') AS es_transfer, 
-
- 
-
-bm.cantidad::numeric(18,6) AS cantidad_neta 
+bm.cantidad AS cantidad_neta 
 
 FROM base_mov bm 
 
-) 
+), 
 
  
+
+/* Movimientos + Costos *por día/producto/almacén* */  
+
+mov_diario AS ( 
 
 SELECT 
 
 CAST(to_char(f.fecha,'YYYYMMDD') AS int) AS FechaKey, 
 
-f.id_producto AS Id_Producto, 
+f.id_producto, 
 
-COALESCE(lw.warehouse_id,0) AS Id_Almacen, 
-
- 
-
-/* Entradas y salidas (ahora deben ser 1.000000 si moviste 1) */ 
-
-SUM(CASE WHEN f.es_entrada THEN ABS(f.cantidad_neta) ELSE 0 END)::numeric(18,6) AS Entrada_Producto, 
-
-SUM(CASE WHEN f.es_salida THEN ABS(f.cantidad_neta) ELSE 0 END)::numeric(18,6) AS Salida_Producto, 
+lw.warehouse_id AS id_almacen, 
 
  
 
-/* Costos: 
+SUM(CASE WHEN f.es_entrada THEN ABS(f.cantidad_neta) ELSE 0 END) AS entrada_dia, 
 
-- Entrada: si viene de supplier, usar precio de compra; si no, SVL. 
+SUM(CASE WHEN f.es_salida THEN ABS(f.cantidad_neta) ELSE 0 END) AS salida_dia, 
 
-- Salida : si va a customer, usar precio de venta; si no, SVL. 
-
-*/ 
+ 
 
 SUM( 
 
-CASE 
+CASE  
 
-WHEN f.es_entrada AND f.usage_origen &lt;&gt; 'internal' /* supplier/inventory/production/transit */ 
+WHEN f.es_entrada AND f.usage_origen &lt;&gt; 'internal' 
 
 THEN COALESCE(mp.price_unit_purchase, v.costo_unitario, 0) * ABS(f.cantidad_neta) 
 
@@ -1045,13 +999,13 @@ ELSE 0
 
 END 
 
-)::numeric(18,6) AS Costo_Producto_Entrante, 
+) AS costo_entrada_dia, 
 
  
 
 SUM( 
 
-CASE 
+CASE  
 
 WHEN f.es_salida AND f.usage_destino = 'customer' 
 
@@ -1065,61 +1019,99 @@ ELSE 0
 
 END 
 
-)::numeric(18,6) AS Costo_Producto_Saliente, 
-
- 
-
-COALESCE(MAX(q.qty_on_hand),0)::numeric(18,6) AS Inventario_Fisico, 
-
-COALESCE(MAX(q.qty_on_hand - q.qty_reserved),0)::numeric(18,6) AS Inventario_Logico, 
-
-( COALESCE(MAX(q.qty_on_hand),0) - COALESCE(MAX(q.qty_on_hand - q.qty_reserved),0) )::numeric(18,6) AS Diferencia_Inventarios, 
-
- 
-
-CASE 
-
-WHEN COALESCE(MAX(q.qty_on_hand - q.qty_reserved),0) &lt;= 0 THEN 'Agotado' 
-
-WHEN COALESCE(MAX(q.qty_on_hand - q.qty_reserved),0) &lt;= 50 THEN 'Por agotarse' 
-
-ELSE 'Disponible' 
-
-END::text AS Estado_Stock, 
-
- 
-
-now()::timestamp AS CreatedAt 
+) AS costo_salida_dia 
 
  
 
 FROM f 
 
-LEFT JOIN loc_wh lw 
+LEFT JOIN loc_wh lw ON lw.location_id = f.id_ubic_interna 
 
-ON lw.location_id = f.id_ubic_interna 
+LEFT JOIN val_layer v ON v.move_id = f.id_move 
 
-LEFT JOIN quant q 
+LEFT JOIN move_price mp ON mp.move_id = f.id_move 
 
-ON q.product_id = f.id_producto AND q.warehouse_id = lw.warehouse_id 
+GROUP BY 1,2,3 
 
-LEFT JOIN val_layer v 
+), 
 
-ON v.move_id = f.id_move 
+ 
 
-LEFT JOIN move_price mp 
+/* Inventario acumulado histórico */  
 
-ON mp.move_id = f.id_move 
+inventario_hist AS ( 
 
-WHERE f.estado_move = 'done' 
+SELECT 
 
-GROUP BY 
+*, 
 
-CAST(to_char(f.fecha,'YYYYMMDD') AS int), 
+SUM(entrada_dia - salida_dia) 
 
-f.id_producto, 
+OVER( 
 
-lw.warehouse_id 
+PARTITION BY id_producto, id_almacen 
+
+ORDER BY FechaKey 
+
+ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW 
+
+) AS inventario_fisico_hist 
+
+FROM mov_diario 
+
+) 
+
+ 
+
+SELECT 
+
+FechaKey, 
+
+id_producto AS Id_Producto, 
+
+id_almacen AS Id_Almacen, 
+
+ 
+
+entrada_dia AS Entrada_Producto, 
+
+salida_dia AS Salida_Producto, 
+
+ 
+
+costo_entrada_dia AS Costo_Producto_Entrante, 
+
+costo_salida_dia AS Costo_Producto_Saliente, 
+
+ 
+
+inventario_fisico_hist AS Inventario_Fisico, 
+
+inventario_fisico_hist AS Inventario_Logico, 
+
+ 
+
+0 AS Diferencia_Inventarios, 
+
+ 
+
+CASE 
+
+WHEN inventario_fisico_hist &lt;= 0 THEN 'Agotado' 
+
+WHEN inventario_fisico_hist &lt;= 50 THEN 'Por agotarse' 
+
+ELSE 'Disponible' 
+
+END AS Estado_Stock, 
+
+ 
+
+now() AS CreatedAt 
+
+ 
+
+FROM inventario_hist 
 
 ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
                 <property
@@ -1187,80 +1179,72 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[entrada_producto]"
-                      dataType="numeric"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[entrada_producto]"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[entrada_producto]"
                       name="entrada_producto"
-                      precision="18"
-                      scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[salida_producto]"
-                      dataType="numeric"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[salida_producto]"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[salida_producto]"
                       name="salida_producto"
-                      precision="18"
-                      scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo_producto_entrante]"
-                      dataType="numeric"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[costo_producto_entrante]"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo_producto_entrante]"
                       name="costo_producto_entrante"
-                      precision="18"
-                      scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo_producto_saliente]"
-                      dataType="numeric"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[costo_producto_saliente]"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[costo_producto_saliente]"
                       name="costo_producto_saliente"
-                      precision="18"
-                      scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_fisico]"
-                      dataType="numeric"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[inventario_fisico]"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_fisico]"
                       name="inventario_fisico"
-                      precision="18"
-                      scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_logico]"
-                      dataType="numeric"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[inventario_logico]"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[inventario_logico]"
                       name="inventario_logico"
-                      precision="18"
-                      scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[diferencia_inventarios]"
-                      dataType="numeric"
+                      dataType="i4"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[diferencia_inventarios]"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[diferencia_inventarios]"
                       name="diferencia_inventarios"
-                      precision="18"
-                      scale="6"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[estado_stock]"
@@ -1298,45 +1282,31 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[entrada_producto]"
                       dataType="numeric"
-                      name="entrada_producto"
-                      precision="18"
-                      scale="6" />
+                      name="entrada_producto" />
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[salida_producto]"
                       dataType="numeric"
-                      name="salida_producto"
-                      precision="18"
-                      scale="6" />
+                      name="salida_producto" />
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[costo_producto_entrante]"
                       dataType="numeric"
-                      name="costo_producto_entrante"
-                      precision="18"
-                      scale="6" />
+                      name="costo_producto_entrante" />
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[costo_producto_saliente]"
                       dataType="numeric"
-                      name="costo_producto_saliente"
-                      precision="18"
-                      scale="6" />
+                      name="costo_producto_saliente" />
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[inventario_fisico]"
                       dataType="numeric"
-                      name="inventario_fisico"
-                      precision="18"
-                      scale="6" />
+                      name="inventario_fisico" />
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[inventario_logico]"
                       dataType="numeric"
-                      name="inventario_logico"
-                      precision="18"
-                      scale="6" />
+                      name="inventario_logico" />
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[diferencia_inventarios]"
-                      dataType="numeric"
-                      name="diferencia_inventarios"
-                      precision="18"
-                      scale="6" />
+                      dataType="i4"
+                      name="diferencia_inventarios" />
                     <externalMetadataColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[estado_stock]"
                       dataType="nText"
@@ -1369,53 +1339,45 @@ ORDER BY FechaKey, Id_Producto, Id_Almacen;</property>
                       name="id_almacen" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[entrada_producto]"
-                      dataType="numeric"
+                      dataType="wstr"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[entrada_producto]"
-                      name="entrada_producto"
-                      precision="18"
-                      scale="6" />
+                      name="entrada_producto" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[salida_producto]"
-                      dataType="numeric"
+                      dataType="wstr"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[salida_producto]"
-                      name="salida_producto"
-                      precision="18"
-                      scale="6" />
+                      name="salida_producto" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[costo_producto_entrante]"
-                      dataType="numeric"
+                      dataType="wstr"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[costo_producto_entrante]"
-                      name="costo_producto_entrante"
-                      precision="18"
-                      scale="6" />
+                      name="costo_producto_entrante" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[costo_producto_saliente]"
-                      dataType="numeric"
+                      dataType="wstr"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[costo_producto_saliente]"
-                      name="costo_producto_saliente"
-                      precision="18"
-                      scale="6" />
+                      name="costo_producto_saliente" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[inventario_fisico]"
-                      dataType="numeric"
+                      dataType="wstr"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[inventario_fisico]"
-                      name="inventario_fisico"
-                      precision="18"
-                      scale="6" />
+                      name="inventario_fisico" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[inventario_logico]"
-                      dataType="numeric"
+                      dataType="wstr"
+                      length="40"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[inventario_logico]"
-                      name="inventario_logico"
-                      precision="18"
-                      scale="6" />
+                      name="inventario_logico" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[diferencia_inventarios]"
-                      dataType="numeric"
+                      dataType="i4"
                       lineageId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[diferencia_inventarios]"
-                      name="diferencia_inventarios"
-                      precision="18"
-                      scale="6" />
+                      name="diferencia_inventarios" />
                     <outputColumn
                       refId="Package\FactInventariosOdoo\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[estado_stock]"
                       dataType="nText"
