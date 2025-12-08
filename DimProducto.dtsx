@@ -11,8 +11,8 @@
   DTS:LocaleID="17418"
   DTS:ObjectName="DimProducto"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{DCFCD7D0-2B8C-46C9-ACF1-DD7C2CE0AF69}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{114CCD87-F875-4D23-951C-9B01782FAA2D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -49,7 +49,7 @@
                   description="Comando SQL para ejecutar."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec dw.ActualizarProducto ?,?,?,?,?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">exec dw.ActualizarProducto ?,?,?,?,?,?</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -96,10 +96,17 @@
                       externalMetadataColumnId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Categoria_Producto]"
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[categoria_producto]" />
                     <inputColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].Columns[precio_producto]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="precio_producto"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Precio_Producto]"
+                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[precio_producto]" />
+                    <inputColumn
                       refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].Columns[fecha_creacion_producto]"
                       cachedDataType="dbTimeStamp"
                       cachedName="fecha_creacion_producto"
-                      externalMetadataColumnId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Fecha_creacion_Producto]"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Fecha_Creacion_Producto]"
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion_producto]" />
                   </inputColumns>
                   <externalMetadataColumns
@@ -152,14 +159,27 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Fecha_creacion_Producto]"
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Fecha_Creacion_Producto]"
                       dataType="dbTimeStamp"
-                      name="@Fecha_creacion_Producto">
+                      name="@Fecha_Creacion_Producto">
                       <properties>
                         <property
                           dataType="System.Int32"
-                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
                           name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimProducto\Actualizar DimProducto.Inputs[Entrada de comando de OLE DB].ExternalColumns[@Precio_Producto]"
+                      dataType="numeric"
+                      name="@Precio_Producto"
+                      precision="18"
+                      scale="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
                       </properties>
                     </externalMetadataColumn>
                   </externalMetadataColumns>
@@ -355,11 +375,11 @@ where [refTable].[Id_Producto] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Llenar DimProducto\Destino de ADO NET"
+              refId="Package\Llenar DimProducto\Destino de ADO NET 1"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
               description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
-              name="Destino de ADO NET"
+              name="Destino de ADO NET 1"
               usesDispositions="true"
               version="2">
               <properties>
@@ -390,7 +410,7 @@ where [refTable].[Id_Producto] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Llenar DimProducto\Destino de ADO NET.Connections[IDbConnection]"
+                  refId="Package\Llenar DimProducto\Destino de ADO NET 1.Connections[IDbConnection]"
                   connectionManagerID="{FDA421CD-E225-43E8-A463-9584F576D76B}:external"
                   connectionManagerRefId="Project.ConnectionManagers[ADO2-destino]"
                   description="Administrador de conexiones administrado"
@@ -398,104 +418,117 @@ where [refTable].[Id_Producto] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET]"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de ADO NET">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[id_producto]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[id_producto]"
                       cachedDataType="i4"
                       cachedName="id_producto"
-                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Producto]"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Producto]"
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[id_producto]" />
                     <inputColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[codigo_producto]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[codigo_producto]"
                       cachedDataType="nText"
                       cachedName="codigo_producto"
-                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Codigo_Producto]"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Codigo_Producto]"
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[codigo_producto]" />
                     <inputColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[nombre_producto]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[nombre_producto]"
                       cachedDataType="nText"
                       cachedName="nombre_producto"
-                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre_Producto]"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre_Producto]"
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[nombre_producto]" />
                     <inputColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[categoria_producto]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[categoria_producto]"
                       cachedDataType="nText"
                       cachedName="categoria_producto"
-                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Categoria_Producto]"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Categoria_Producto]"
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[categoria_producto]" />
                     <inputColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[fecha_creacion_producto]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[fecha_creacion_producto]"
                       cachedDataType="dbTimeStamp"
                       cachedName="fecha_creacion_producto"
-                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Fecha_Creacion_Producto]"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Fecha_Creacion_Producto]"
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion_producto]" />
+                    <inputColumn
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].Columns[precio_producto]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="precio_producto"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Precio_Producto]"
+                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[precio_producto]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductoKey]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductoKey]"
                       dataType="i4"
                       name="ProductoKey" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Producto]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_Producto]"
                       dataType="i4"
                       name="Id_Producto" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Codigo_Producto]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Codigo_Producto]"
                       dataType="wstr"
                       length="64"
                       name="Codigo_Producto" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre_Producto]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Nombre_Producto]"
                       dataType="wstr"
                       length="256"
                       name="Nombre_Producto" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Categoria_Producto]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Categoria_Producto]"
                       dataType="wstr"
                       length="128"
                       name="Categoria_Producto" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Fecha_Creacion_Producto]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Fecha_Creacion_Producto]"
                       dataType="dbTimeStamp"
                       name="Fecha_Creacion_Producto" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Activo]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Activo]"
                       dataType="bool"
                       name="Activo" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaInicio]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaInicio]"
                       dataType="dbTimeStamp"
                       name="FechaInicio" />
                     <externalMetadataColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaFin]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[FechaFin]"
                       dataType="dbTimeStamp"
                       name="FechaFin" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET].ExternalColumns[Precio_Producto]"
+                      dataType="numeric"
+                      name="Precio_Producto"
+                      precision="18"
+                      scale="4" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Llenar DimProducto\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                  refId="Package\Llenar DimProducto\Destino de ADO NET 1.Outputs[Salida de error de destino de ADO NET]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de ADO NET"
-                  synchronousInputId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                  synchronousInputId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Llenar DimProducto\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      lineageId="Package\Llenar DimProducto\Destino de ADO NET 1.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Llenar DimProducto\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      refId="Package\Llenar DimProducto\Destino de ADO NET 1.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Llenar DimProducto\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      lineageId="Package\Llenar DimProducto\Destino de ADO NET 1.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -517,17 +550,18 @@ where [refTable].[Id_Producto] = ?</property>
                   description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select  
-p.id as Id_Producto,
-COALESCE(p.default_code, 'Sin Código') as Codigo_Producto,
-COALESCE(pt.name-&gt;&gt;'en_US', pt.name-&gt;&gt;'es_CO', (pt.name-&gt;&gt;0)) AS Nombre_Producto,
-coalesce(pc.name, 'Sin categoria') as Categoria_Producto,
-pt.create_date as Fecha_Creacion_Producto
-from product_template pt
-inner join product_product p on
-pt.id = p.product_tmpl_id 
-inner join product_category pc on 
-pt.categ_id = pc.id</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  
+    p.id AS Id_Producto,
+    COALESCE(p.default_code, 'Sin Código') AS Codigo_Producto,
+    COALESCE(pt.name-&gt;&gt;'en_US', pt.name-&gt;&gt;'es_CO', (pt.name-&gt;&gt;0)) AS Nombre_Producto,
+    COALESCE(pc.name, 'Sin categoria') AS Categoria_Producto,
+    pt.create_date AS Fecha_Creacion_Producto,
+    pt.list_price AS Precio_Producto       -- 🔹 NUEVO
+FROM product_template pt
+INNER JOIN product_product p 
+    ON pt.id = p.product_tmpl_id 
+INNER JOIN product_category pc 
+    ON pt.categ_id = pc.id;</property>
                 <property
                   dataType="System.Int32"
                   description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
@@ -609,6 +643,16 @@ pt.categ_id = pc.id</property>
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[fecha_creacion_producto]"
                       name="fecha_creacion_producto"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[precio_producto]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].ExternalColumns[precio_producto]"
+                      length="40"
+                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].Columns[precio_producto]"
+                      name="precio_producto"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -632,6 +676,10 @@ pt.categ_id = pc.id</property>
                       refId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].ExternalColumns[fecha_creacion_producto]"
                       dataType="dbTimeStamp"
                       name="fecha_creacion_producto" />
+                    <externalMetadataColumn
+                      refId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de origen de ADO NET].ExternalColumns[precio_producto]"
+                      dataType="numeric"
+                      name="precio_producto" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -665,6 +713,12 @@ pt.categ_id = pc.id</property>
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[fecha_creacion_producto]"
                       name="fecha_creacion_producto" />
                     <outputColumn
+                      refId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[precio_producto]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[precio_producto]"
+                      name="precio_producto" />
+                    <outputColumn
                       refId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\Llenar DimProducto\Leer productos postgres.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
@@ -690,7 +744,7 @@ pt.categ_id = pc.id</property>
               startId="Package\Llenar DimProducto\Buscar productos.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
               refId="Package\Llenar DimProducto.Paths[Salida de entradas no coincidentes de búsqueda]"
-              endId="Package\Llenar DimProducto\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+              endId="Package\Llenar DimProducto\Destino de ADO NET 1.Inputs[Entrada de destino de ADO NET]"
               name="Salida de entradas no coincidentes de búsqueda"
               startId="Package\Llenar DimProducto\Buscar productos.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
@@ -732,10 +786,6 @@ pt.categ_id = pc.id</property>
           Id="Package\Llenar DimProducto\Buscar productos"
           TopLeft="314.99998278916,205.399998571674" />
         <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Llenar DimProducto\Destino de ADO NET"
-          TopLeft="204.166655511492,371.799997414549" />
-        <NodeLayout
           Size="187.2,41.6"
           Id="Package\Llenar DimProducto\Actualizar DimProducto"
           TopLeft="496.666639529998,378.733330699669" />
@@ -743,6 +793,40 @@ pt.categ_id = pc.id</property>
           Size="190.4,41.6"
           Id="Package\Llenar DimProducto\Leer productos postgres"
           TopLeft="528.333304466474,85.7999994033577" />
+        <EdgeLayout
+          Id="Package\Llenar DimProducto.Paths[Salida de origen de ADO NET]"
+          TopLeft="623.533304466474,127.399999403358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-228.933321677314,77.9999991683163"
+              Start="0,0"
+              End="-228.933321677314,70.4999991683163">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.9999995841581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.9999995841581"
+                    Point2="0,38.9999995841581"
+                    Point3="-4,38.9999995841581" />
+                  <mssgle:LineSegment
+                    End="-224.933321677314,38.9999995841581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-224.933321677314,38.9999995841581"
+                    Point2="-228.933321677314,38.9999995841581"
+                    Point3="-228.933321677314,42.9999995841581" />
+                  <mssgle:LineSegment
+                    End="-228.933321677314,70.4999991683163" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Llenar DimProducto.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="419.79998278916,246.999998571674">
@@ -779,73 +863,43 @@ pt.categ_id = pc.id</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Llenar DimProducto.Paths[Salida de origen de ADO NET]"
-          TopLeft="623.533304466474,127.399999403358">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-228.933321677314,77.9999991683163"
-              Start="0,0"
-              End="-228.933321677314,70.4999991683163">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.9999995841581" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.9999995841581"
-                    Point2="0,38.9999995841581"
-                    Point3="-4,38.9999995841581" />
-                  <mssgle:LineSegment
-                    End="-224.933321677314,38.9999995841581" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-224.933321677314,38.9999995841581"
-                    Point2="-228.933321677314,38.9999995841581"
-                    Point3="-228.933321677314,42.9999995841581" />
-                  <mssgle:LineSegment
-                    End="-228.933321677314,70.4999991683163" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="185.6,41.6"
+          Id="Package\Llenar DimProducto\Destino de ADO NET 1"
+          TopLeft="127.499993033707,386.533330645429" />
         <EdgeLayout
           Id="Package\Llenar DimProducto.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="394.59998278916,246.999998571674">
+          TopLeft="369.39998278916,246.999998571674">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-102.033327277668,124.799998842875"
+              EndConnector="-149.099989755453,139.533332073755"
               Start="0,0"
-              End="-102.033327277668,117.299998842875">
+              End="-149.099989755453,132.033332073755">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.3999994214377" />
+                    End="0,52.6463676478526" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,58.3999994214377"
-                    Point2="0,62.3999994214377"
-                    Point3="-4,62.3999994214377" />
+                    Point1="0,52.6463676478526"
+                    Point2="0,56.6463676478526"
+                    Point3="-4,56.6463676478526" />
                   <mssgle:LineSegment
-                    End="-98.0333272776676,62.3999994214377" />
+                    End="-145.099989755453,56.6463676478526" />
                   <mssgle:CubicBezierSegment
-                    Point1="-98.0333272776676,62.3999994214377"
-                    Point2="-102.033327277668,62.3999994214377"
-                    Point3="-102.033327277668,66.3999994214377" />
+                    Point1="-145.099989755453,56.6463676478526"
+                    Point2="-149.099989755453,56.6463676478526"
+                    Point3="-149.099989755453,60.6463676478526" />
                   <mssgle:LineSegment
-                    End="-102.033327277668,117.299998842875" />
+                    End="-149.099989755453,132.033332073755" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-157.905687076334,67.3999994214377,213.778046875,12.1953125"
+              BoundingBox="-181.439018315226,61.6463676478526,213.778046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -876,7 +930,7 @@ pt.categ_id = pc.id</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar DimProducto\Destino de ADO NET">
+    design-time-name="Package\Llenar DimProducto\Leer productos postgres">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -884,7 +938,7 @@ pt.categ_id = pc.id</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Llenar DimProducto\Leer productos postgres">
+    design-time-name="Package\Llenar DimProducto\Destino de ADO NET 1">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
